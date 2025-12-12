@@ -1,0 +1,1652 @@
+{
+  "id": 0,
+  "name": "Multifamily Unit Inspection",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Unit Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Unit Areas",
+            "display_type": "SECTION_DISPLAY_TYPE_TAB",
+            "sections": [
+              {
+                "name": "Entire unit",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Entire unit",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 1,
+                        "name": "Smoke detectors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Doors and lock",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                      },
+                      {
+                        "id": 3,
+                        "name": "Windows/screens",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+                      },
+                      {
+                        "id": 4,
+                        "name": "Heating/AC",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_THERMOSTAT_MALFUNCTION"
+                      },
+                      {
+                        "id": 5,
+                        "name": "Ventilation/air quality",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_VENT_CLEANING"
+                      },
+                      {
+                        "id": 6,
+                        "name": "Access to fire escape",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 7,
+                        "name": "Free of vermin/rodents",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PEST_CONTROL_RODENT_INFESTATION"
+                      },
+                      {
+                        "id": 8,
+                        "name": "Other hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Living room",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Living room",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 9,
+                        "name": "Walls/interior door",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 10,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 11,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 12,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 13,
+                        "name": "Other hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Dining area",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Dining area",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 14,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 15,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 16,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 18,
+                        "name": "Other hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Bathroom",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Bathroom",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 19,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 20,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 21,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 22,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 23,
+                        "name": "Working toilet",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_TOILET_REPAIR_REPLACEMENT"
+                      },
+                      {
+                        "id": 24,
+                        "name": "Lavatory (hot/cold water)",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+                      },
+                      {
+                        "id": 25,
+                        "name": "Tub/shower (hot/cold water)",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+                      },
+                      {
+                        "id": 26,
+                        "name": "Other hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Kitchen",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Kitchen",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 27,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 28,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 29,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 30,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 31,
+                        "name": "Stove",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_STOVE_OVEN_MALFUNCTION"
+                      },
+                      {
+                        "id": 32,
+                        "name": "Refrigerator",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
+                      },
+                      {
+                        "id": 33,
+                        "name": "Sink",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+                      },
+                      {
+                        "id": 34,
+                        "name": "Disposal/Trash Container",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 35,
+                        "name": "Cabinets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_CABINET_REPAIR"
+                      },
+                      {
+                        "id": 36,
+                        "name": "Countertops",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 37,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 38,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Bedroom #",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Bedroom #",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 39,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 40,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 41,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 42,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 43,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 44,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Room ID* (1)",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Room ID* (1)",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 45,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 46,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 47,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 48,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 49,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 50,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Room ID* (2)",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Room ID* (2)",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 51,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 52,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 54,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 55,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 56,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Room ID* (3)",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Room ID* (3)",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 57,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 58,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 59,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 60,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 61,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 62,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              },
+              {
+                "name": "Room ID* (4)",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Room ID* (4)",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 63,
+                        "name": "Walls/interior doors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 64,
+                        "name": "Ceiling",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                      },
+                      {
+                        "id": 65,
+                        "name": "Floors",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 66,
+                        "name": "Electrical fixtures/outlets",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                      },
+                      {
+                        "id": 67,
+                        "name": "Other",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Good",
+                          "Acceptable",
+                          "Requires action",
+                          "Immediate action required"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 68,
+                        "name": "Hazards?",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": true,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              }
+            ],
+            "fields": []
+          }
+        ],
+        "fields": []
+      }
+    },
+    {
+      "version_id": 0,
+      "structure": {
+        "name": "",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null
+}
