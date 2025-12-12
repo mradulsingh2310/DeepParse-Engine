@@ -8,6 +8,7 @@ import os
 
 from src.pipeline import process_pdf
 from src.schemas import InspectionTemplate
+from src.usage_logger import get_tracker, reset_tracker
 
 # Load .env file
 load_dotenv()
@@ -15,6 +16,7 @@ load_dotenv()
 # Hardcoded config
 INPUT_DIR = Path("input")
 OUTPUT_DIR = Path("output")
+IMG_DIR = Path("img")
 MODEL = "gpt-5.2"
 
 
@@ -29,6 +31,9 @@ def main():
     if not api_key:
         print("Error: OPENAI_API_KEY not found in .env file")
         return
+
+    # Reset usage tracker at start
+    reset_tracker()
 
     # Ensure output directory exists
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -57,7 +62,8 @@ def main():
                 template_path="templates/inspection_template.json",
                 use_grounding=True,
                 openai_model=MODEL,
-                output_path=str(output_path)
+                output_path=str(output_path),
+                save_images_dir=str(IMG_DIR)
             )
             print(f"✓ Successfully processed: {pdf_path.name}")
         except Exception as e:
@@ -65,6 +71,10 @@ def main():
     
     print(f"\n{'='*60}")
     print(f"Processing complete. {len(pdf_files)} file(s) processed.")
+    
+    # Print usage summary
+    tracker = get_tracker()
+    tracker.print_summary()
 
 
 if __name__ == "__main__":
