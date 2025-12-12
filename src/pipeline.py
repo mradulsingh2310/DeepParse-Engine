@@ -28,7 +28,8 @@ def process_pdf(
     template_path: str | None = None,
     use_grounding: bool = False,
     openai_model: str = "gpt-5.1",
-    output_path: str | None = None
+    output_path: str | None = None,
+    save_images_dir: str | None = None
 ) -> T:
     """
     Process a PDF through the full OCR and JSON extraction pipeline.
@@ -41,12 +42,13 @@ def process_pdf(
         use_grounding: Use grounding mode for OCR (markdown output)
         openai_model: OpenAI model for JSON extraction
         output_path: Optional path to save the extracted JSON output
+        save_images_dir: Optional directory to save converted images (e.g., "img")
 
     Returns:
         Validated Pydantic model instance with extracted data
     """
     # 1. Convert PDF to images
-    images = pdf_to_images(pdf_path)
+    images = pdf_to_images(pdf_path, save_dir=save_images_dir)
     print(f"Converted PDF to {len(images)} image(s)")
 
     # 2. Run OCR

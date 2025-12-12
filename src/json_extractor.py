@@ -9,7 +9,10 @@ from pathlib import Path
 from typing import Type, TypeVar
 
 from openai import OpenAI
+from openai.types.chat import ChatCompletionSystemMessageParam, ChatCompletionUserMessageParam
 from pydantic import BaseModel
+
+from .usage_logger import log, log_openai_usage
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -170,14 +173,14 @@ def extract_to_json(
     response = client.chat.completions.create(
         model=model,
         messages=[
-            {
-                "role": "system",
-                "content": "You are a precise document parser. Extract data according to the schema."
-            },
-            {
-                "role": "user",
-                "content": prompt
-            }
+            ChatCompletionSystemMessageParam(
+                role="system",
+                content="You are a precise document parser. Extract data according to the schema."
+            ),
+            ChatCompletionUserMessageParam(
+                role="user",
+                content=prompt
+            )
         ],
         response_format={
             "type": "json_schema",
@@ -189,6 +192,16 @@ def extract_to_json(
         },
         temperature=0.0
     )
+
+    # Log OpenAI token usage and cost
+    if response.usage:
+        log_openai_usage(
+            model=model,
+            input_tokens=response.usage.prompt_tokens,
+            output_tokens=response.usage.completion_tokens,
+            total_tokens=response.usage.total_tokens,
+            operation="json_extraction"
+        )
 
     result_text = response.choices[0].message.content
     result_dict = json.loads(result_text) if result_text else {}
