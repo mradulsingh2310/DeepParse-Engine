@@ -14,18 +14,80 @@ from pydantic import BaseModel
 T = TypeVar("T", bound=BaseModel)
 
 
-EXTRACTION_PROMPT = """You are a document parser. Given the OCR-extracted text from an inspection form, extract the relevant information and populate the JSON structure according to the provided schema.
+EXTRACTION_PROMPT = """You are an inspection template parser. Given OCR-extracted text from an inspection form, extract ONLY the inspection template structure (rooms/areas with their inspection fields).
 
-IMPORTANT: Maintain the exact order of sections as they appear in the document.
+## CRITICAL: What to EXCLUDE (DO NOT extract these)
+- **Header information**: Project name, owner name, inspector name, date of inspection, inspection type, property address, unit number, or any metadata about the inspection itself
+- **Footer information**: Comments section, inspector's signature, tenant's signature, date fields, certification statements, any sign-off sections
+- **Non-inspection content**: Instructions, legends, form numbers, page numbers
+
+## CRITICAL: What to INCLUDE (ONLY extract these)
+- **Inspection sections**: Rooms/areas like Kitchen, Bathroom, Living Room, Bedroom, etc.
+- **Inspection fields**: Individual items to inspect within each section (e.g., "Stove/Range", "Refrigerator", "Sink", "Ceiling", "Walls", "Floor")
+- **Field options**: The rating options available for each field (e.g., "Pass", "Fail", "Inconclusive", "N/A")
+
+## CRITICAL: Acronym/Abbreviation Expansion
+IMPORTANT: Many inspection forms use acronyms or abbreviations with a legend/key explaining their meanings.
+1. **FIRST**: Search the ENTIRE document for any legend, key, or abbreviation table (often at top, bottom, or in headers)
+   - Look for patterns like: "G = Good", "P = Pass", "F = Fail", "Inc = Inconclusive", "NA = Not Applicable"
+   - Look for rating scales like: "1 = Poor, 2 = Fair, 3 = Good, 4 = Excellent"
+2. **THEN**: When extracting field options, ALWAYS use the FULL expanded name, NOT the acronym
+   - If legend says "G = Good", use "Good" in options, NOT "G"
+   - If legend says "Pass/Fail/Inc/NA", expand to ["Pass", "Fail", "Inconclusive", "Not Applicable"]
+   - If legend says "Y/N", expand to ["Yes", "No"]
+3. **Common abbreviations to expand**:
+   - G → Good, B -> Bad
+   - Y → Yes, N → No, NA/N/A → Not Applicable
+   - Inc → Inconclusive, Sat → Satisfactory, Unsat → Unsatisfactory
+   - OK → Okay/Acceptable, NI → Needs Improvement
+
+## Section Hierarchy Rules
+The template must follow this hierarchy:
+1. **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root section containing TABs (has child sections, NO fields)
+2. **SECTION_DISPLAY_TYPE_TAB**: Contains ACCORDIONs (has child sections, NO fields)
+3. **SECTION_DISPLAY_TYPE_ACCORDION**: Contains FIELD_SETs (has child sections, NO fields)
+4. **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing fields (has fields, NO child sections)
+
+## Field Rating Types (REQUIRED - never use UNSPECIFIED)
+- **RATING_TYPE_CHECKBOX**: For multi-select options (can select multiple)
+- **RATING_TYPE_RADIO**: For single-select options (select exactly one) - USE THIS FOR MOST INSPECTION FIELDS
+- **RATING_TYPE_SELECT**: For dropdown selection
+
+## Field Extraction Rules
+- Generate sequential `id` starting from 1
+- Extract `name` from the field label in the document
+- Set `mandatory` to true for required fields
+- Extract `options` as list of FULLY EXPANDED choices (NOT acronyms)
+- Set `notes_enabled: true` if the field has a notes/comments area
+- Set `attachments_enabled: true` if photos/attachments are mentioned
+
+## Work Order Configuration (IMPORTANT)
+Not every field needs a work order. Only set `can_create_work_order: true` for fields where maintenance work might be needed based on the inspection result.
+
+**Rules:**
+1. If `can_create_work_order` is FALSE → leave category/subcategory as UNSPECIFIED
+2. If `can_create_work_order` is TRUE → you MUST set appropriate category AND subcategory (NOT UNSPECIFIED)
+3. Infer the category from the field name and section context:
+
+**Category Mapping (based on field type):**
+- Stove, Oven, Refrigerator, Dishwasher, Microwave → APPLIANCE_REPAIR
+- Sink, Faucet, Toilet, Shower, Tub, Drain, Water Heater → PLUMBING
+- Outlets, Switches, Light Fixtures, Wiring, Circuit Breaker → ELECTRICAL
+- AC, Heating, Furnace, Thermostat, Vents → HVAC
+- Doors, Windows, Cabinets, Drywall, Trim → CARPENTRY
+- Walls (paint), Ceiling (paint), Touch-up → PAINTING
+- Floor, Carpet, Tile, Hardwood → FLOORING
+- Locks, Security System, Intercom → SECURITY
+- Roof, Gutters, Siding, Landscaping → EXTERIOR
+- Rodents, Insects, Pests → PEST_CONTROL
+- General cleaning items → CLEANING
+- Other/misc items → GENERAL
+
+**Subcategory:** Choose the most specific subcategory that matches the field. If unsure, use UNSPECIFIED only when can_create_work_order is false.
+
+## Document Order
 - Text is marked with [PAGE N] to indicate page numbers
-- If Bathroom appears on page 1 and Kitchen on page 2, the JSON sections array must have Bathroom before Kitchen
-- Preserve the document's original ordering throughout the hierarchy
-
-Your task:
-1. Read the OCR text carefully, noting page numbers and section order
-2. Identify fields that match the schema structure
-3. Extract values and populate the JSON IN THE SAME ORDER as the document
-4. Use null for any fields where data is not found
+- Preserve the exact order sections appear in the document
 
 OCR Text:
 {ocr_text}
@@ -33,7 +95,7 @@ OCR Text:
 Additional context (example template):
 {template_context}
 
-Extract the inspection data and return valid JSON matching the schema structure, preserving document order.
+REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
 """
 
 
@@ -42,8 +104,13 @@ def _fix_schema_for_openai(schema: dict) -> dict:
     Recursively fix schema for OpenAI strict mode:
     1. Add additionalProperties: false to all objects
     2. Ensure all properties are in the required array
+    3. Remove 'default' from properties with '$ref' (not allowed in strict mode)
     """
     if isinstance(schema, dict):
+        # OpenAI strict mode: $ref cannot have additional keywords like 'default'
+        if "$ref" in schema and "default" in schema:
+            del schema["default"]
+
         # If this is an object with properties, fix it
         if "properties" in schema:
             schema["additionalProperties"] = False
