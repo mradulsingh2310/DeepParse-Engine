@@ -19,7 +19,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Entire unit - Inspection Items",
+                    "name": "Entire unit - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -207,7 +207,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Living room - Inspection Items",
+                    "name": "Living room - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -329,7 +329,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Dinning area - Inspection Items",
+                    "name": "Dinning area - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -451,7 +451,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Bathroom - Inspection Items",
+                    "name": "Bathroom - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -639,7 +639,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Kitchen - Inspection Items",
+                    "name": "Kitchen - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -816,8 +816,8 @@
                         "attachments_required_for_all_options": false,
                         "attachments_required_for_selected_options": [],
                         "can_create_work_order": true,
-                        "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
-                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_GARBAGE_DISPOSAL_REPAIR"
+                        "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
                       },
                       {
                         "id": 35,
@@ -915,7 +915,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Bedroom - Inspection Items",
+                    "name": "Bedroom #( ) - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -1059,7 +1059,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Room ID - Inspection Items",
+                    "name": "Room ID* - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -1203,7 +1203,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Room ID - Inspection Items",
+                    "name": "Room ID* - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -1347,7 +1347,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Room ID - Inspection Items",
+                    "name": "Room ID* - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -1491,7 +1491,7 @@
                 "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
                 "sections": [
                   {
-                    "name": "Room ID - Inspection Items",
+                    "name": "Room ID* - Items",
                     "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                     "sections": [],
                     "fields": [
@@ -1634,6 +1634,15 @@
             "fields": []
           }
         ],
+        "fields": []
+      }
+    },
+    {
+      "version_id": 2,
+      "structure": {
+        "name": "Unit Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [],
         "fields": []
       }
     }

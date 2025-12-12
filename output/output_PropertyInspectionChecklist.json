@@ -1,0 +1,262 @@
+{
+  "id": 0,
+  "name": "Property Inspection Checklist",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Exterior",
+            "display_type": "SECTION_DISPLAY_TYPE_TAB",
+            "sections": [
+              {
+                "name": "Front Garden",
+                "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                "sections": [
+                  {
+                    "name": "Front Garden (condition)",
+                    "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                    "sections": [],
+                    "fields": [
+                      {
+                        "id": 1,
+                        "name": "Property has a front garden",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": false,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": false,
+                        "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Clear of rubbish/weeds/overgrowth",
+                        "description": null,
+                        "mandatory": false,
+                        "rating_type": "RATING_TYPE_RADIO",
+                        "options": [
+                          "Yes",
+                          "No"
+                        ],
+                        "notes_enabled": false,
+                        "notes_required_for_all_options": false,
+                        "notes_required_for_selected_options": [],
+                        "attachments_enabled": false,
+                        "attachments_required_for_all_options": false,
+                        "attachments_required_for_selected_options": [],
+                        "can_create_work_order": true,
+                        "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                        "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                      }
+                    ]
+                  }
+                ],
+                "fields": []
+              }
+            ],
+            "fields": []
+          },
+          {
+            "name": "Entrance",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [
+              {
+                "name": "Entrance",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 3,
+                    "name": "Steps/Stairs (condition)",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 4,
+                    "name": "Pathway (condition)",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Drains",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_CLOGGED_DRAIN"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Roof Condition",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 7,
+                    "name": "Front Gutters",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 8,
+                    "name": "Front Brickwork",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Excellent",
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "None/Not Applicable/Unable to see"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 9,
+                    "name": "Any structural movement (subsidence/large cracks on internal/external walls)",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Yes",
+                      "No"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              }
+            ],
+            "fields": []
+          }
+        ],
+        "fields": []
+      }
+    },
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null
+}
