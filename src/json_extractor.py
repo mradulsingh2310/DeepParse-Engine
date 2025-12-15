@@ -12,7 +12,13 @@ from openai import OpenAI
 from openai.types.chat import ChatCompletionSystemMessageParam, ChatCompletionUserMessageParam
 from pydantic import BaseModel
 
-from .usage_logger import log, log_openai_usage
+from .usage_logger import log_openai_usage
+
+
+def _sanitize_model_name(model: str) -> str:
+    """Sanitize model name for use in file paths."""
+    # Replace dots and slashes with underscores for safe filenames
+    return model.replace(".", "_").replace("/", "_")
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -140,7 +146,6 @@ def _fix_schema_for_openai(schema: dict) -> dict:
 def extract_to_json(
     ocr_text: str,
     pydantic_model: Type[T],
-    api_key: str,
     template_context: dict | None = None,
     model: str = "gpt-5.1",
     output_path: str | Path | None = None
@@ -159,6 +164,7 @@ def extract_to_json(
     Returns:
         Validated Pydantic model instance with extracted data
     """
+    api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI(api_key=api_key)
 
     # Generate and fix schema for OpenAI strict mode
@@ -208,9 +214,13 @@ def extract_to_json(
 
     result = pydantic_model.model_validate(result_dict)
 
-    # Write output to file if path provided
+    # Write output to file if path provided (append model name)
     if output_path:
         output_path = Path(output_path)
+        # Insert model name before the extension
+        model_suffix = _sanitize_model_name(model)
+        new_name = f"{output_path.stem}_{model_suffix}{output_path.suffix}"
+        output_path = output_path.parent / new_name
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result.model_dump(), f, indent=2)

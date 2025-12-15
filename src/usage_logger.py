@@ -6,7 +6,7 @@ Tracks and logs token usage and cost for AI model API calls.
 
 import logging
 from datetime import datetime
-from typing import Literal
+from typing import Literal, get_args
 
 from pydantic import BaseModel, Field
 
@@ -35,10 +35,19 @@ OLLAMA_PRICING = {
     "deepseek-ocr": {"input": 0.0, "output": 0.0},  # Local model - free
 }
 
+# AWS Bedrock pricing per 1M tokens
+# Note: Prices vary by model and region - these are estimates
+BEDROCK_PRICING = {
+    "qwen.qwen3-vl-235b-a22b": {"input": 1.10, "output": 1.10},  # Estimate
+    "anthropic.claude-3-5-sonnet-20241022-v2:0": {"input": 3.00, "output": 15.00},
+    "anthropic.claude-3-haiku-20240307-v1:0": {"input": 0.25, "output": 1.25},
+    "anthropic.claude-3-opus-20240229-v1:0": {"input": 15.00, "output": 75.00},
+}
+
 
 class UsageRecord(BaseModel):
     """Single usage record for an API call."""
-    provider: Literal["openai", "ollama"]
+    provider: Literal["openai", "ollama", "bedrock"]
     model: str
     input_tokens: int
     output_tokens: int
@@ -144,12 +153,17 @@ def reset_tracker() -> None:
 
 def calculate_cost(model: str, input_tokens: int, output_tokens: int, provider: str) -> float:
     """Calculate cost in USD for the given token usage."""
-    pricing = OPENAI_PRICING if provider == "openai" else OLLAMA_PRICING
-    
+    if provider == "openai":
+        pricing = OPENAI_PRICING
+    elif provider == "bedrock":
+        pricing = BEDROCK_PRICING
+    else:
+        pricing = OLLAMA_PRICING
+
     if model not in pricing:
         logger.warning("Unknown model '%s' for %s, using zero cost", model, provider)
         return 0.0
-    
+
     rates = pricing[model]
     input_cost = (input_tokens / 1_000_000) * rates["input"]
     output_cost = (output_tokens / 1_000_000) * rates["output"]
@@ -197,7 +211,7 @@ def log_ollama_usage(
 ) -> UsageRecord:
     """Log Ollama/DeepSeek usage and return the record."""
     cost = calculate_cost(model, input_tokens, output_tokens, "ollama")
-    
+
     record = UsageRecord(
         provider="ollama",
         model=model,
@@ -207,13 +221,43 @@ def log_ollama_usage(
         cost_usd=cost,
         operation=operation
     )
-    
+
     get_tracker().add_record(record)
-    
+
     logger.info("Ollama [%s] - %s", model, operation)
     logger.info("  Tokens: %s input / %s output / %s total",
                 f"{input_tokens:,}", f"{output_tokens:,}", f"{total_tokens:,}")
     logger.info("  Cost: $%.6f (local model)", cost)
-    
+
+    return record
+
+
+def log_bedrock_usage(
+    model: str,
+    input_tokens: int,
+    output_tokens: int,
+    total_tokens: int,
+    operation: str = "converse"
+) -> UsageRecord:
+    """Log AWS Bedrock usage and return the record."""
+    cost = calculate_cost(model, input_tokens, output_tokens, "bedrock")
+
+    record = UsageRecord(
+        provider="bedrock",
+        model=model,
+        input_tokens=input_tokens,
+        output_tokens=output_tokens,
+        total_tokens=total_tokens,
+        cost_usd=cost,
+        operation=operation
+    )
+
+    get_tracker().add_record(record)
+
+    logger.info("Bedrock [%s] - %s", model, operation)
+    logger.info("  Tokens: %s input / %s output / %s total",
+                f"{input_tokens:,}", f"{output_tokens:,}", f"{total_tokens:,}")
+    logger.info("  Cost: $%.6f", cost)
+
     return record
 
