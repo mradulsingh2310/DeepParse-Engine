@@ -8,7 +8,7 @@ directly from images in a single LLM request.
 import io
 import json
 import os
-from typing import TypeVar
+from typing import Any, TypeVar
 
 import boto3
 from botocore.config import Config
@@ -18,6 +18,7 @@ from PIL import Image
 from pydantic import BaseModel
 
 from src.config.loader import BedrockConfig
+from src.schemas.inspection import MaintenanceCategory, WorkOrderSubCategory
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
@@ -83,8 +84,14 @@ Not every field needs a work order. Only set `can_create_work_order: true` for f
 **Rules:**
 1. If `can_create_work_order` is FALSE → leave category/subcategory as UNSPECIFIED
 2. If `can_create_work_order` is TRUE → you MUST set appropriate category AND subcategory (NOT UNSPECIFIED)
-3. **IMPORTANT:** Choose category and subcategory ONLY from the enum values defined in the schema below. Do not invent new values.
-4. Infer the most appropriate category from the field name and section context based on available enum values in the schema.
+3. **CRITICAL:** You MUST use EXACTLY these enum values. Do NOT modify, shorten, or invent new values.
+4. Infer the most appropriate category from the field name and section context.
+
+**ALLOWED MaintenanceCategory values (use EXACTLY as written):**
+{maintenance_categories}
+
+**ALLOWED WorkOrderSubCategory values (use EXACTLY as written):**
+{work_order_subcategories}
 
 ## Image Order
 - Images are provided in page order (image 1 = page 1, image 2 = page 2, etc.)
@@ -97,8 +104,46 @@ Output valid JSON matching this schema:
 Additional context (example template):
 {template_context}
 
+## CRITICAL OUTPUT RULES
+1. **NEVER truncate or abbreviate the output** - output the COMPLETE JSON for ALL fields and sections
+2. **NEVER use placeholders** like "...", "etc.", or similar abbreviations in the JSON output
+3. **Output valid JSON only** - ensure all brackets, quotes, and commas are properly formatted
+4. If the form has many fields, output ALL of them completely - do not skip or summarize
+
 REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
 """
+
+
+def normalize_enum_values(obj: Any) -> Any:
+    """
+    Recursively normalize enum field values to uppercase with underscores.
+    
+    Fixes common LLM mistakes like:
+    - 'RATING_TYPE-select' -> 'RATING_TYPE_SELECT'
+    - 'WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REpair' -> 'WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR'
+    """
+    # Fields that contain enum values needing normalization
+    ENUM_FIELDS = {
+        "rating_type",
+        "work_order_category",
+        "work_order_sub_category",
+        "display_type",
+    }
+    
+    if isinstance(obj, dict):
+        result = {}
+        for key, value in obj.items():
+            if key in ENUM_FIELDS and isinstance(value, str):
+                # Normalize: replace hyphens with underscores, uppercase everything
+                result[key] = value.replace("-", "_").upper()
+            elif isinstance(value, (dict, list)):
+                result[key] = normalize_enum_values(value)
+            else:
+                result[key] = value
+        return result
+    elif isinstance(obj, list):
+        return [normalize_enum_values(item) if isinstance(item, (dict, list)) else item for item in obj]
+    return obj
 
 
 class BedrockError(Exception):
@@ -179,10 +224,16 @@ class BedrockService:
         # Generate JSON schema from Pydantic model
         json_schema = schema.model_json_schema()
         
+        # Get enum values as strings for the prompt
+        maintenance_categories = [cat.value for cat in MaintenanceCategory]
+        work_order_subcategories = [sub.value for sub in WorkOrderSubCategory]
+        
         # Build the prompt
         prompt = EXTRACTION_PROMPT.format(
             json_schema=json.dumps(json_schema, indent=2),
-            template_context=json.dumps(context, indent=2) if context else "N/A"
+            template_context=json.dumps(context, indent=2) if context else "N/A",
+            maintenance_categories=json.dumps(maintenance_categories, indent=2),
+            work_order_subcategories=json.dumps(work_order_subcategories, indent=2)
         )
         
         # Build content blocks: text prompt first, then all images
@@ -206,7 +257,10 @@ class BedrockService:
             log("Sending request to Bedrock...")
             response = client.converse(
                 modelId=self.config.model_id,
-                messages=[{"role": "user", "content": content}]
+                messages=[{"role": "user", "content": content}],
+                inferenceConfig={
+                    "maxTokens": self.config.max_tokens,
+                }
             )
         except ClientError as e:
             error_code = e.response.get("Error", {}).get("Code", "Unknown")
@@ -257,8 +311,11 @@ class BedrockService:
             log(f"Response text: {result_text[:2000]}...")
             raise BedrockModelError(f"Invalid JSON in response: {e}") from e
         
+        # Normalize enum values to fix casing issues from LLM
+        result_dict = normalize_enum_values(result_dict)
+        
         # Always log the raw response for debugging
-        log("Raw response from Bedrock:")
+        log("Raw response from Bedrock (normalized):")
         print(json.dumps(result_dict, indent=2))
         
         try:

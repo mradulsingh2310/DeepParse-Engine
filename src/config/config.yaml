@@ -7,7 +7,7 @@ default_provider: bedrock
 # Provider configurations
 providers:
   bedrock:
-    model_id: "qwen.qwen3-vl-235b-a22b"
+    model_id: "google.gemma-3-27b-it"
     region: "us-east-1"
     timeout: 1200  # 20 minutes for vision models
     retries: 2

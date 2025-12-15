@@ -1,0 +1,3994 @@
+{
+  "id": 0,
+  "name": "Property Inspection Checklist",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Property Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Front Garden",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 1,
+                "name": "Property has a front garden",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 2,
+                "name": "Clear of Rubbish/Weeds/Overgrowth",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Entrance",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 3,
+                "name": "Steps/Stairs (condition)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 4,
+                "name": "Pathway (condition)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 5,
+                "name": "Drains",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_CLOGGED_DRAIN"
+              },
+              {
+                "id": 6,
+                "name": "Roof Condition",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 7,
+                "name": "Front Gutters",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_GARBAGE_DISPOSAL_REPAIR"
+              },
+              {
+                "id": 8,
+                "name": "Front Brickwork",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A/Unable to see"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 9,
+                "name": "Any structural movement, including indication of any subsidence and large cracks on internal/external walls?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              }
+            ]
+          },
+          {
+            "name": "Kitchen",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 10,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 11,
+                "name": "Wall condition",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 12,
+                "name": "Ceiling condition",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 13,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 14,
+                "name": "Units condition",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_word_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_CABINET_REPAIR"
+              },
+              {
+                "id": 15,
+                "name": "Number of base units:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 16,
+                "name": "Number of wall units:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 17,
+                "name": "Worktop Condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_CABINET_REPAIR"
+              },
+              {
+                "id": 18,
+                "name": "Sink",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+              },
+              {
+                "id": 19,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 20,
+                "name": "Cooker Socket:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+              },
+              {
+                "id": 21,
+                "name": "Cooker Chain:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_STOVE_OVEN_MALFUNCTION"
+              },
+              {
+                "id": 22,
+                "name": "Extractor Fan:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_VENT_CLEANING"
+              },
+              {
+                "id": 23,
+                "name": "Washing Machine:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_DISHWASHER_FAILURE"
+              },
+              {
+                "id": 24,
+                "name": "Microwave:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
+              },
+              {
+                "id": 25,
+                "name": "Tumble Dryer:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_DISHWASHER_FAILURE"
+              },
+              {
+                "id": 26,
+                "name": "Cooker/Oven:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_STOVE_OVEN_MALFUNCTION"
+              },
+              {
+                "id": 27,
+                "name": "Fridge/Freezer:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
+              },
+              {
+                "id": 28,
+                "name": "Door/Door Frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 29,
+                "name": "Does not have a kitchen door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 30,
+                "name": "Does the door close properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 31,
+                "name": "Is the door a 1/2 hr fire door?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+              },
+              {
+                "id": 32,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bathroom/WC",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 33,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 34,
+                "name": "Door/Door Frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 35,
+                "name": "Does the door close properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 36,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 37,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 38,
+                "name": "Wall tiles condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 39,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 40,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 41,
+                "name": "Bath:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+              },
+              {
+                "id": 42,
+                "name": "Condition of sealant:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 43,
+                "name": "Sink:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+              },
+              {
+                "id": 44,
+                "name": "Condition of sealant:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 45,
+                "name": "Shower:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+              },
+              {
+                "id": 46,
+                "name": "Condition of sealant:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 47,
+                "name": "Mixer Tap:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+              },
+              {
+                "id": 48,
+                "name": "Shower Attachments:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
+              },
+              {
+                "id": 49,
+                "name": "Extractor Fan:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_VENT_CLEANING"
+              },
+              {
+                "id": 50,
+                "name": "Signs of condensation and mould?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PAINTING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PAINTING_MOLD_REMEDIATION"
+              },
+              {
+                "id": 51,
+                "name": "Water Pressure:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_LOW_WATER_PRESSURE"
+              },
+              {
+                "id": 52,
+                "name": "Toilet Pan and system:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_TOILET_REPAIR_REPLACEMENT"
+              },
+              {
+                "id": 53,
+                "name": "Flooring:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 54,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Living Room/Lounge",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 55,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 56,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 57,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 58,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 59,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 60,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 61,
+                "name": "Any defect to walls?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 62,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 63,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 64,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 65,
+                "name": "Any defect to ceiling?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 66,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 67,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 68,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 69,
+                "name": "Gas fire:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 70,
+                "name": "Electric Fire:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 71,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 72,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 73,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 74,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 75,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Living Room/Dining Room",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 76,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 77,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 78,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 79,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 80,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 81,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 82,
+                "name": "Any defect to walls?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 83,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 84,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 85,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 86,
+                "name": "Any defect to ceiling?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 87,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 88,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 89,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 90,
+                "name": "Gas fire:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 91,
+                "name": "Electric Fire:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 92,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 93,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 94,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 95,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 96,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bedroom 1",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 97,
+                "name": "Room Size:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Double",
+                  "Single",
+                  "Box Room"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 98,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 99,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 100,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 101,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 102,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 103,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 104,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 105,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 106,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 107,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 108,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 109,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 110,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 111,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 112,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 113,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 114,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 115,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 116,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bedroom 2",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 117,
+                "name": "Room Size:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Double",
+                  "Single",
+                  "Box Room"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 118,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 119,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 120,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 121,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 122,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 123,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 124,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 125,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 126,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 127,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 128,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 129,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 130,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 131,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 132,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 133,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 134,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 135,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 136,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bedroom 3",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 137,
+                "name": "Room Size:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Double",
+                  "Single",
+                  "Box Room"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 138,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 139,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 140,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 141,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 142,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 143,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 144,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 145,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 146,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 147,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 148,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 149,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 150,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 151,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 152,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 153,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 154,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 155,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 156,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bedroom 4",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 157,
+                "name": "Room Size:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Double",
+                  "Single",
+                  "Box Room"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 158,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 159,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 160,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 161,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 162,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 163,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 164,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 165,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 166,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 167,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 168,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 169,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 170,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 171,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 172,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 173,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 174,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 175,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 176,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bedroom 5",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 177,
+                "name": "Room Size:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Double",
+                  "Single",
+                  "Box Room"
+                ],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 178,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 179,
+                "name": "Curtains/Blinds",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 180,
+                "name": "Curtain track/blind fittings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 181,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 182,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 183,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 184,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 185,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 186,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 187,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 188,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 189,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 190,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 191,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 192,
+                "name": "Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 193,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 194,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 195,
+                "name": "List of furniture:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 196,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Hallway",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 197,
+                "name": "Windows",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+              },
+              {
+                "id": 198,
+                "name": "Carpets/Laminate",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 199,
+                "name": "Any major stains/burns/damage to flooring",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 200,
+                "name": "Wall condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 201,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 202,
+                "name": "Number of sockets:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 203,
+                "name": "Number of light switches:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 204,
+                "name": "Ceiling condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 205,
+                "name": "Details of any defect?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 206,
+                "name": "Ceiling clear of polystyrene coverings",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              },
+              {
+                "id": 207,
+                "name": "Radiator (GCH):",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+              },
+              {
+                "id": 208,
+                "name": "Wall mounted electric heater:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CEILING_FAN_INSTALLATION_REPAIR"
+              },
+              {
+                "id": 209,
+                "name": "Front Door/Door frame:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 210,
+                "name": "Door opens and closes properly?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
+              },
+              {
+                "id": 211,
+                "name": "Does not have a door",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 212,
+                "name": "Staircase condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 213,
+                "name": "Handrail",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 214,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Smoke Detectors",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 215,
+                "name": "SD1 Location",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 216,
+                "name": "SD1 Battery Operated (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 217,
+                "name": "SD1 Date tested:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 218,
+                "name": "SD1 Working (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 219,
+                "name": "SD2 Location",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 220,
+                "name": "SD2 Battery Operated (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 221,
+                "name": "SD2 Date tested:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 222,
+                "name": "SD2 Working (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 223,
+                "name": "SD3 Location",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 224,
+                "name": "SD3 Battery Operated (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 225,
+                "name": "SD3 Date tested:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 226,
+                "name": "SD3 Working (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 227,
+                "name": "SD4 Location",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 228,
+                "name": "SD4 Battery Operated (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 229,
+                "name": "SD4 Date tested:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 230,
+                "name": "SD4 Working (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 231,
+                "name": "SD5 Location",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 232,
+                "name": "SD5 Battery Operated (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              },
+              {
+                "id": 233,
+                "name": "SD5 Date tested:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 234,
+                "name": "SD5 Working (Y/N)",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+              }
+            ]
+          },
+          {
+            "name": "Utilities",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 235,
+                "name": "Gas Meter:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 236,
+                "name": "Electric Meter:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 237,
+                "name": "Fuse Box:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 238,
+                "name": "Stopcocks:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": false,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Rear Gardens",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [],
+            "fields": [
+              {
+                "id": 239,
+                "name": "Garden Condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 240,
+                "name": "Clear of rubbish/weeds/overgrowth?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 241,
+                "name": "Fences:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 242,
+                "name": "Sheds:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 243,
+                "name": "Clear of goods/rubbish?",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 244,
+                "name": "Steps/stair condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 245,
+                "name": "Pathway condition:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              },
+              {
+                "id": 246,
+                "name": "Drains:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_CLOGGED_DRAIN"
+              },
+              {
+                "id": 247,
+                "name": "Gutters:",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "None/N/A"
+                ],
+                "notes_enabled": true,
+                "attachments_enabled": true,
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_GARBAGE_DISPOSAL_REPAIR"
+              },
+              {
+                "id": 248,
+                "name": "Details of any defects/works to be carried out",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_SELECT",
+                "options": [],
+                "notes_enabled": true,
+                "attachments_enabled": false,
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null
+}

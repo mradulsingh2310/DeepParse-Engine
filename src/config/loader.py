@@ -19,6 +19,7 @@ class BedrockConfig(BaseModel):
     region: str = "us-east-1"
     timeout: int = 1200
     retries: int = 2
+    max_tokens: int = 100000  # Maximum output tokens to prevent truncation
 
 
 class DeepseekConfig(BaseModel):

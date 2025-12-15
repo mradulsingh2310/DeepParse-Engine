@@ -1,0 +1,885 @@
+{
+  "_metadata": {
+    "provider": "bedrock",
+    "model": "qwen.qwen3-vl-235b-a22b"
+  },
+  "id": 0,
+  "name": "San Diego State Housing Inspection Template",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Inspection Template",
+        "display_type": "SECTION_DISPLAY_TYPE_TAB",
+        "sections": [
+          {
+            "name": "Bathroom",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [
+              {
+                "name": "Cleanliness, Health & Hygiene",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "Dirty ceiling",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty ceiling"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Dirty floor",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty floor"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 3,
+                    "name": "Dirty mirror",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty mirror"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 4,
+                    "name": "Dirty shower/tub",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty shower/tub"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Dirty shower curtain",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty shower curtain"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Dirty toilet",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty toilet"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 7,
+                    "name": "Dirty wall(s)",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty wall(s)"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 8,
+                    "name": "Excessive trash",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Excessive trash"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 9,
+                    "name": "Empty alcohol containers",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Empty alcohol containers"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 10,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              },
+              {
+                "name": "Fire Safety",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 11,
+                    "name": "Removed, disabled or covered smoke detector",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Removed, disabled or covered smoke detector"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 12,
+                    "name": "Covered or items attached to sprinkler",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Covered or items attached to sprinkler"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 13,
+                    "name": "Prohibited appliance",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Prohibited appliance"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 14,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              },
+              {
+                "name": "Electrical Safety",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 15,
+                    "name": "Extension cords",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Extension cords"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 16,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              },
+              {
+                "name": "Other Policies",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 17,
+                    "name": "Bicycles, candles/incense/flammables, damages/vandalism, decorating/posting",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Bicycles, candles/incense/flammables, damages/vandalism, decorating/posting"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 18,
+                    "name": "Drugs/paraphernalia",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Drugs/paraphernalia"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 19,
+                    "name": "Smoking",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Smoking"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 20,
+                    "name": "Theft/non-accidental damage",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Theft/non-accidental damage"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 21,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              }
+            ],
+            "fields": []
+          },
+          {
+            "name": "Apartment Kitchen",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [
+              {
+                "name": "Cleanliness, Health & Hygiene",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 22,
+                    "name": "Dirty ceiling",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty ceiling"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 23,
+                    "name": "Dirty floor",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty floor"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 24,
+                    "name": "Dirty cabinets",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty cabinets"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 25,
+                    "name": "Dirty counter",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty counter"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 26,
+                    "name": "Dirty sink",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty sink"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 27,
+                    "name": "Dirty wall(s)",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty wall(s)"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 28,
+                    "name": "Dirty microwave",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Dirty microwave"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 29,
+                    "name": "Excessive trash",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Excessive trash"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 30,
+                    "name": "Empty alcohol containers",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Empty alcohol containers"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 31,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              },
+              {
+                "name": "Other Policies",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 32,
+                    "name": "Candles/incense/flammables, damages/vandalism, decorating/posting",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Candles/incense/flammables, damages/vandalism, decorating/posting"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 33,
+                    "name": "Drugs/paraphernalia",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Drugs/paraphernalia"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 34,
+                    "name": "Explosives or weapons",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Explosives or weapons"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 35,
+                    "name": "Halogen lamps",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Halogen lamps"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 36,
+                    "name": "Smoking",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Smoking"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 37,
+                    "name": "Theft/non-accidental damage",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Theft/non-accidental damage"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 38,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              },
+              {
+                "name": "Fire Safety",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 39,
+                    "name": "Removed, disabled or covered smoke detector",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Removed, disabled or covered smoke detector"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 40,
+                    "name": "Covered or items attached to sprinkler",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Covered or items attached to sprinkler"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 41,
+                    "name": "Prohibited appliance",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Prohibited appliance"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  },
+                  {
+                    "id": 42,
+                    "name": "Other",
+                    "description": null,
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_CHECKBOX",
+                    "options": [
+                      "Other"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              }
+            ],
+            "fields": []
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null
+}
