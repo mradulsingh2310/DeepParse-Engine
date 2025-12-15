@@ -1,5 +1,6 @@
 """
-Pydantic Schema Models for Inspection Templates
+Pydantic Schema Models for Inspection Templates.
+
 Matches proto: accoladehq.api.resident.v1.maintenance.v1
 """
 
@@ -9,7 +10,7 @@ from pydantic import BaseModel, ConfigDict
 
 
 class SectionDisplayType(str, Enum):
-    """Section display types - defines hierarchy"""
+    """Section display types - defines hierarchy."""
     UNSPECIFIED = "SECTION_DISPLAY_TYPE_UNSPECIFIED"  # Parent section with tabs
     TAB = "SECTION_DISPLAY_TYPE_TAB"  # Contains accordions
     ACCORDION = "SECTION_DISPLAY_TYPE_ACCORDION"  # Contains field sets
@@ -17,14 +18,14 @@ class SectionDisplayType(str, Enum):
 
 
 class RatingType(str, Enum):
-    """Rating types for fields - MUST be specified (not UNSPECIFIED)"""
+    """Rating types for fields - MUST be specified (not UNSPECIFIED)."""
     CHECKBOX = "RATING_TYPE_CHECKBOX"
     RADIO = "RATING_TYPE_RADIO"
     SELECT = "RATING_TYPE_SELECT"
 
 
 class MaintenanceCategory(str, Enum):
-    """Work order categories"""
+    """Work order categories."""
     UNSPECIFIED = "MAINTENANCE_CATEGORY_UNSPECIFIED"
     PLUMBING = "MAINTENANCE_CATEGORY_PLUMBING"
     ELECTRICAL = "MAINTENANCE_CATEGORY_ELECTRICAL"
@@ -39,7 +40,7 @@ class MaintenanceCategory(str, Enum):
 
 
 class WorkOrderSubCategory(str, Enum):
-    """Work order sub-categories from proto"""
+    """Work order sub-categories from proto."""
     UNSPECIFIED = "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
     # Plumbing
     PLUMBING_CLOGGED_DRAIN = "WORK_ORDER_SUB_CATEGORY_PLUMBING_CLOGGED_DRAIN"
@@ -89,7 +90,7 @@ class WorkOrderSubCategory(str, Enum):
 
 
 class Field(BaseModel):
-    """Inspection field - the smallest unit in the template tree"""
+    """Inspection field - the smallest unit in the template tree."""
     model_config = ConfigDict(extra="forbid")
 
     id: int
@@ -136,7 +137,7 @@ class Section(BaseModel):
 
 
 class TemplateVersion(BaseModel):
-    """A version of an inspection template"""
+    """A version of an inspection template."""
     model_config = ConfigDict(extra="forbid")
 
     version_id: int
@@ -146,6 +147,7 @@ class TemplateVersion(BaseModel):
 class InspectionTemplate(BaseModel):
     """
     Inspection template - ONLY contains inspection sections.
+    
     Does NOT include: header info (project name, inspector, dates),
     footer info (signatures, comments), or any metadata.
     """
@@ -160,4 +162,6 @@ class InspectionTemplate(BaseModel):
     updated_at: str | None = None
 
 
+# Rebuild for forward references
 Section.model_rebuild()
+
