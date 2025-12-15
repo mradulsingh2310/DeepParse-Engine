@@ -21,6 +21,7 @@ from PIL import Image
 from pydantic import BaseModel
 
 from src.config.loader import DeepseekConfig
+from src.schemas.inspection import InspectionTemplate, validate_template_lenient
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
@@ -369,8 +370,12 @@ class DeepseekService:
         result_text = response.choices[0].message.content
         result_dict = json.loads(result_text) if result_text else {}
         
-        result = schema.model_validate(result_dict)
-        return result
+        # Use lenient validation for InspectionTemplate to handle LLM quirks
+        if schema is InspectionTemplate:
+            result = validate_template_lenient(result_dict)
+        else:
+            result = schema.model_validate(result_dict)
+        return result  # type: ignore[return-value]
     
     def generate_json(
         self,

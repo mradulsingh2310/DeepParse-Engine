@@ -18,7 +18,12 @@ from PIL import Image
 from pydantic import BaseModel
 
 from src.config.loader import BedrockConfig
-from src.schemas.inspection import MaintenanceCategory, WorkOrderSubCategory
+from src.schemas.inspection import (
+    MaintenanceCategory, 
+    WorkOrderSubCategory,
+    InspectionTemplate,
+    validate_template_lenient,
+)
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
@@ -318,12 +323,17 @@ class BedrockService:
         log("Raw response from Bedrock (normalized):")
         print(json.dumps(result_dict, indent=2))
         
+        # Use lenient validation for InspectionTemplate to handle LLM quirks
+        # (extra fields, invalid enum values, etc.)
         try:
-            result = schema.model_validate(result_dict)
+            if schema is InspectionTemplate:
+                result = validate_template_lenient(result_dict)
+            else:
+                result = schema.model_validate(result_dict)
         except Exception as e:
             log(f"Failed to validate response against schema: {e}")
             raise BedrockModelError(f"Response validation failed: {e}") from e
         
         log("Extraction completed successfully")
-        return result
+        return result  # type: ignore[return-value]
 
