@@ -40,7 +40,7 @@ providers:
     thinking_level: "low"  # minimal, low, medium, high
     models:
       # - model_id: "gemini-3-flash-preview"
-      - model_id: "gemini-live-2.5-flash"
+      - model_id: "gemini-2.5-flash"
 
   anthropic:
     timeout: 300

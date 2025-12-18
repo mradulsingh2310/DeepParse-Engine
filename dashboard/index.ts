@@ -33,15 +33,14 @@ function broadcast(message: object) {
 
 // Read all cache files from evaluation_results
 async function getEvaluationCaches(): Promise<object[]> {
-  const cacheDir = "../evaluation_results";
+  const cacheDir = `${projectRoot}/evaluation_results`;
   const caches: object[] = [];
   
   try {
-    const dir = await Bun.file(`${cacheDir}`).exists() 
-      ? (await import("fs/promises")).readdir(cacheDir)
-      : [];
+    const fs = await import("fs/promises");
+    const files = await fs.readdir(cacheDir);
     
-    for (const filename of await (await import("fs/promises")).readdir(cacheDir)) {
+    for (const filename of files) {
       if (filename.startsWith("cache_") && filename.endsWith(".json")) {
         const filePath = `${cacheDir}/${filename}`;
         const content = await Bun.file(filePath).text();
@@ -152,6 +151,12 @@ async function runPipeline() {
                 type: "run_error",
                 data: { message: line.trim() },
               });
+            } else if (line.trim()) {
+              // Broadcast all other non-empty output lines
+              broadcast({
+                type: "model_started",
+                data: { message: line.trim() },
+              });
             }
           }
         }
@@ -221,7 +226,7 @@ const server = Bun.serve({
     "/api/evaluations/:source": {
       GET: async (req) => {
         const source = req.params.source;
-        const cacheDir = "../evaluation_results";
+        const cacheDir = `${projectRoot}/evaluation_results`;
         const filePath = `${cacheDir}/cache_${source}.json`;
         
         try {
@@ -232,6 +237,7 @@ const server = Bun.serve({
           }
           return Response.json({ error: "Cache not found" }, { status: 404 });
         } catch (error) {
+          console.error("Error reading cache:", error);
           return Response.json({ error: "Failed to read cache" }, { status: 500 });
         }
       },

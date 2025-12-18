@@ -8,6 +8,7 @@ import { RadarChart } from "./RadarChart";
 import { TrendChart } from "./TrendChart";
 import { RunButton } from "./RunButton";
 import { LiveStatus } from "./LiveStatus";
+import { LogViewer } from "./LogViewer";
 
 export function App() {
   const {
@@ -46,6 +47,12 @@ export function App() {
           </div>
         </div>
       </header>
+
+      {/* Log Viewer - Shows when running or has messages */}
+      <LogViewer 
+        messages={messages} 
+        isRunning={runStatus.status === "running"} 
+      />
 
       {/* Main Content */}
       <main className="main">

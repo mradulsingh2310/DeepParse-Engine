@@ -1,20 +1,20 @@
 {
   "source_file": "output/source_of_truth/11_HQS_Inspection_Form.json",
-  "last_updated": "2025-12-18T19:20:16.806122",
+  "last_updated": "2025-12-18T19:52:54.137061",
   "models": {
     "bedrock:google.gemma-3-27b-it": {
       "model_id": "google.gemma-3-27b-it",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 0.7707,
-      "total_semantic_accuracy": 1.7610999999999999,
-      "total_config_accuracy": 0.8782,
-      "total_overall_score": 1.2899,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 1.2362000000000002,
+      "total_semantic_accuracy": 2.654,
+      "total_config_accuracy": 1.3967,
+      "total_overall_score": 1.9824000000000002,
       "best_score": 0.6925,
       "best_run_timestamp": "2025-12-18T19:20:16.784249",
       "latest_score": 0.6925,
-      "latest_run_timestamp": "2025-12-18T19:20:16.784249",
+      "latest_run_timestamp": "2025-12-18T19:52:54.119923",
       "run_history": [
         {
           "timestamp": "2025-12-18T18:53:43.208138",
@@ -31,22 +31,30 @@
           "structural_accuracy": 0.4655,
           "semantic_accuracy": 0.8929,
           "config_accuracy": 0.5185
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.119923",
+          "overall_score": 0.6925,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.4655,
+          "semantic_accuracy": 0.8929,
+          "config_accuracy": 0.5185
         }
       ]
     },
     "bedrock:qwen.qwen3-vl-235b-a22b": {
       "model_id": "qwen.qwen3-vl-235b-a22b",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 1.7276,
-      "total_semantic_accuracy": 1.8304,
-      "total_config_accuracy": 1.9454,
-      "total_overall_score": 1.8754,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 2.5914,
+      "total_semantic_accuracy": 2.7456,
+      "total_config_accuracy": 2.9181,
+      "total_overall_score": 2.8131,
       "best_score": 0.9377,
       "best_run_timestamp": "2025-12-18T18:53:43.211491",
       "latest_score": 0.9377,
-      "latest_run_timestamp": "2025-12-18T19:20:16.791009",
+      "latest_run_timestamp": "2025-12-18T19:52:54.124014",
       "run_history": [
         {
           "timestamp": "2025-12-18T18:53:43.211491",
@@ -63,22 +71,30 @@
           "structural_accuracy": 0.8638,
           "semantic_accuracy": 0.9152,
           "config_accuracy": 0.9727
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.124014",
+          "overall_score": 0.9377,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.8638,
+          "semantic_accuracy": 0.9152,
+          "config_accuracy": 0.9727
         }
       ]
     },
     "deepseek:deepseek-ocr": {
       "model_id": "deepseek-ocr",
       "provider": "deepseek",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 1.6276000000000002,
-      "total_semantic_accuracy": 1.3961000000000001,
-      "total_config_accuracy": 1.431,
-      "total_overall_score": 1.5452,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 2.2552000000000003,
+      "total_semantic_accuracy": 2.1553,
+      "total_config_accuracy": 2.1734,
+      "total_overall_score": 2.3083,
       "best_score": 0.7821,
       "best_run_timestamp": "2025-12-18T18:53:43.217779",
       "latest_score": 0.7631,
-      "latest_run_timestamp": "2025-12-18T19:20:16.799806",
+      "latest_run_timestamp": "2025-12-18T19:52:54.131535",
       "run_history": [
         {
           "timestamp": "2025-12-18T18:53:43.217779",
@@ -95,22 +111,30 @@
           "structural_accuracy": 0.6276,
           "semantic_accuracy": 0.7592,
           "config_accuracy": 0.7424
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.131535",
+          "overall_score": 0.7631,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.6276,
+          "semantic_accuracy": 0.7592,
+          "config_accuracy": 0.7424
         }
       ]
     },
     "google:gemini-3-flash-preview": {
       "model_id": "gemini-3-flash-preview",
       "provider": "google",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 2.0,
-      "total_semantic_accuracy": 1.8352,
-      "total_config_accuracy": 1.0545,
-      "total_overall_score": 1.6196000000000002,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 3.0,
+      "total_semantic_accuracy": 2.7527999999999997,
+      "total_config_accuracy": 1.67,
+      "total_overall_score": 2.4603,
       "best_score": 0.8407,
       "best_run_timestamp": "2025-12-18T19:20:16.805600",
       "latest_score": 0.8407,
-      "latest_run_timestamp": "2025-12-18T19:20:16.805600",
+      "latest_run_timestamp": "2025-12-18T19:52:54.136609",
       "run_history": [
         {
           "timestamp": "2025-12-18T18:53:43.223315",
@@ -127,25 +151,41 @@
           "structural_accuracy": 1.0,
           "semantic_accuracy": 0.9176,
           "config_accuracy": 0.6155
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.136609",
+          "overall_score": 0.8407,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.9176,
+          "config_accuracy": 0.6155
         }
       ]
     },
     "bedrock:amazon.nova-pro-v1:0": {
       "model_id": "amazon.nova-pro-v1:0",
       "provider": "bedrock",
-      "run_count": 1,
-      "total_schema_compliance": 0.7708,
-      "total_structural_accuracy": 0.6776,
-      "total_semantic_accuracy": 0.8866,
-      "total_config_accuracy": 0.3684,
-      "total_overall_score": 0.6461,
+      "run_count": 2,
+      "total_schema_compliance": 1.5416,
+      "total_structural_accuracy": 1.3552,
+      "total_semantic_accuracy": 1.7732,
+      "total_config_accuracy": 0.7368,
+      "total_overall_score": 1.2922,
       "best_score": 0.6461,
       "best_run_timestamp": "2025-12-18T19:20:16.777004",
       "latest_score": 0.6461,
-      "latest_run_timestamp": "2025-12-18T19:20:16.777004",
+      "latest_run_timestamp": "2025-12-18T19:52:54.117406",
       "run_history": [
         {
           "timestamp": "2025-12-18T19:20:16.777004",
+          "overall_score": 0.6461,
+          "schema_compliance": 0.7708,
+          "structural_accuracy": 0.6776,
+          "semantic_accuracy": 0.8866,
+          "config_accuracy": 0.3684
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.117406",
           "overall_score": 0.6461,
           "schema_compliance": 0.7708,
           "structural_accuracy": 0.6776,
@@ -157,19 +197,27 @@
     "bedrock:nvidia.nemotron-nano-12b-v2": {
       "model_id": "nvidia.nemotron-nano-12b-v2",
       "provider": "bedrock",
-      "run_count": 1,
-      "total_schema_compliance": 0.6,
-      "total_structural_accuracy": 0.269,
-      "total_semantic_accuracy": 0.2741,
-      "total_config_accuracy": 0.3828,
-      "total_overall_score": 0.36,
+      "run_count": 2,
+      "total_schema_compliance": 1.2,
+      "total_structural_accuracy": 0.538,
+      "total_semantic_accuracy": 0.5482,
+      "total_config_accuracy": 0.7656,
+      "total_overall_score": 0.72,
       "best_score": 0.36,
       "best_run_timestamp": "2025-12-18T19:20:16.792887",
       "latest_score": 0.36,
-      "latest_run_timestamp": "2025-12-18T19:20:16.792887",
+      "latest_run_timestamp": "2025-12-18T19:52:54.125372",
       "run_history": [
         {
           "timestamp": "2025-12-18T19:20:16.792887",
+          "overall_score": 0.36,
+          "schema_compliance": 0.6,
+          "structural_accuracy": 0.269,
+          "semantic_accuracy": 0.2741,
+          "config_accuracy": 0.3828
+        },
+        {
+          "timestamp": "2025-12-18T19:52:54.125372",
           "overall_score": 0.36,
           "schema_compliance": 0.6,
           "structural_accuracy": 0.269,
