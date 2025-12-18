@@ -1,20 +1,23 @@
 {
   "source_file": "source_of_truth/11_HQS_Inspection_Form.json",
-  "last_updated": "2025-12-18T20:54:33.568805",
+  "last_updated": "2025-12-18T22:24:18.340202",
   "models": {
     "bedrock:amazon.nova-pro-v1:0": {
       "model_id": "amazon.nova-pro-v1:0",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 1.8138,
-      "total_semantic_accuracy": 1.8376,
-      "total_config_accuracy": 0.35,
-      "total_overall_score": 1.3366,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 2.7207,
+      "total_semantic_accuracy": 2.7563999999999997,
+      "total_config_accuracy": 0.5249999999999999,
+      "total_overall_score": 2.0049,
+      "total_cost": 0.0332848,
+      "total_input_tokens": 9606,
+      "total_output_tokens": 8000,
       "best_score": 0.6683,
       "best_run_timestamp": "2025-12-18T20:46:13.199987",
       "latest_score": 0.6683,
-      "latest_run_timestamp": "2025-12-18T20:54:33.529347",
+      "latest_run_timestamp": "2025-12-18T22:24:18.309367",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.199987",
@@ -31,6 +34,17 @@
           "structural_accuracy": 0.9069,
           "semantic_accuracy": 0.9188,
           "config_accuracy": 0.175
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.309367",
+          "overall_score": 0.6683,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.9069,
+          "semantic_accuracy": 0.9188,
+          "config_accuracy": 0.175,
+          "cost": 0.0332848,
+          "input_tokens": 9606,
+          "output_tokens": 8000
         }
       ]
     },
@@ -43,6 +57,9 @@
       "total_semantic_accuracy": 1.764,
       "total_config_accuracy": 1.201,
       "total_overall_score": 1.422,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.711,
       "best_run_timestamp": "2025-12-18T20:46:13.206467",
       "latest_score": 0.711,
@@ -75,6 +92,9 @@
       "total_semantic_accuracy": 1.8376,
       "total_config_accuracy": 1.9406,
       "total_overall_score": 1.8886,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.9443,
       "best_run_timestamp": "2025-12-18T20:46:13.215203",
       "latest_score": 0.9443,
@@ -101,16 +121,19 @@
     "bedrock:nvidia.nemotron-nano-12b-v2": {
       "model_id": "nvidia.nemotron-nano-12b-v2",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 0.169,
-      "total_semantic_accuracy": 1.3104,
-      "total_config_accuracy": 0.9188,
-      "total_overall_score": 1.0484,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 0.2535,
+      "total_semantic_accuracy": 1.9656,
+      "total_config_accuracy": 1.3781999999999999,
+      "total_overall_score": 1.5726,
+      "total_cost": 0.0027358799999999996,
+      "total_input_tokens": 12830,
+      "total_output_tokens": 8192,
       "best_score": 0.5242,
       "best_run_timestamp": "2025-12-18T20:46:13.217135",
       "latest_score": 0.5242,
-      "latest_run_timestamp": "2025-12-18T20:54:33.545188",
+      "latest_run_timestamp": "2025-12-18T22:24:18.322361",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.217135",
@@ -127,22 +150,36 @@
           "structural_accuracy": 0.0845,
           "semantic_accuracy": 0.6552,
           "config_accuracy": 0.4594
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.322361",
+          "overall_score": 0.5242,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.0845,
+          "semantic_accuracy": 0.6552,
+          "config_accuracy": 0.4594,
+          "cost": 0.0027358799999999996,
+          "input_tokens": 12830,
+          "output_tokens": 8192
         }
       ]
     },
     "deepseek:deepseek-ocr": {
       "model_id": "deepseek-ocr",
       "provider": "deepseek",
-      "run_count": 4,
-      "total_schema_compliance": 4.0,
-      "total_structural_accuracy": 3.2552000000000003,
-      "total_semantic_accuracy": 3.2278000000000002,
-      "total_config_accuracy": 2.8705999999999996,
-      "total_overall_score": 3.224,
+      "run_count": 5,
+      "total_schema_compliance": 5.0,
+      "total_structural_accuracy": 3.8828000000000005,
+      "total_semantic_accuracy": 3.987,
+      "total_config_accuracy": 3.6129999999999995,
+      "total_overall_score": 3.9871000000000003,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.8489,
       "best_run_timestamp": "2025-12-18T20:46:13.224401",
       "latest_score": 0.7631,
-      "latest_run_timestamp": "2025-12-18T20:54:33.555950",
+      "latest_run_timestamp": "2025-12-18T22:24:18.329212",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.224401",
@@ -175,6 +212,17 @@
           "structural_accuracy": 0.6276,
           "semantic_accuracy": 0.7592,
           "config_accuracy": 0.7424
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.329212",
+          "overall_score": 0.7631,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.6276,
+          "semantic_accuracy": 0.7592,
+          "config_accuracy": 0.7424,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
@@ -187,6 +235,9 @@
       "total_semantic_accuracy": 1.8352,
       "total_config_accuracy": 1.231,
       "total_overall_score": 1.6814,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.8407,
       "best_run_timestamp": "2025-12-18T20:46:13.235522",
       "latest_score": 0.8407,
@@ -219,6 +270,9 @@
       "total_semantic_accuracy": 0.9199,
       "total_config_accuracy": 0.4843,
       "total_overall_score": 0.7396,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.7396,
       "best_run_timestamp": "2025-12-18T20:54:33.564296",
       "latest_score": 0.7396,
@@ -243,6 +297,9 @@
       "total_semantic_accuracy": 0.9158,
       "total_config_accuracy": 0.6517,
       "total_overall_score": 0.8528,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
       "best_score": 0.8528,
       "best_run_timestamp": "2025-12-18T20:54:33.568545",
       "latest_score": 0.8528,
@@ -255,6 +312,91 @@
           "structural_accuracy": 1.0,
           "semantic_accuracy": 0.9158,
           "config_accuracy": 0.6517
+        }
+      ]
+    },
+    "unknown:11_HQS_Inspection_Form": {
+      "model_id": "11_HQS_Inspection_Form",
+      "provider": "unknown",
+      "run_count": 6,
+      "total_schema_compliance": 6.0,
+      "total_structural_accuracy": 4.879300000000001,
+      "total_semantic_accuracy": 5.4447,
+      "total_config_accuracy": 3.6153999999999997,
+      "total_overall_score": 4.7746,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.8528,
+      "best_run_timestamp": "2025-12-18T22:24:18.340169",
+      "latest_score": 0.8528,
+      "latest_run_timestamp": "2025-12-18T22:24:18.340169",
+      "run_history": [
+        {
+          "timestamp": "2025-12-18T22:24:18.314337",
+          "overall_score": 0.6324,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.3879,
+          "semantic_accuracy": 0.9155,
+          "config_accuracy": 0.3719,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.321489",
+          "overall_score": 0.8494,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.8638,
+          "semantic_accuracy": 0.9147,
+          "config_accuracy": 0.7206,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.325653",
+          "overall_score": 0.8463,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.8582,
+          "config_accuracy": 0.6823,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.332935",
+          "overall_score": 0.8407,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.9176,
+          "config_accuracy": 0.6155,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.335923",
+          "overall_score": 0.753,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.6276,
+          "semantic_accuracy": 0.9229,
+          "config_accuracy": 0.5734,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-18T22:24:18.340169",
+          "overall_score": 0.8528,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.9158,
+          "config_accuracy": 0.6517,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     }

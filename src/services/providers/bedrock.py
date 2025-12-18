@@ -253,8 +253,5 @@ class BedrockService:
         # Normalize enum values to fix casing issues from LLM
         result_dict = normalize_enum_values(result_dict)
         
-        # Always log the raw response for debugging
         log("Raw response from Bedrock (normalized):")
-        print(json.dumps(result_dict, indent=2))
-        log("Extraction completed successfully")
         return result_dict
