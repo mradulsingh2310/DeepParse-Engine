@@ -21,7 +21,8 @@ from src.schemas.inspection import (
     MaintenanceCategory,
     WorkOrderSubCategory,
 )
-from src.services.providers.bedrock import EXTRACTION_PROMPT, normalize_enum_values
+from src.services.providers.bedrock import normalize_enum_values
+from src.utils.prompts import VISION_EXTRACTION_PROMPT
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
@@ -123,7 +124,7 @@ class GoogleService:
         work_order_subcategories = [sub.value for sub in WorkOrderSubCategory]
 
         # Build the prompt
-        prompt = EXTRACTION_PROMPT.format(
+        prompt = VISION_EXTRACTION_PROMPT.format(
             json_schema=json.dumps(json_schema, indent=2),
             template_context=json.dumps(context, indent=2) if context else "N/A",
             maintenance_categories=json.dumps(maintenance_categories, indent=2),

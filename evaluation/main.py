@@ -1,12 +1,12 @@
 """
 Evaluation CLI Entry Point
 
-Provides command-line interface for evaluating model outputs against source of truth.
+Automatically discovers all model outputs and compares them against source of truth.
+Generates visualizations, HTML reports, and uses LLM for semantic evaluation.
 """
 
 from __future__ import annotations
 
-import argparse
 import sys
 import time
 from datetime import datetime
@@ -37,12 +37,24 @@ from evaluation.report import (
     generate_console_report,
     generate_html_report,
 )
-from evaluation.cache import (
-    load_cache,
-    update_cache_with_results,
-)
+from evaluation.cache import update_cache_with_results
 
+from src.config.loader import load_config
 from src.utils.logger import log
+
+
+# Constants
+LLM_MODEL_ID = "moonshot.kimi-k2-thinking"
+OUTPUT_DIR = Path("output")
+SOURCE_OF_TRUTH_DIR = Path("source_of_truth")
+RESULTS_DIR = Path("evaluation_results")
+
+
+def find_source_of_truth_files(source_dir: Path) -> list[Path]:
+    """Find all source of truth JSON files."""
+    if not source_dir.exists():
+        return []
+    return list(source_dir.glob("*.json"))
 
 
 def find_model_outputs(output_dir: Path, source_filename: str) -> list[Path]:
@@ -90,8 +102,10 @@ def extract_metadata(json_data: dict, file_path: Path) -> ModelMetadata:
         provider = "bedrock"
     elif "deepseek" in filename:
         provider = "deepseek"
-    elif "openai" in filename:
-        provider = "openai"
+    elif "google" in filename:
+        provider = "google"
+    elif "anthropic" in filename:
+        provider = "anthropic"
     else:
         provider = "unknown"
     
@@ -105,8 +119,6 @@ def extract_metadata(json_data: dict, file_path: Path) -> ModelMetadata:
 def evaluate_single_model(
     source_path: Path,
     model_path: Path,
-    use_llm: bool = True,
-    llm_model_id: str = "anthropic.claude-3-sonnet-20240229-v1:0",
 ) -> EvaluationResult:
     """
     Evaluate a single model output against source of truth.
@@ -114,8 +126,6 @@ def evaluate_single_model(
     Args:
         source_path: Path to source of truth JSON
         model_path: Path to model output JSON
-        use_llm: Whether to use LLM for semantic evaluation
-        llm_model_id: Bedrock model ID for LLM evaluation
         
     Returns:
         EvaluationResult with all scores
@@ -143,26 +153,23 @@ def evaluate_single_model(
     section_evaluations = compare_templates(source_json, model_json)
     log(f"  Sections compared: {len(section_evaluations)}")
     
-    # Level 3: LLM semantic evaluation (optional)
-    if use_llm:
-        log("Level 3: LLM Semantic Evaluation...")
-        try:
-            llm_evaluator = LLMEvaluator(model_id=llm_model_id)
-            llm_response = llm_evaluator.evaluate(
-                source_json=source_json,
-                model_json=model_json,
-                schema_errors=schema_result.errors if not schema_result.is_valid else None,
-                section_evaluations=section_evaluations,
-            )
-            section_evaluations = update_evaluations_with_llm_scores(
-                section_evaluations, llm_response
-            )
-            log("  LLM evaluation completed")
-        except Exception as e:
-            log(f"  LLM evaluation failed: {e}")
-            log("  Using deterministic scores only")
-    else:
-        log("Level 3: Skipped (--no-llm flag)")
+    # Level 3: LLM semantic evaluation
+    log(f"Level 3: LLM Semantic Evaluation (using {LLM_MODEL_ID})...")
+    try:
+        llm_evaluator = LLMEvaluator(model_id=LLM_MODEL_ID)
+        llm_response = llm_evaluator.evaluate(
+            source_json=source_json,
+            model_json=model_json,
+            schema_errors=schema_result.errors if not schema_result.is_valid else None,
+            section_evaluations=section_evaluations,
+        )
+        section_evaluations = update_evaluations_with_llm_scores(
+            section_evaluations, llm_response
+        )
+        log("  LLM evaluation completed")
+    except Exception as e:
+        log(f"  LLM evaluation failed: {e}")    
+        log("  Using deterministic scores only")
     
     # Score all fields
     log("Calculating scores...")
@@ -217,137 +224,28 @@ def create_comparison_report(
     )
 
 
-def main():
-    """Main entry point."""
-    parser = argparse.ArgumentParser(
-        description="Evaluate model outputs against source of truth",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  # Evaluate single model
-  python -m evaluation.main --model output/bedrock/model.json --source output/source_of_truth/form.json
-  
-  # Compare all models
-  python -m evaluation.main --source output/source_of_truth/form.json --compare-all
-  
-  # With visualization
-  python -m evaluation.main --source output/source_of_truth/form.json --compare-all --visualize
-        """
-    )
+def run_evaluation_for_source(
+    source_path: Path,
+) -> ComparisonReport | None:
+    """
+    Run evaluation for a single source of truth file.
     
-    parser.add_argument(
-        "--source", "-s",
-        required=True,
-        type=Path,
-        help="Path to source of truth JSON file"
-    )
+    Returns ComparisonReport or None if no model outputs found.
+    """
+    log(f"\n{'='*80}")
+    log(f"Source: {source_path.name}")
+    log(f"{'='*80}")
     
-    parser.add_argument(
-        "--model", "-m",
-        type=Path,
-        help="Path to single model output JSON file"
-    )
+    # Find model outputs for this source
+    model_files = find_model_outputs(OUTPUT_DIR, source_path.name)
     
-    parser.add_argument(
-        "--compare-all",
-        action="store_true",
-        help="Find and compare all model outputs for this source"
-    )
+    if not model_files:
+        log(f"No model outputs found for: {source_path.name}")
+        return None
     
-    parser.add_argument(
-        "--output-dir", "-o",
-        type=Path,
-        default=Path("evaluation_results"),
-        help="Directory to save evaluation results (default: evaluation_results)"
-    )
-    
-    parser.add_argument(
-        "--visualize",
-        action="store_true",
-        help="Generate visualization charts"
-    )
-    
-    parser.add_argument(
-        "--html",
-        action="store_true",
-        help="Generate HTML report"
-    )
-    
-    parser.add_argument(
-        "--no-llm",
-        action="store_true",
-        help="Skip LLM semantic evaluation (faster, less accurate)"
-    )
-    
-    parser.add_argument(
-        "--llm-model",
-        type=str,
-        default="anthropic.claude-3-sonnet-20240229-v1:0",
-        help="Bedrock model ID for LLM evaluation"
-    )
-    
-    parser.add_argument(
-        "--quiet", "-q",
-        action="store_true",
-        help="Suppress detailed output"
-    )
-    
-    parser.add_argument(
-        "--show-cache",
-        action="store_true",
-        help="Show cached results summary and exit"
-    )
-    
-    parser.add_argument(
-        "--clear-cache",
-        action="store_true",
-        help="Clear cache for this source file before running"
-    )
-    
-    args = parser.parse_args()
-    
-    # Validate arguments
-    if not args.source.exists():
-        print(f"Error: Source file not found: {args.source}")
-        sys.exit(1)
-    
-    if args.model and not args.model.exists():
-        print(f"Error: Model file not found: {args.model}")
-        sys.exit(1)
-    
-    # Handle show-cache flag
-    if args.show_cache:
-        cache = load_cache(args.source, args.output_dir)
-        print(cache.print_summary())
-        sys.exit(0)
-    
-    # Handle clear-cache flag
-    if args.clear_cache:
-        cache_path = args.output_dir / f"cache_{args.source.stem}.json"
-        if cache_path.exists():
-            cache_path.unlink()
-            print(f"Cache cleared: {cache_path}")
-    
-    if not args.model and not args.compare_all:
-        print("Error: Specify either --model or --compare-all")
-        sys.exit(1)
-    
-    # Collect model files
-    model_files = []
-    
-    if args.model:
-        model_files.append(args.model)
-    
-    if args.compare_all:
-        output_dir = args.source.parent.parent  # Go up from source_of_truth
-        found_files = find_model_outputs(output_dir, args.source.name)
-        model_files.extend(found_files)
-        
-        if not model_files:
-            print(f"No model output files found for: {args.source.name}")
-            sys.exit(1)
-        
-        print(f"Found {len(model_files)} model output(s) to evaluate")
+    log(f"Found {len(model_files)} model output(s)")
+    for f in model_files:
+        log(f"  - {f.relative_to(OUTPUT_DIR)}")
     
     # Run evaluations
     evaluations = []
@@ -355,58 +253,116 @@ Examples:
     for model_path in model_files:
         try:
             result = evaluate_single_model(
-                source_path=args.source,
+                source_path=source_path,
                 model_path=model_path,
-                use_llm=not args.no_llm,
-                llm_model_id=args.llm_model,
             )
             evaluations.append(result)
         except Exception as e:
-            print(f"Error evaluating {model_path}: {e}")
-            if not args.quiet:
-                import traceback
-                traceback.print_exc()
+            log(f"Error evaluating {model_path}: {e}")
+            import traceback
+            traceback.print_exc()
     
     if not evaluations:
-        print("No successful evaluations")
-        sys.exit(1)
+        log("No successful evaluations")
+        return None
     
     # Create comparison report
-    report = create_comparison_report(args.source, evaluations)
+    report = create_comparison_report(source_path, evaluations)
     
     # Print console report
     console_output = generate_console_report(report)
     print(console_output)
     
     # Save outputs
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    source_stem = source_path.stem
     
     # JSON report
-    json_path = args.output_dir / f"evaluation_{timestamp}.json"
+    json_path = RESULTS_DIR / f"evaluation_{source_stem}_{timestamp}.json"
     generate_json_report(report, json_path)
-    print(f"\nJSON report saved: {json_path}")
+    log(f"JSON report saved: {json_path}")
     
     # Charts
-    chart_paths = {}
-    if args.visualize:
-        charts_dir = args.output_dir / f"charts_{timestamp}"
-        chart_paths = generate_all_charts(report, charts_dir)
-        print(f"Charts saved: {charts_dir}")
+    charts_dir = RESULTS_DIR / f"charts_{source_stem}_{timestamp}"
+    chart_paths = generate_all_charts(report, charts_dir)
+    log(f"Charts saved: {charts_dir}")
     
     # HTML report
-    if args.html:
-        html_path = args.output_dir / f"report_{timestamp}.html"
-        generate_html_report(report, html_path, chart_paths)
-        print(f"HTML report saved: {html_path}")
+    html_path = RESULTS_DIR / f"report_{source_stem}_{timestamp}.html"
+    generate_html_report(report, html_path, chart_paths)
+    log(f"HTML report saved: {html_path}")
     
-    # Update cache with new results
-    cache = update_cache_with_results(evaluations, args.source, args.output_dir)
-    cache_path = args.output_dir / f"cache_{args.source.stem}.json"
-    print(f"\nCache updated: {cache_path}")
-    print(cache.print_summary())
+    # Update cache
+    update_cache_with_results(evaluations, source_path, RESULTS_DIR)
+    cache_path = RESULTS_DIR / f"cache_{source_stem}.json"
+    log(f"Cache updated: {cache_path}")
+    
+    return report
+
+
+def main():
+    """Main entry point."""
+    # Load config to display provider info
+    config = load_config()
+    
+    log("=" * 80)
+    log("OCR-AI Evaluation Pipeline")
+    log("=" * 80)
+    log(f"Output directory: {OUTPUT_DIR}")
+    log(f"Results directory: {RESULTS_DIR}")
+    log(f"LLM model: {LLM_MODEL_ID}")
+    
+    # Show configured providers
+    log("\nConfigured Providers:")
+    if config.providers.bedrock.models:
+        log(f"  Bedrock: {len(config.providers.bedrock.models)} model(s)")
+    if config.providers.deepseek.models:
+        log(f"  Deepseek: {len(config.providers.deepseek.models)} model(s)")
+    if config.providers.google.models:
+        log(f"  Google: {len(config.providers.google.models)} model(s)")
+    if config.providers.anthropic.models:
+        log(f"  Anthropic: {len(config.providers.anthropic.models)} model(s)")
+    
+    # Auto-discover source of truth files
+    source_files = find_source_of_truth_files(SOURCE_OF_TRUTH_DIR)
+    
+    if not source_files:
+        print(f"Error: No source of truth files found in: {SOURCE_OF_TRUTH_DIR}")
+        print("Please add JSON files to source_of_truth/ directory")
+        sys.exit(1)
+    
+    log(f"\nSource of truth files: {len(source_files)}")
+    for f in source_files:
+        log(f"  - {f.name}")
+    
+    # Run evaluations for each source
+    all_reports = []
+    
+    for source_path in source_files:
+        report = run_evaluation_for_source(source_path)
+        if report:
+            all_reports.append(report)
+    
+    # Summary
+    log("\n" + "=" * 80)
+    log("EVALUATION SUMMARY")
+    log("=" * 80)
+    
+    if not all_reports:
+        log("No evaluations completed successfully")
+        sys.exit(1)
+    
+    for report in all_reports:
+        source_name = Path(report.source_file).name
+        log(f"\n{source_name}:")
+        log(f"  Models evaluated: {len(report.evaluations)}")
+        log(f"  Best model: {report.best_model}")
+        log(f"  Best score: {report.best_score*100:.1f}%" if report.best_score else "  Best score: N/A")
+        log(f"  Average score: {report.average_score*100:.1f}%" if report.average_score else "  Average score: N/A")
+    
+    log("\nEvaluation complete!")
 
 
 if __name__ == "__main__":
     main()
-

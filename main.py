@@ -54,7 +54,7 @@ def get_output_path(
 
 
 def save_result(
-    result: InspectionTemplate,
+    result: InspectionTemplate | dict,
     output_path: Path,
     provider: Provider,
     model_config: ModelConfig,
@@ -62,13 +62,16 @@ def save_result(
     """Save extraction result to JSON file."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
+    # Handle both dict and Pydantic model results
+    result_dict = result if isinstance(result, dict) else result.model_dump()
+    
     output_data = {
         "_metadata": {
             "provider": provider.value,
             "model_id": model_config.model_id,
             "supporting_model_id": model_config.supporting_model_id,
         },
-        **result.model_dump(),
+        **result_dict,
     }
     
     with open(output_path, "w", encoding="utf-8") as f:
@@ -86,7 +89,7 @@ def process_pdf(
     template_path: Path | None = None,
     save_images_dir: Path | None = None,
     images: list | None = None,
-) -> InspectionTemplate:
+) -> InspectionTemplate | dict:
     """
     Process a PDF through the extraction pipeline.
     
@@ -143,6 +146,10 @@ def get_provider_models(provider: Provider, config: AppConfig) -> list[ModelConf
             return config.providers.bedrock.models
         case Provider.DEEPSEEK:
             return config.providers.deepseek.models
+        case Provider.GOOGLE:
+            return config.providers.google.models
+        case Provider.ANTHROPIC:
+            return config.providers.anthropic.models
         case _:
             return []
 
@@ -270,7 +277,7 @@ def main():
     # Run automatic evaluation
     run_post_extraction_evaluation(
         output_dir=output_dir,
-        source_of_truth_dir=output_dir / "source_of_truth",
+        source_of_truth_dir=Path("source_of_truth"),
         cache_dir=Path("evaluation_results"),
         quiet=False,
     )

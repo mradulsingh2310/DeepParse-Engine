@@ -1,0 +1,730 @@
+{
+  "_metadata": {
+    "provider": "bedrock",
+    "model_id": "google.gemma-3-27b-it",
+    "supporting_model_id": null
+  },
+  "id": 1,
+  "name": "Multifamily Unit Inspection",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Unit Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Entire unit",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 1,
+                "name": "Smoke detectors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 2,
+                "name": "Doors and/or windows/screens",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 3,
+                "name": "Heating/ac",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_AC_NOT_COOLING"
+              },
+              {
+                "id": 4,
+                "name": "Ventilation/air quality",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 5,
+                "name": "Access to fire escape",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 6,
+                "name": "Free of vermin/rodents",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PEST_CONTROL_RODENT_INFESTATION"
+              },
+              {
+                "id": 7,
+                "name": "Hazards?",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Yes"
+                ],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Yes"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Living room",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 8,
+                "name": "Walls/int. doors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 9,
+                "name": "Ceiling",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 10,
+                "name": "Floors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 11,
+                "name": "Elec.fixtures/outlets",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+              },
+              {
+                "id": 12,
+                "name": "Hazards?",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Yes"
+                ],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Yes"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Dinning area",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 13,
+                "name": "Walls/int. doors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 14,
+                "name": "Ceiling",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 15,
+                "name": "Floors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 16,
+                "name": "Elec. fixtures/outlets",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+              },
+              {
+                "id": 17,
+                "name": "Hazards?",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Yes"
+                ],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Yes"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Bathroom",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 18,
+                "name": "Walls/int. doors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 19,
+                "name": "Ceiling",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 20,
+                "name": "Floors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 21,
+                "name": "Elec. fixtures/outlets",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+              },
+              {
+                "id": 22,
+                "name": "Working toilet",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_TOILET_REPAIR_REPLACEMENT"
+              },
+              {
+                "id": 23,
+                "name": "Lavatory (h/c water)",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+              },
+              {
+                "id": 24,
+                "name": "Hazards?",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Yes"
+                ],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Yes"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Kitchen",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 25,
+                "name": "Walls/int. doors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 26,
+                "name": "Ceiling",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 27,
+                "name": "Floors",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 28,
+                "name": "Elec.fixtures/outlets",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+              },
+              {
+                "id": 29,
+                "name": "Refrigerator",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Acceptable",
+                  "Requires action",
+                  "Immediate action required"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
+              },
+              {
+                "id": 30,
+                "name": "Hazards?",
+                "description": null,
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Yes"
+                ],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Yes"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null
+}

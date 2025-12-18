@@ -1,0 +1,302 @@
+{
+  "_metadata": {
+    "provider": "bedrock",
+    "model_id": "nvidia.nemotron-nano-12b-v2",
+    "supporting_model_id": null
+  },
+  "id": 12345,
+  "name": "Move-In Inspection Template",
+  "description": "Standard inspection template for new tenant move-ins",
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Unit Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Kitchen",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [
+              {
+                "name": "Appliances",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "Stove/Range",
+                    "description": "Check all burners and oven functionality",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "N/A"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_STOVE_OVEN_MALFUNCTION"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Refrigerator",
+                    "description": "Check proper cooling, door seals, and cleanliness",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                      "Good",
+                      "Fair",
+                      "Poor",
+                      "N/A"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [
+                      "Fair",
+                      "Poor"
+                    ],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [
+                      "Poor"
+                    ],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
+                  }
+                ]
+              }
+            ],
+            "fields": [
+              {
+                "id": 3,
+                "name": "Cabinet Construction",
+                "description": "Check cabinet frames/drawers for quality",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "N/A"
+                ],
+                "notes_enabled": false,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_CABINET_REPAIR"
+              },
+              {
+                "id": 4,
+                "name": "Countertops",
+                "description": "Check integrity of materials and installation",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Fair",
+                  "Poor"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": true,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": true,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+              }
+            ]
+          },
+          {
+            "name": "Bathroom",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 5,
+                "name": "Toilet Functionality",
+                "description": "Check flushing mechanism and for leaks",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_BOOLEAN",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [],
+                "attachments_enabled": false,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_TOILET_REPAIR_REPLACEMENT"
+              },
+              {
+                "id": 6,
+                "name": "Bathroom Fixtures",
+                "description": "Check condition of bathtub/shower",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "N/A"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Poor",
+                  "N/A"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": true,
+                "attachments_required_for_selected_options": [
+                  "Poor",
+                  "N/A"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_AC_NOT_COOLING"
+              }
+            ]
+          },
+          {
+            "name": "Living Room",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 7,
+                "name": "Walls/Doors",
+                "description": "Check repair difficulty for deterioration/damage",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_CHECKBOX",
+                "options": [
+                  "Good",
+                  "Fair",
+                  "Poor",
+                  "Require Professional"
+                ],
+                "notes_enabled": false,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Require Professional"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Require Professional"
+                ],
+                "can_create_work_order": false,
+                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 8,
+                "name": "Carpeting",
+                "description": "Check according to ADA standards",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_BOOLEAN",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "No"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "No"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+              }
+            ]
+          },
+          {
+            "name": "Spare Bedrooms",
+            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "sections": [
+              {
+                "name": "Bedrooms 2",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                "sections": [],
+                "fields": [
+                  {
+                    "id": 9,
+                    "name": "Rooms",
+                    "description": "Check if rooms are located away from building",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_BOOLEAN",
+                    "options": [
+                      "Yes",
+                      "No"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [
+                      "Yes"
+                    ],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [
+                      "Yes"
+                    ],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                  },
+                  {
+                    "id": 10,
+                    "name": "Ceiling Fans",
+                    "description": "Do fans reverse direction in winter?",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_BOOLEAN",
+                    "options": [
+                      "Yes",
+                      "No"
+                    ],
+                    "notes_enabled": false,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": [],
+                    "attachments_enabled": false,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": [],
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                  }
+                ]
+              }
+            ],
+            "fields": []
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-20T14:45:00Z"
+}

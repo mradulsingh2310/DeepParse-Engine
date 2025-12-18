@@ -7,7 +7,11 @@ Generates charts and graphs for evaluation results using matplotlib and plotly.
 from __future__ import annotations
 
 import math
+import sys
 from pathlib import Path
+
+# Add parent directory to path for direct script execution
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import matplotlib.pyplot as plt  # type: ignore[import-untyped]
 import numpy as np

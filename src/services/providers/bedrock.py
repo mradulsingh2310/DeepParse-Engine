@@ -23,110 +23,12 @@ from src.schemas.inspection import (
     WorkOrderSubCategory,
 )
 from src.utils.logger import log, log_usage
+from src.utils.prompts import VISION_EXTRACTION_PROMPT
 
 # Load environment variables from .env file
 load_dotenv()
 
 T = TypeVar("T", bound=BaseModel)
-
-
-EXTRACTION_PROMPT = """You are an inspection template parser. Given images of an inspection form, extract ONLY the inspection template structure (rooms/areas with their inspection fields).
-
-## CRITICAL: What to EXCLUDE (DO NOT extract these)
-- **Header information**: Project name, owner name, inspector name, date of inspection, inspection type, property address, unit number, or any metadata about the inspection itself
-- **Footer information**: Comments section, inspector's signature, tenant's signature, date fields, certification statements, any sign-off sections
-- **Non-inspection content**: Instructions, legends, form numbers, page numbers
-
-## CRITICAL: What to INCLUDE (ONLY extract these)
-- **Inspection sections**: Rooms/areas like Kitchen, Bathroom, Living Room, Bedroom, etc.
-- **Inspection fields**: Individual items to inspect within each section (e.g., "Stove/Range", "Refrigerator", "Sink", "Ceiling", "Walls", "Floor")
-- **Field options**: The rating options available for each field (e.g., "Pass", "Fail", "Inconclusive", "N/A")
-
-## CRITICAL: Acronym/Abbreviation Expansion
-IMPORTANT: Many inspection forms use acronyms or abbreviations with a legend/key explaining their meanings.
-1. **FIRST**: Search the ENTIRE document for any legend, key, or abbreviation table (often at top, bottom, or in headers)
-   - Look for patterns like: "G = Good", "P = Pass", "F = Fail", "Inc = Inconclusive", "NA = Not Applicable"
-   - Look for rating scales like: "1 = Poor, 2 = Fair, 3 = Good, 4 = Excellent"
-2. **THEN**: When extracting field options, ALWAYS use the FULL expanded name, NOT the acronym
-   - If legend says "G = Good", use "Good" in options, NOT "G"
-   - If legend says "Pass/Fail/Inc/NA", expand to ["Pass", "Fail", "Inconclusive", "Not Applicable"]
-   - If legend says "Y/N", expand to ["Yes", "No"]
-3. **Common abbreviations to expand**:
-   - G → Good, B -> Bad
-   - Y → Yes, N → No, NA/N/A → Not Applicable
-   - Inc → Inconclusive, Sat → Satisfactory, Unsat → Unsatisfactory
-   - OK → Okay/Acceptable, NI → Needs Improvement
-
-## Section Hierarchy Rules
-The template must follow a hierarchy using the `SectionDisplayType` enum values from the schema:
-
-**Available Display Types:**
-- **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root/parent section (contains child sections, NO fields directly)
-- **SECTION_DISPLAY_TYPE_ACCORDION**: Collapsible section for grouping related items (can contain FIELD_SETs or other sections)
-- **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing actual inspection fields (has fields, NO child sections)
-
-**Hierarchy Examples:**
-1. Root (UNSPECIFIED) → Accordions (ACCORDION) → Field Sets (FIELD_SET) with fields
-2. Root (UNSPECIFIED) → Sections (UNSPECIFIED) → Field Sets (FIELD_SET) with fields
-3. Root (UNSPECIFIED) → Field Sets (FIELD_SET) directly (for simple forms)
-
-**Key Rules:**
-- FIELD_SET is ALWAYS a leaf node - it contains fields and has NO child sections
-- FIELD_SET can be nested within any parent: root, accordion, or other sections
-- ACCORDIONs are for visually collapsible groups (like room categories)
-- Use UNSPECIFIED for intermediate grouping sections that aren't collapsible
-**IMPORTANT:** Use ONLY the display type values defined in the schema's `SectionDisplayType` enum. Do NOT use TAB - it is not a valid type.
-
-## Field Rating Types
-Choose rating types ONLY from the `RatingType` enum values in the schema:
-- Use CHECKBOX type for multi-select options (can select multiple)
-- Use RADIO type for single-select options (select exactly one) - USE THIS FOR MOST INSPECTION FIELDS
-- Use SELECT type for dropdown selection
-**IMPORTANT:** Never use UNSPECIFIED for rating_type. Pick the most appropriate type from the schema.
-
-## Field Extraction Rules
-- Generate sequential `id` starting from 1
-- Extract `name` from the field label in the document
-- Set `mandatory` to true for required fields
-- Extract `options` as list of FULLY EXPANDED choices (NOT acronyms)
-- Set `notes_enabled: true` if the field has a notes/comments area
-- Set `attachments_enabled: true` if photos/attachments are mentioned
-- **IMPORTANT:** For ALL enum fields, use ONLY values defined in the schema. Do not invent new values.
-
-## Work Order Configuration (IMPORTANT)
-Not every field needs a work order. Only set `can_create_work_order: true` for fields where maintenance work might be needed based on the inspection result.
-
-**Rules:**
-1. If `can_create_work_order` is FALSE → leave category/subcategory as UNSPECIFIED
-2. If `can_create_work_order` is TRUE → you MUST set appropriate category AND subcategory (NOT UNSPECIFIED)
-3. **CRITICAL:** You MUST use EXACTLY these enum values. Do NOT modify, shorten, or invent new values.
-4. Infer the most appropriate category from the field name and section context.
-
-**ALLOWED MaintenanceCategory values (use EXACTLY as written):**
-{maintenance_categories}
-
-**ALLOWED WorkOrderSubCategory values (use EXACTLY as written):**
-{work_order_subcategories}
-
-## Image Order
-- Images are provided in page order (image 1 = page 1, image 2 = page 2, etc.)
-- Preserve the exact order sections appear in the document
-
-## Output Format
-Output valid JSON matching this schema:
-{json_schema}
-
-Additional context (example template):
-{template_context}
-
-## CRITICAL OUTPUT RULES
-1. **NEVER truncate or abbreviate the output** - output the COMPLETE JSON for ALL fields and sections
-2. **NEVER use placeholders** like "...", "etc.", or similar abbreviations in the JSON output
-3. **Output valid JSON only** - ensure all brackets, quotes, and commas are properly formatted
-4. If the form has many fields, output ALL of them completely - do not skip or summarize
-
-REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
-"""
 
 
 def normalize_enum_values(obj: Any) -> Any:
@@ -195,6 +97,7 @@ class BedrockService:
                          uses first model from config or a default.
         """
         self.config = config or BedrockConfig()
+        self._model_config = model_config
         
         # Determine which model to use
         if model_config is not None:
@@ -206,6 +109,12 @@ class BedrockService:
             self.model_id = "qwen.qwen3-vl-235b-a22b"
         
         self._client = None
+    
+    def _get_max_tokens(self) -> int:
+        """Get max tokens, preferring per-model config over provider default."""
+        if self._model_config and self._model_config.max_tokens is not None:
+            return self._model_config.max_tokens
+        return self.config.max_tokens
     
     def _get_client(self):
         """Get or create the Bedrock client."""
@@ -260,7 +169,7 @@ class BedrockService:
         work_order_subcategories = [sub.value for sub in WorkOrderSubCategory]
         
         # Build the prompt
-        prompt = EXTRACTION_PROMPT.format(
+        prompt = VISION_EXTRACTION_PROMPT.format(
             json_schema=json.dumps(json_schema, indent=2),
             template_context=json.dumps(context, indent=2) if context else "N/A",
             maintenance_categories=json.dumps(maintenance_categories, indent=2),
@@ -290,7 +199,7 @@ class BedrockService:
                 modelId=self.model_id,
                 messages=[{"role": "user", "content": content}],
                 inferenceConfig={
-                    "maxTokens": self.config.max_tokens,
+                    "maxTokens": self._get_max_tokens(),
                 }
             )
         except ClientError as e:

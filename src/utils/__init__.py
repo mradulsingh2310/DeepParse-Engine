@@ -16,6 +16,11 @@ from .logger import (
     UsageTracker,
     UsageRecord,
 )
+from .prompts import (
+    VISION_EXTRACTION_PROMPT,
+    OCR_EXTRACTION_PROMPT,
+    EXTRACTION_PROMPT,
+)
 
 __all__ = [
     # PDF utilities
@@ -30,4 +35,8 @@ __all__ = [
     "reset_tracker",
     "UsageTracker",
     "UsageRecord",
+    # Prompts
+    "VISION_EXTRACTION_PROMPT",
+    "OCR_EXTRACTION_PROMPT",
+    "EXTRACTION_PROMPT",
 ]

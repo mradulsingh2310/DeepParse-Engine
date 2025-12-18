@@ -10,16 +10,16 @@ providers:
     region: "us-east-1"
     timeout: 1200  # 20 minutes for vision models
     retries: 2
-    max_tokens: 200000  # Must be < 262144 (Qwen model limit)
+    max_tokens: 8192  # Default fallback for models without per-model config
     models:
-      - model_id: "qwen.qwen3-vl-235b-a22b"
-      - model_id: "amazon.nova-pro-v1:0"
-      - model_id: "google.gemma-3-27b-it"
-      - model_id: "mistral.mistral-large-3-675b-instruct"
-      - model_id: "mistral.pixtral-large-2502-v1:0"
-      - model_id: "nvidia.nemotron-nano-12b-v2"
-      - model_id: "stability.stable-image-control-structure-v1:0"
-      - model_id: "stability.sd3-5-large-v1:0"
+      # - model_id: "qwen.qwen3-vl-235b-a22b"
+      #   max_tokens: 10000  # Limit: 262,144
+      # - model_id: "amazon.nova-pro-v1:0"
+      #   max_tokens: 8000  # Limit: 10,000
+      # - model_id: "google.gemma-3-27b-it"
+      #   max_tokens: 8192
+      # - model_id: "nvidia.nemotron-nano-12b-v2"
+      #   max_tokens: 8192
 
   deepseek:
     # OCR step settings
@@ -31,21 +31,22 @@ providers:
 
     # Model configurations (model_id = OCR model, supporting_model_id = JSON extraction model)
     models:
-      - model_id: "deepseek-ocr"
-        supporting_model_id: "gpt-5.1"
+      # - model_id: "deepseek-ocr"
+      #   supporting_model_id: "gpt-5.1"
 
   google:
     timeout: 300
     max_output_tokens: 65536
     thinking_level: "low"  # minimal, low, medium, high
     models:
-      - model_id: "gemini-3-flash-preview"
+      # - model_id: "gemini-3-flash-preview"
+      - model_id: "gemini-live-2.5-flash"
 
   anthropic:
     timeout: 300
     max_tokens: 8192
     models:
-      - model_id: "claude-haiku-4-5-20251001"
+      - model_id: "claude-sonnet-4-5-20250929"
 
 # Output settings
 output:

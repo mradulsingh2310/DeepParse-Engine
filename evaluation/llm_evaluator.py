@@ -110,7 +110,7 @@ class LLMEvaluator:
     
     def __init__(
         self,
-        model_id: str = "anthropic.claude-3-sonnet-20240229-v1:0",
+        model_id: str = "moonshot.kimi-k2-thinking",
         region: str = "us-east-1",
         timeout: int = 300,
     ):

@@ -17,6 +17,7 @@ class ModelConfig(BaseModel):
     """Configuration for a single model."""
     model_id: str
     supporting_model_id: str | None = None  # Used by deepseek for JSON extraction model
+    max_tokens: int | None = None  # Per-model max tokens (overrides provider default)
 
 
 class BedrockConfig(BaseModel):
@@ -24,7 +25,7 @@ class BedrockConfig(BaseModel):
     region: str = "us-east-1"
     timeout: int = 1200
     retries: int = 2
-    max_tokens: int = 200000  # Maximum output tokens (must be < 262144 for Qwen models)
+    max_tokens: int = 10000
     models: list[ModelConfig] = Field(default_factory=list)
 
 
