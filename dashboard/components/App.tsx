@@ -21,6 +21,7 @@ export function App() {
     chartData,
     loading,
     error,
+    isAggregated,
     refetch,
     selectSource,
   } = useEvaluationData();
@@ -71,7 +72,9 @@ export function App() {
   }, []);
 
   // Get source file name for display
-  const sourceName = selectedCache?.source_file
+  const sourceName = isAggregated
+    ? "All Files"
+    : selectedCache?.source_file
     ? selectedCache.source_file.split("/").pop()?.replace(".json", "")
     : null;
 
@@ -137,7 +140,7 @@ export function App() {
 
       {/* Main Content */}
       <main className="main">
-        {loading && !selectedCache ? (
+        {loading && chartData.length === 0 ? (
           <div className="loading-state">
             <div className="spinner" />
             <p>Loading evaluation data...</p>
@@ -159,24 +162,25 @@ export function App() {
         ) : (
           <>
             {/* Source Selector */}
-            {summaries.length > 1 && (
-              <div className="source-selector">
-                <label>Source File:</label>
-                <select
-                  value={selectedCache?.source_file || ""}
-                  onChange={(e) => selectSource(e.target.value)}
-                >
-                  {summaries.map((s) => {
-                    const fileName = s.source_file.split("/").pop()?.replace(".json", "") ?? s.source_file;
-                    return (
-                      <option key={s.source_file} value={s.source_file}>
-                        {fileName} ({s.model_count} models)
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-            )}
+            <div className="source-selector">
+              <label>Source File:</label>
+              <select
+                value={isAggregated ? "all" : selectedCache?.source_file || ""}
+                onChange={(e) => selectSource(e.target.value)}
+              >
+                <option value="all">
+                  All Files ({summaries.reduce((sum, s) => sum + s.model_count, 0)} models)
+                </option>
+                {summaries.map((s) => {
+                  const fileName = s.source_file.split("/").pop()?.replace(".json", "") ?? s.source_file;
+                  return (
+                    <option key={s.source_file} value={s.source_file}>
+                      {fileName} ({s.model_count} models)
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
 
             {/* Stats Summary */}
             <section className="stats-grid">
@@ -235,7 +239,14 @@ export function App() {
 
                   <div className="chart-card" style={{ "--delay": "3" } as React.CSSProperties}>
                     <h3>Score Trends Over Time</h3>
-                    <TrendChart cache={selectedCache} pricing={pricingLookup} />
+                    {isAggregated ? (
+                      <div className="chart-empty">
+                        <p>Trend data available for individual files</p>
+                        <span>Select a specific file to view score trends over time</span>
+                      </div>
+                    ) : (
+                      <TrendChart cache={selectedCache} pricing={pricingLookup} />
+                    )}
                   </div>
                 </>
               )}
@@ -332,7 +343,9 @@ export function App() {
       <footer className="footer">
         <p>
           OCR-AI Evaluation Dashboard • Last updated:{" "}
-          {selectedCache?.last_updated
+          {isAggregated && summaries.length > 0
+            ? new Date(Math.max(...summaries.map(s => new Date(s.last_updated).getTime()))).toLocaleString()
+            : selectedCache?.last_updated
             ? new Date(selectedCache.last_updated).toLocaleString()
             : "—"}
         </p>
