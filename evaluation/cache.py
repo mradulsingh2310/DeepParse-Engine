@@ -260,6 +260,7 @@ def update_cache_with_results(
     evaluations: list[EvaluationResult],
     source_file: str | Path,
     cache_dir: str | Path = "evaluation_results",
+    usage_data: dict[str, dict] | None = None,
 ) -> EvaluationCache:
     """
     Update cache with new evaluation results.
@@ -268,14 +269,24 @@ def update_cache_with_results(
         evaluations: List of new evaluation results
         source_file: Path to source of truth file
         cache_dir: Directory for cache files
+        usage_data: Optional dict mapping "{provider}:{model_id}" to usage info
+                    with keys "cost", "input_tokens", "output_tokens"
         
     Returns:
         Updated cache
     """
     cache = load_cache(source_file, cache_dir)
+    usage_data = usage_data or {}
     
     for result in evaluations:
-        cache.add_evaluation(result)
+        model_key = f"{result.metadata.provider}:{result.metadata.model_id}"
+        model_usage = usage_data.get(model_key, {})
+        cache.add_evaluation(
+            result,
+            cost=float(model_usage.get("cost", 0.0)),
+            input_tokens=int(model_usage.get("input_tokens", 0)),
+            output_tokens=int(model_usage.get("output_tokens", 0)),
+        )
     
     save_cache(cache, cache_dir)
     return cache

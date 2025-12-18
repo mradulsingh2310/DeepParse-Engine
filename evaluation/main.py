@@ -38,6 +38,7 @@ from evaluation.report import (
     generate_html_report,
 )
 from evaluation.cache import update_cache_with_results
+from evaluation.runner import extract_usage_from_metadata
 
 from src.config.loader import load_config
 from src.utils.logger import log
@@ -247,8 +248,9 @@ def run_evaluation_for_source(
     for f in model_files:
         log(f"  - {f.relative_to(OUTPUT_DIR)}")
     
-    # Run evaluations
+    # Run evaluations and collect usage data
     evaluations = []
+    usage_data: dict[str, dict] = {}
     
     for model_path in model_files:
         try:
@@ -257,6 +259,13 @@ def run_evaluation_for_source(
                 model_path=model_path,
             )
             evaluations.append(result)
+            
+            # Extract usage data from the model output file
+            model_json = load_json_file(model_path)
+            model_key = f"{result.metadata.provider}:{result.metadata.model_id}"
+            model_usage = extract_usage_from_metadata(model_json)
+            usage_data[model_key] = model_usage
+            
         except Exception as e:
             log(f"Error evaluating {model_path}: {e}")
             import traceback
@@ -293,8 +302,8 @@ def run_evaluation_for_source(
     generate_html_report(report, html_path, chart_paths)
     log(f"HTML report saved: {html_path}")
     
-    # Update cache
-    update_cache_with_results(evaluations, source_path, RESULTS_DIR)
+    # Update cache with usage data from model output files
+    update_cache_with_results(evaluations, source_path, RESULTS_DIR, usage_data)
     cache_path = RESULTS_DIR / f"cache_{source_stem}.json"
     log(f"Cache updated: {cache_path}")
     

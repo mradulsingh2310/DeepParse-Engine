@@ -71,6 +71,24 @@ def extract_metadata(json_data: dict, file_path: Path) -> ModelMetadata:
     )
 
 
+def extract_usage_from_metadata(json_data: dict) -> UsageData:
+    """
+    Extract usage data (cost, tokens) from JSON _metadata.
+    
+    Args:
+        json_data: The model output JSON containing _metadata
+        
+    Returns:
+        UsageData dict with cost, input_tokens, output_tokens
+    """
+    metadata = json_data.get("_metadata", {})
+    return {
+        "cost": metadata.get("cost_usd", 0.0),
+        "input_tokens": metadata.get("input_tokens", 0),
+        "output_tokens": metadata.get("output_tokens", 0),
+    }
+
+
 def evaluate_model_output(
     source_path: Path,
     model_path: Path,
@@ -156,7 +174,8 @@ def run_evaluation_for_outputs(
         model_output_paths: List of model output JSON files
         source_of_truth_dir: Directory containing source of truth files
         cache_dir: Directory for cache files
-        usage_data: Optional dict mapping "{provider}:{model_id}" to UsageData
+        usage_data: Optional dict mapping "{provider}:{model_id}" to UsageData.
+                    If not provided, usage will be read from each file's _metadata.
         quiet: If True, suppress detailed output
 
     Returns:
@@ -200,9 +219,15 @@ def run_evaluation_for_outputs(
             try:
                 result = evaluate_model_output(source_path, output_path)
 
-                # Get usage data for this model
+                # Get usage data for this model - first try passed usage_data,
+                # then fall back to reading from the output file's _metadata
                 model_key = f"{result.metadata.provider}:{result.metadata.model_id}"
-                model_usage = usage_data.get(model_key, {})
+                model_usage = usage_data.get(model_key)
+
+                if not model_usage:
+                    # Read usage from the output file's _metadata
+                    model_json = load_json_file(output_path)
+                    model_usage = extract_usage_from_metadata(model_json)
 
                 # Add evaluation with usage data
                 cache.add_evaluation(
