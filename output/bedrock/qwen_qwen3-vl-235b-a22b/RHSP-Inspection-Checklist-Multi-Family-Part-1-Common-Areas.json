@@ -1,0 +1,626 @@
+{
+  "id": 0,
+  "name": "Rental Housing Safety Program Inspection Checklist",
+  "description": null,
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Rental Housing Safety Program Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Exterior Site Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 1,
+                "name": "Address",
+                "description": "Units shall have the house or unit number clearly displayed on the front or side facing the street. Numbers shall be not less than 4\" in height and minimum stroke width of 0.5\".",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 2,
+                "name": "Exterior Site",
+                "description": "Exterior property areas and premises shall be maintained in a clean, safe, and sanitary condition. All areas shall be free from garbage, debris, or conditions that would endanger the health and safety of the residents.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 3,
+                "name": "Motor Vehicles",
+                "description": "Property remains free of inoperable or apparently inoperable vehicles.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 4,
+                "name": "Exhaust Vents",
+                "description": "Pipes, ducts, conductors, fans or blowers shall not discharge gases, steam, vapor, hot air, grease, smoke, odors or other gaseous or particulate wastes directly upon abutting or adjacent public/private property or that of another tenant(s).",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 5,
+                "name": "Accessory Structures",
+                "description": "Accessory structures, including detached garages, fences and walls, shall be maintained structurally sound and in good repair.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 6,
+                "name": "Defacement of Property",
+                "description": "Property remains free of graffiti or other markings.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PAINTING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 7,
+                "name": "Grounds Maintenance",
+                "description": "Property and surrounding landscape properly maintained and kept free of noxious weeds and overgrown vegetation.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 8,
+                "name": "Exterior Walkways",
+                "description": "Walkways are free of excessively cracked or crumbly concrete, or other condition(s) that cause the walkway to be unsafe for tenant(s) use. Cracks larger than 3/8\" in height differential of slopes listing more than 2% are considered unsafe.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 9,
+                "name": "Driveway/Parking",
+                "description": "All driveways and parking spaces are maintained in good repair and are free from hazards.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 10,
+                "name": "Drainage",
+                "description": "The property is free of improper drainage causing excessive pooling or ponding. Drainage is maintained so as not to cause soil saturation detrimental to structures and lot usage.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 11,
+                "name": "Garbage Disposal",
+                "description": "Property has adequate refuse removal for tenant(s). Garbage or rubbish shall not accumulate outside of trash receptacles.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CLEANING",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 12,
+                "name": "Rodents, Vermin or Insects",
+                "description": "The property is free of infestation of rodents, vermin, insects, or other pests.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Exterior Building Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 13,
+                "name": "Exterior Surfaces",
+                "description": "Exterior surfaces (other than decay-resistant woods) are protected from the elements and decay by means of protective covering or treatment. Exterior surfaces are maintained in good repair, and are structurally sound and water tight.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 14,
+                "name": "Foundation",
+                "description": "Foundation is structurally sound, free of open cracks and breaks, is firmly supported and plumb, and is kept in a condition that prevents entry by rodents or other pests.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 15,
+                "name": "Structural Components/Members",
+                "description": "Structural components/members are structurally sound, free of deterioration, are properly anchored, and are capable of safely supporting imposed live and dead loads.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 16,
+                "name": "Exterior Walls",
+                "description": "Exterior walls are maintained in a safe and sound condition, protected from deterioration, are weatherproof and water tight, and are free of holes, breaks, and loose or rotting materials.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 17,
+                "name": "Roofs and Drainage",
+                "description": "The roof and flashing is sound, water tight, and does not have defects that admit rain. Roof drainage is adequate to prevent dampness or deterioration in the walls or interior portion of the structure. Roof drains, gutters, and downspouts are maintained in good repair. Roof water is not to be discharged in a manner that creates a public nuisance.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 18,
+                "name": "Decorative Features & Overhang Extensions",
+                "description": "Decorative features and overhangs are maintained and in good repair with proper anchorage and in safe condition.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 19,
+                "name": "Windows and Skylights",
+                "description": "Every window and skylight is in sound condition, good repair and weather tight. Openable windows are easily openable and capable of being held in position by widow hardware. All glazing is free of cracks or holes. Every openable basement window shall be protected against entry of rodents. Note: If unmodified, glazing shall be in conformance with installation and location standards in place at the time of construction.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 20,
+                "name": "Doors",
+                "description": "Every door is in sound condition, good repair and weather tight. Glazing in doors shall be free of cracks or holes. Doors with locks are easily operable and secure the door tightly. Doors providing access/egress to a dwelling unit are equipped with a deadbolt lock designed to be readily openable from the side from which egress is to be made without need for keys, special knowledge or effort, except where the door hardware conforms to that permitted by the International Building Code. Note: If unmodified, glazing shall be in conformance with installation and location standards in place at the time of construction.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 21,
+                "name": "Stairs and Decks",
+                "description": "Every exterior stairway, deck, porch, balcony, and all appurtenances attached thereto, are maintained structurally sound, in good repair, with proper anchorage, and capable of supporting the imposed loads. Components are complete and adequately protected from decay.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 22,
+                "name": "Handrails and Guards",
+                "description": "Every exterior handrail and guard is firmly fastened and capable of supporting normally imposed loads and is maintained in good condition. Components are complete and adequately protected from decay. Every stair that has more than four risers shall have a handrail on one side of the stair and every portion of stair, landing, balcony, porch, deck, ramp or other walking surface that in more than 30\"above the floor or grade shall have guards. Rails and guards shall comply with the code in place at time of construction. Note: If modified, rails and guards shall comply with typical standards: Rails- 34-38\" in height measured vertically above the nosing of the tread or finished floor of the landing or walking surface; Guards- not less than 42\" in height measured above the floor or walking surface.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              },
+              {
+                "id": 23,
+                "name": "Chimney",
+                "description": "Chimneys or similar appurtenances are maintained structurally safe and sound, and in good repair.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail",
+                  "Not Present"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          },
+          {
+            "name": "Means of Egress",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 24,
+                "name": "Egress",
+                "description": "A safe, continuous an unobstructed path of travel is provided from any point in building or structure to the public way. Means of egress shall comply with the International Fire Code. Aisles shall comply with the International Fire Code and shall be unobstructed.",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ],
+                "notes_enabled": true,
+                "notes_required_for_all_options": false,
+                "notes_required_for_selected_options": [
+                  "Fail"
+                ],
+                "attachments_enabled": true,
+                "attachments_required_for_all_options": false,
+                "attachments_required_for_selected_options": [
+                  "Fail"
+                ],
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+              }
+            ]
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null,
+  "_metadata": {
+    "provider": "bedrock",
+    "model_id": "qwen.qwen3-vl-235b-a22b",
+    "supporting_model_id": null,
+    "input_tokens": 35616,
+    "output_tokens": 14000,
+    "cost_usd": 0.013970880000000001
+  }
+}
