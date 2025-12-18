@@ -37,6 +37,10 @@ from evaluation.report import (
     generate_console_report,
     generate_html_report,
 )
+from evaluation.cache import (
+    load_cache,
+    update_cache_with_results,
+)
 
 from src.utils.logger import log
 
@@ -288,6 +292,18 @@ Examples:
         help="Suppress detailed output"
     )
     
+    parser.add_argument(
+        "--show-cache",
+        action="store_true",
+        help="Show cached results summary and exit"
+    )
+    
+    parser.add_argument(
+        "--clear-cache",
+        action="store_true",
+        help="Clear cache for this source file before running"
+    )
+    
     args = parser.parse_args()
     
     # Validate arguments
@@ -298,6 +314,19 @@ Examples:
     if args.model and not args.model.exists():
         print(f"Error: Model file not found: {args.model}")
         sys.exit(1)
+    
+    # Handle show-cache flag
+    if args.show_cache:
+        cache = load_cache(args.source, args.output_dir)
+        print(cache.print_summary())
+        sys.exit(0)
+    
+    # Handle clear-cache flag
+    if args.clear_cache:
+        cache_path = args.output_dir / f"cache_{args.source.stem}.json"
+        if cache_path.exists():
+            cache_path.unlink()
+            print(f"Cache cleared: {cache_path}")
     
     if not args.model and not args.compare_all:
         print("Error: Specify either --model or --compare-all")
@@ -370,6 +399,12 @@ Examples:
         html_path = args.output_dir / f"report_{timestamp}.html"
         generate_html_report(report, html_path, chart_paths)
         print(f"HTML report saved: {html_path}")
+    
+    # Update cache with new results
+    cache = update_cache_with_results(evaluations, args.source, args.output_dir)
+    cache_path = args.output_dir / f"cache_{args.source.stem}.json"
+    print(f"\nCache updated: {cache_path}")
+    print(cache.print_summary())
 
 
 if __name__ == "__main__":

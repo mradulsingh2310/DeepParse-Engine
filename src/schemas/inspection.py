@@ -170,3 +170,22 @@ class InspectionTemplate(BaseModel):
 
 # Rebuild for forward references
 Section.model_rebuild()
+
+
+def validate_template_lenient(data: dict) -> dict:
+    """
+    Validate template data leniently, allowing extra fields.
+    
+    This is used for LLM outputs that may include additional metadata.
+    Returns the validated data dict (not a Pydantic model).
+    """
+    # Remove any metadata fields before validation
+    clean_data = {k: v for k, v in data.items() if not k.startswith("_")}
+    
+    try:
+        # Try strict validation first
+        template = InspectionTemplate.model_validate(clean_data)
+        return template.model_dump()
+    except Exception as e:
+        log(f"Strict validation failed, returning raw data: {e}")
+        return clean_data

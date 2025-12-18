@@ -24,7 +24,7 @@ class BedrockConfig(BaseModel):
     region: str = "us-east-1"
     timeout: int = 1200
     retries: int = 2
-    max_tokens: int = 100000  # Maximum output tokens to prevent truncation
+    max_tokens: int = 200000  # Maximum output tokens (must be < 262144 for Qwen models)
     models: list[ModelConfig] = Field(default_factory=list)
 
 
@@ -33,11 +33,26 @@ class DeepseekConfig(BaseModel):
     # OCR settings
     ocr_timeout: int = 300
     use_grounding: bool = False
-    
+
     # JSON extraction settings
     json_temperature: float = 0.0
-    
+
     # Model configurations
+    models: list[ModelConfig] = Field(default_factory=list)
+
+
+class GoogleConfig(BaseModel):
+    """Configuration for Google AI provider (Gemini models)."""
+    timeout: int = 300
+    max_output_tokens: int = 65536
+    thinking_level: str = "low"  # minimal, low, medium, high
+    models: list[ModelConfig] = Field(default_factory=list)
+
+
+class AnthropicConfig(BaseModel):
+    """Configuration for Anthropic provider (Claude models)."""
+    timeout: int = 300
+    max_tokens: int = 8192
     models: list[ModelConfig] = Field(default_factory=list)
 
 
@@ -52,6 +67,8 @@ class ProviderConfig(BaseModel):
     """Container for all provider configurations."""
     bedrock: BedrockConfig = Field(default_factory=BedrockConfig)
     deepseek: DeepseekConfig = Field(default_factory=DeepseekConfig)
+    google: GoogleConfig = Field(default_factory=GoogleConfig)
+    anthropic: AnthropicConfig = Field(default_factory=AnthropicConfig)
 
 
 class AppConfig(BaseModel):
@@ -113,10 +130,22 @@ def load_config(config_path: str | Path | None = None) -> AppConfig:
     deepseek_data = providers_data.get("deepseek", {})
     deepseek_models = _parse_models(deepseek_data.pop("models", None))
     deepseek = DeepseekConfig(**deepseek_data, models=deepseek_models)
-    
+
+    # Parse google config
+    google_data = providers_data.get("google", {})
+    google_models = _parse_models(google_data.pop("models", None))
+    google = GoogleConfig(**google_data, models=google_models)
+
+    # Parse anthropic config
+    anthropic_data = providers_data.get("anthropic", {})
+    anthropic_models = _parse_models(anthropic_data.pop("models", None))
+    anthropic = AnthropicConfig(**anthropic_data, models=anthropic_models)
+
     providers = ProviderConfig(
         bedrock=bedrock,
         deepseek=deepseek,
+        google=google,
+        anthropic=anthropic,
     )
     
     # Parse output config

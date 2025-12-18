@@ -9,7 +9,7 @@ from src.config import Provider, get_config
 from src.config.loader import AppConfig, ModelConfig
 
 from .base import JsonExtractionService
-from .providers import BedrockService, DeepseekService
+from .providers import AnthropicService, BedrockService, DeepseekService, GoogleService
 
 
 def get_service(
@@ -51,6 +51,16 @@ def get_service(
         case Provider.DEEPSEEK:
             return DeepseekService(
                 config=config.providers.deepseek,
+                model_config=model_config,
+            )
+        case Provider.GOOGLE:
+            return GoogleService(
+                config=config.providers.google,
+                model_config=model_config,
+            )
+        case Provider.ANTHROPIC:
+            return AnthropicService(
+                config=config.providers.anthropic,
                 model_config=model_config,
             )
         case _:

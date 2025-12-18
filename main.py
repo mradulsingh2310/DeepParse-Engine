@@ -14,6 +14,9 @@ from src.services import get_service
 from src.schemas import InspectionTemplate
 from src.utils import pdf_to_images, log, get_tracker, reset_tracker
 
+# Evaluation imports
+from evaluation.runner import run_post_extraction_evaluation
+
 
 def load_template(template_path: str | Path) -> dict:
     """Load a JSON template from file."""
@@ -263,6 +266,14 @@ def main():
     log("Benchmark Complete")
     log("=" * 70)
     get_tracker().print_summary()
+    
+    # Run automatic evaluation
+    run_post_extraction_evaluation(
+        output_dir=output_dir,
+        source_of_truth_dir=output_dir / "source_of_truth",
+        cache_dir=Path("evaluation_results"),
+        quiet=False,
+    )
 
 
 if __name__ == "__main__":

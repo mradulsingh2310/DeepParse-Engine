@@ -12,6 +12,8 @@ class Provider(str, Enum):
     """Available extraction providers."""
     BEDROCK = "bedrock"
     DEEPSEEK = "deepseek"
+    GOOGLE = "google"
+    ANTHROPIC = "anthropic"
 
 
 class BedrockModel(str, Enum):
