@@ -6,7 +6,7 @@ interface LeaderboardProps {
   cache: EvaluationCache | null;
 }
 
-type SortKey = "rank" | "name" | "provider" | "overall" | "schema" | "structure" | "semantic" | "config" | "runCount";
+type SortKey = "rank" | "name" | "provider" | "overall" | "schema" | "structure" | "semantic" | "config" | "runCount" | "totalCost";
 type SortDirection = "asc" | "desc";
 
 function getScoreClass(score: number): string {
@@ -83,31 +83,84 @@ export function Leaderboard({ data, cache }: LeaderboardProps) {
         <thead>
           <tr>
             <th onClick={() => handleSort("rank")} className="sortable">
-              # {getSortIcon("rank")}
+              <span className="th-content">
+                <span>#</span>
+                <span className={`sort-icon ${sortKey === "rank" ? "active" : ""}`}>
+                  {getSortIcon("rank")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("name")} className="sortable">
-              Model {getSortIcon("name")}
+              <span className="th-content">
+                <span>Model</span>
+                <span className={`sort-icon ${sortKey === "name" ? "active" : ""}`}>
+                  {getSortIcon("name")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("provider")} className="sortable">
-              Provider {getSortIcon("provider")}
+              <span className="th-content">
+                <span>Provider</span>
+                <span className={`sort-icon ${sortKey === "provider" ? "active" : ""}`}>
+                  {getSortIcon("provider")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("schema")} className="sortable">
-              Schema {getSortIcon("schema")}
+              <span className="th-content">
+                <span>Schema</span>
+                <span className={`sort-icon ${sortKey === "schema" ? "active" : ""}`}>
+                  {getSortIcon("schema")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("structure")} className="sortable">
-              Structure {getSortIcon("structure")}
+              <span className="th-content">
+                <span>Structure</span>
+                <span className={`sort-icon ${sortKey === "structure" ? "active" : ""}`}>
+                  {getSortIcon("structure")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("semantic")} className="sortable">
-              Semantic {getSortIcon("semantic")}
+              <span className="th-content">
+                <span>Semantic</span>
+                <span className={`sort-icon ${sortKey === "semantic" ? "active" : ""}`}>
+                  {getSortIcon("semantic")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("config")} className="sortable">
-              Config {getSortIcon("config")}
+              <span className="th-content">
+                <span>Config</span>
+                <span className={`sort-icon ${sortKey === "config" ? "active" : ""}`}>
+                  {getSortIcon("config")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("overall")} className="sortable overall-col">
-              Overall {getSortIcon("overall")}
+              <span className="th-content">
+                <span>Overall</span>
+                <span className={`sort-icon ${sortKey === "overall" ? "active" : ""}`}>
+                  {getSortIcon("overall")}
+                </span>
+              </span>
             </th>
             <th onClick={() => handleSort("runCount")} className="sortable">
-              Runs {getSortIcon("runCount")}
+              <span className="th-content">
+                <span>Runs</span>
+                <span className={`sort-icon ${sortKey === "runCount" ? "active" : ""}`}>
+                  {getSortIcon("runCount")}
+                </span>
+              </span>
+            </th>
+            <th onClick={() => handleSort("totalCost")} className="sortable">
+              <span className="th-content">
+                <span>Cost</span>
+                <span className={`sort-icon ${sortKey === "totalCost" ? "active" : ""}`}>
+                  {getSortIcon("totalCost")}
+                </span>
+              </span>
             </th>
           </tr>
         </thead>
@@ -144,10 +197,13 @@ export function Leaderboard({ data, cache }: LeaderboardProps) {
                     <strong>{model.overall}%</strong>
                   </td>
                   <td className="runs-cell">{model.runCount}</td>
+                  <td className="cost-cell">
+                    {model.totalCost > 0 ? `$${model.totalCost.toFixed(4)}` : "—"}
+                  </td>
                 </tr>
                 {isExpanded && details && (
                   <tr className="details-row">
-                    <td colSpan={9}>
+                    <td colSpan={10}>
                       <div className="model-details">
                         <div className="detail-grid">
                           <div className="detail-item">
@@ -178,6 +234,36 @@ export function Leaderboard({ data, cache }: LeaderboardProps) {
                                 : "—"}
                             </span>
                           </div>
+                          <div className="detail-item">
+                            <span className="detail-label">Total Cost</span>
+                            <span className="detail-value">
+                              {details.total_cost > 0 ? `$${details.total_cost.toFixed(4)}` : "—"}
+                            </span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="detail-label">Avg Cost/Run</span>
+                            <span className="detail-value">
+                              {details.total_cost > 0 && details.run_count > 0
+                                ? `$${(details.total_cost / details.run_count).toFixed(4)}`
+                                : "—"}
+                            </span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="detail-label">Input Tokens</span>
+                            <span className="detail-value">
+                              {details.total_input_tokens > 0
+                                ? details.total_input_tokens.toLocaleString()
+                                : "—"}
+                            </span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="detail-label">Output Tokens</span>
+                            <span className="detail-value">
+                              {details.total_output_tokens > 0
+                                ? details.total_output_tokens.toLocaleString()
+                                : "—"}
+                            </span>
+                          </div>
                         </div>
                         {details.run_history.length > 0 && (
                           <div className="run-history">
@@ -191,6 +277,11 @@ export function Leaderboard({ data, cache }: LeaderboardProps) {
                                   <span className={`history-score ${getScoreClass(run.overall_score * 100)}`}>
                                     {Math.round(run.overall_score * 100)}%
                                   </span>
+                                  {run.cost !== undefined && run.cost > 0 && (
+                                    <span className="history-cost">
+                                      ${run.cost.toFixed(4)}
+                                    </span>
+                                  )}
                                 </div>
                               ))}
                             </div>

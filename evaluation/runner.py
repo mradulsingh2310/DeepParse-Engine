@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import time
 from pathlib import Path
+from typing import TypedDict
 
 from evaluation.models import (
     EvaluationResult,
@@ -25,11 +26,19 @@ from evaluation.scorer import (
     calculate_aggregate_scores,
 )
 from evaluation.cache import (
-    update_cache_with_results,
+    load_cache,
+    save_cache,
     EvaluationCache,
 )
 
 from src.utils.logger import log
+
+
+class UsageData(TypedDict):
+    """Usage data for a single model run."""
+    cost: float
+    input_tokens: int
+    output_tokens: int
 
 
 def extract_metadata(json_data: dict, file_path: Path) -> ModelMetadata:
@@ -137,31 +146,35 @@ def run_evaluation_for_outputs(
     model_output_paths: list[Path],
     source_of_truth_dir: Path,
     cache_dir: Path,
+    usage_data: dict[str, UsageData] | None = None,
     quiet: bool = False,
 ) -> dict[str, EvaluationCache]:
     """
     Run evaluation for multiple model outputs and update caches.
-    
+
     Args:
         model_output_paths: List of model output JSON files
         source_of_truth_dir: Directory containing source of truth files
         cache_dir: Directory for cache files
+        usage_data: Optional dict mapping "{provider}:{model_id}" to UsageData
         quiet: If True, suppress detailed output
-        
+
     Returns:
         Dictionary mapping source files to their updated caches
     """
+    usage_data = usage_data or {}
+
     # Group outputs by their source of truth
     outputs_by_source: dict[str, list[Path]] = {}
-    
+
     for output_path in model_output_paths:
         # Extract PDF stem from output path
         # Output structure: output/{provider}/{model}/{pdf_stem}.json
         pdf_stem = output_path.stem
-        
+
         # Find corresponding source of truth
         source_path = find_source_of_truth(pdf_stem, source_of_truth_dir)
-        
+
         if source_path:
             key = str(source_path)
             if key not in outputs_by_source:
@@ -169,39 +182,51 @@ def run_evaluation_for_outputs(
             outputs_by_source[key].append(output_path)
         elif not quiet:
             log(f"Warning: No source of truth found for {output_path.name}")
-    
+
     # Process each source of truth
     caches: dict[str, EvaluationCache] = {}
-    
+
     for source_path_str, output_paths in outputs_by_source.items():
         source_path = Path(source_path_str)
-        
+
         if not quiet:
             log(f"\nEvaluating against: {source_path.name}")
             log(f"  Model outputs: {len(output_paths)}")
-        
-        evaluations: list[EvaluationResult] = []
-        
+
+        # Load existing cache
+        cache = load_cache(source_path, cache_dir)
+
         for output_path in output_paths:
             try:
                 result = evaluate_model_output(source_path, output_path)
-                evaluations.append(result)
-                
+
+                # Get usage data for this model
+                model_key = f"{result.metadata.provider}:{result.metadata.model_id}"
+                model_usage = usage_data.get(model_key, {})
+
+                # Add evaluation with usage data
+                cache.add_evaluation(
+                    result,
+                    cost=model_usage.get("cost", 0.0),
+                    input_tokens=model_usage.get("input_tokens", 0),
+                    output_tokens=model_usage.get("output_tokens", 0),
+                )
+
+                cost_str = f" (${model_usage.get('cost', 0):.4f})" if model_usage.get("cost", 0) > 0 else ""
                 if not quiet:
                     log(f"  [{result.metadata.provider}] {result.metadata.model_id}: "
-                        f"{result.scores.overall_score*100:.1f}%")
+                        f"{result.scores.overall_score*100:.1f}%{cost_str}")
             except Exception as e:
                 if not quiet:
                     log(f"  Error evaluating {output_path.name}: {e}")
-        
-        if evaluations:
-            # Update cache with new results
-            cache = update_cache_with_results(evaluations, source_path, cache_dir)
-            caches[source_path_str] = cache
-            
-            if not quiet:
-                log(f"\n  Cache updated: {len(cache.models)} models tracked")
-    
+
+        # Save updated cache
+        save_cache(cache, cache_dir)
+        caches[source_path_str] = cache
+
+        if not quiet:
+            log(f"\n  Cache updated: {len(cache.models)} models tracked")
+
     return caches
 
 
@@ -209,19 +234,22 @@ def run_post_extraction_evaluation(
     output_dir: Path,
     source_of_truth_dir: Path | None = None,
     cache_dir: Path | None = None,
+    usage_data: dict[str, UsageData] | None = None,
     quiet: bool = False,
 ) -> None:
     """
     Run evaluation automatically after PDF extraction.
-    
+
     This is the main entry point called from main.py.
-    
+
     Args:
         output_dir: Directory containing model outputs
         source_of_truth_dir: Directory containing source of truth files
                             (defaults to output/source_of_truth)
         cache_dir: Directory for evaluation cache files
                    (defaults to evaluation_results)
+        usage_data: Optional dict mapping "{provider}:{model_id}" to UsageData
+                    containing cost and token information
         quiet: If True, suppress output
     """
     if source_of_truth_dir is None:
@@ -280,6 +308,7 @@ def run_post_extraction_evaluation(
         model_output_paths=model_outputs,
         source_of_truth_dir=source_of_truth_dir,
         cache_dir=cache_dir,
+        usage_data=usage_data,
         quiet=quiet,
     )
     

@@ -1,9 +1,4 @@
 {
-  "_metadata": {
-    "provider": "google",
-    "model_id": "gemini-2.5-flash-image",
-    "supporting_model_id": null
-  },
   "id": 1,
   "name": "Multifamily Unit Inspection",
   "versions": [

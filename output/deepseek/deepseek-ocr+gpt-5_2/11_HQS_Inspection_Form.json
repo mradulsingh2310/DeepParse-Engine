@@ -1,11 +1,6 @@
 {
-  "_metadata": {
-    "provider": "deepseek",
-    "model_id": "deepseek-ocr",
-    "supporting_model_id": "gpt-5.2"
-  },
-  "id": 0,
-  "name": "Multifamily Unit Inspection",
+  "id": 1,
+  "name": "Multifamily Unit Inspection - Template",
   "description": null,
   "property_ids": [],
   "versions": [
@@ -97,7 +92,7 @@
               },
               {
                 "id": 4,
-                "name": "Heating/AC",
+                "name": "Heating/air conditioning",
                 "description": null,
                 "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
@@ -118,7 +113,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_THERMOSTAT_MALFUNCTION"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 5,
@@ -209,10 +204,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -275,7 +267,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 11,
@@ -366,10 +358,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -432,7 +421,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 17,
@@ -523,10 +512,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -589,7 +575,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 23,
@@ -755,10 +741,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -821,7 +804,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 32,
@@ -1046,7 +1029,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_CABINET_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 41,
@@ -1062,10 +1045,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -1128,7 +1108,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 44,
@@ -1219,10 +1199,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -1285,7 +1262,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 50,
@@ -1376,10 +1353,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -1442,7 +1416,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 56,
@@ -1533,10 +1507,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -1599,7 +1570,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 62,
@@ -1690,10 +1661,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
@@ -1756,7 +1724,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 68,
@@ -1847,10 +1815,7 @@
                 ],
                 "notes_enabled": true,
                 "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Requires action",
-                  "Immediate action required"
-                ],
+                "notes_required_for_selected_options": [],
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],

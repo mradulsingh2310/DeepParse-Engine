@@ -6,34 +6,32 @@ import "./styles.css";
 function DocumentPage() {
   return (
     <div className="doc-page">
-      <header className="doc-hero">
-        <div className="doc-hero-left">
-          <div className="doc-pill">Documents</div>
-          <h1>PDF & JSON Explorer</h1>
-          <p>
-            Browse input PDFs, open model outputs, and compare against the source of truth with
-            LLM evaluation notes. Use the dashboard for scores; use this page for deep dives.
-          </p>
-          <div className="doc-actions">
-            <a className="btn btn-primary" href="/">Back to Dashboard</a>
-            <a className="btn btn-ghost" href="/api/evaluations" target="_blank" rel="noreferrer">
-              View Evaluation API
-            </a>
+      <header className="header">
+        <div className="header-content">
+          <div className="logo">
+            <span className="logo-icon">📊</span>
+            <h1>OCR-AI Evaluation Dashboard</h1>
           </div>
-        </div>
-        <div className="doc-hero-right">
-          <div className="doc-card">
-            <div className="doc-card-title">Workflow</div>
-            <ol>
-              <li>Select a PDF to load its source and outputs</li>
-              <li>Pick a model output to render JSON side by side</li>
-              <li>Review LLM reasoning and scores per field</li>
-            </ol>
+          <div className="header-actions">
+            <a className="btn btn-ghost" href="/">
+              Dashboard
+            </a>
           </div>
         </div>
       </header>
 
       <main className="doc-main">
+        <header className="doc-header">
+          <div>
+            <div className="doc-pill">Documents</div>
+            <h1>PDF & JSON Explorer</h1>
+            <p>
+              Browse input PDFs, open model outputs, and compare against the source of truth with LLM
+              evaluation notes. Use the dashboard for scores; use this page for deep dives.
+            </p>
+          </div>
+        </header>
+
         <DocumentExplorer />
       </main>
     </div>

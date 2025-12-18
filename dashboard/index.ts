@@ -33,6 +33,34 @@ function broadcast(message: object) {
   }
 }
 
+// Pricing per-million tokens (must mirror src/config/pricing.py)
+const pricingPerMillion: Record<string, Record<string, { input: number; output: number }>> = {
+  openai: {
+    "gpt-5": { input: 1.25, output: 10.0 },
+    "gpt-5.2": { input: 2.5, output: 15.0 },
+    "gpt-5-mini": { input: 0.25, output: 2.0 },
+    "gpt-5-nano": { input: 0.05, output: 0.4 },
+  },
+  google: {
+    "gemini-2.5-flash": { input: 0.3, output: 2.5 },
+    "gemini-2.5-flash-image": { input: 0.3, output: 2.5 },
+    "gemini-3-flash-preview": { input: 0.3, output: 2.5 },
+  },
+  bedrock: {
+    "amazon.nova-pro-v1:0": { input: 0.8, output: 3.2 },
+    "qwen.qwen3-vl-235b-a22b": { input: 0.18, output: 0.54 },
+    "google.gemma-3-27b-it": { input: 0.15, output: 0.6 },
+    "nvidia.nemotron-nano-12b-v2": { input: 0.06, output: 0.24 },
+  },
+  anthropic: {
+    "claude-sonnet-4-5-20250929": { input: 3.0, output: 15.0 },
+    "claude-haiku-4-5-20251001": { input: 0.8, output: 4.0 },
+  },
+  deepseek: {
+    "deepseek-ocr": { input: 0.0, output: 0.0 }, // Local Ollama - free
+  },
+};
+
 // Project paths
 const projectRoot = new URL("..", import.meta.url).pathname;
 const inputDir = `${projectRoot}/input`;
@@ -451,6 +479,11 @@ const server = Bun.serve({
       },
     },
 
+    // API: Pricing per million tokens (mirrors src/config/pricing.py)
+    "/api/pricing": {
+      GET: () => Response.json({ pricing: pricingPerMillion }),
+    },
+
     // API: List model outputs for a PDF stem
     "/api/pdfs/:stem/models": {
       GET: async (req) => {
@@ -658,6 +691,7 @@ console.log(`
 API Endpoints:
   GET  /api/evaluations       - List all evaluation caches
   GET  /api/evaluations/:id   - Get specific cache
+  GET  /api/pricing           - Get pricing per million tokens
   POST /api/run               - Trigger extraction pipeline
   GET  /api/status            - Get pipeline status
   WS   /ws                    - WebSocket for real-time updates

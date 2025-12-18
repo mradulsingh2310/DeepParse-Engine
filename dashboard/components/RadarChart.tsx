@@ -10,10 +10,11 @@ import {
   Tooltip,
   type TooltipProps,
 } from "recharts";
-import type { ModelChartData } from "../types";
+import type { ModelChartData, PricingRate } from "../types";
 
 interface RadarChartProps {
   data: ModelChartData[];
+  pricing?: Record<string, PricingRate>;
 }
 
 const MODEL_COLORS = [
@@ -31,43 +32,43 @@ const SCORE_DESCRIPTIONS: Record<string, string> = {
   Config: "Config accuracy: mandatory, notes, attachments, and work-order settings match.",
 };
 
-function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
+function CustomTooltip({
+  active,
+  payload,
+  label,
+  pricing,
+  providerByName,
+}: TooltipProps<number, string> & {
+  pricing?: Record<string, PricingRate>;
+  providerByName: Record<string, string>;
+}) {
   if (!active || !payload || payload.length === 0) return null;
 
   const fullName = (payload[0]?.payload as { fullName?: string })?.fullName ?? label;
   const description = SCORE_DESCRIPTIONS[label] ?? "";
+  const modelName = payload[0]?.name;
+  const provider = modelName ? providerByName[modelName] : undefined;
+  const rate = provider && modelName ? pricing?.[`${provider}:${modelName}`] : undefined;
 
   return (
-    <div
-      style={{
-        backgroundColor: "#ffffff",
-        border: "1px solid #e2e8f0",
-        borderRadius: "8px",
-        padding: "10px",
-        color: "#0f172a",
-        maxWidth: 280,
-        boxShadow: "0 8px 16px rgba(0,0,0,0.06)",
-      }}
-    >
-      <div style={{ fontWeight: 600, marginBottom: 4 }}>{fullName}</div>
-      <div style={{ fontSize: 12, color: "#475569", marginBottom: 8 }}>{description}</div>
+    <div className="tooltip-card">
+      <div className="tooltip-title">{fullName}</div>
+      <div className="tooltip-subtitle">{description}</div>
+      {rate && (
+        <div className="tooltip-subtitle">
+          {provider} / {modelName} — ${rate.input.toFixed(2)}/1M in · ${rate.output.toFixed(2)}/1M out
+        </div>
+      )}
       {payload.map((entry) => (
-        <div
-          key={entry.name}
-          style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, marginBottom: 4 }}
-        >
+        <div className="tooltip-line" key={entry.name}>
           <span
+            className="tooltip-dot"
             style={{
-              display: "inline-block",
-              width: 10,
-              height: 10,
-              borderRadius: 999,
               backgroundColor: entry.color,
-              flexShrink: 0,
             }}
           />
-          <span style={{ color: "#0f172a" }}>{entry.name}</span>
-          <span style={{ marginLeft: "auto", color: "#0f172a", fontWeight: 600 }}>
+          <span className="tooltip-label">{entry.name}</span>
+          <span className="tooltip-value">
             {typeof entry.value === "number"
               ? `${entry.value.toFixed(1).replace(/\\.0$/, "")}%`
               : entry.value}
@@ -78,7 +79,15 @@ function CustomTooltip({ active, payload, label }: TooltipProps<number, string>)
   );
 }
 
-export function RadarChart({ data }: RadarChartProps) {
+export function RadarChart({ data, pricing }: RadarChartProps) {
+  const providerByName = React.useMemo(() => {
+    const map: Record<string, string> = {};
+    data.forEach((m) => {
+      map[m.name] = m.provider;
+    });
+    return map;
+  }, [data]);
+
   // Transform data for radar chart
   const radarData = [
     { dimension: "Schema", fullName: "Schema Compliance" },
@@ -121,7 +130,7 @@ export function RadarChart({ data }: RadarChartProps) {
           tick={{ fill: "#475569", fontSize: 10 }}
           tickCount={5}
         />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip pricing={pricing} providerByName={providerByName} />} />
         <Legend
           wrapperStyle={{ paddingTop: "10px" }}
           formatter={(value: string) => (

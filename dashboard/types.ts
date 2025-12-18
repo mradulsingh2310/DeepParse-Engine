@@ -97,6 +97,9 @@ export interface RunHistoryEntry {
   structural_accuracy: number;
   semantic_accuracy: number;
   config_accuracy: number;
+  cost?: number;
+  input_tokens?: number;
+  output_tokens?: number;
 }
 
 export interface CachedModelResult {
@@ -108,6 +111,9 @@ export interface CachedModelResult {
   total_semantic_accuracy: number;
   total_config_accuracy: number;
   total_overall_score: number;
+  total_cost: number;
+  total_input_tokens: number;
+  total_output_tokens: number;
   best_score: number;
   best_run_timestamp: string | null;
   latest_score: number;
@@ -168,6 +174,14 @@ export interface WSMessage {
   };
 }
 
+// Pricing
+export interface PricingRate {
+  input: number;
+  output: number;
+}
+
+export type PricingTable = Record<string, Record<string, PricingRate>>;
+
 // Chart data types
 export interface ModelChartData {
   key: string;
@@ -179,6 +193,10 @@ export interface ModelChartData {
   semantic: number;
   config: number;
   runCount: number;
+  totalCost: number;
+  averageCost: number;
+  totalInputTokens: number;
+  totalOutputTokens: number;
 }
 
 export interface TrendDataPoint {

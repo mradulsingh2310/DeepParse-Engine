@@ -10,6 +10,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from src.config.pricing import calculate_cost
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -111,25 +113,29 @@ def log_usage(
     model: str,
     input_tokens: int = 0,
     output_tokens: int = 0,
-    cost_usd: float = 0.0,
+    cost_usd: float | None = None,
     operation: str = "",
     **metadata: Any
 ) -> UsageRecord:
     """
     Log API usage for any provider.
-    
+
     Args:
-        provider: Provider name (e.g., "bedrock", "openai", "ollama")
+        provider: Provider name (e.g., "bedrock", "openai", "google")
         model: Model identifier
         input_tokens: Number of input tokens
         output_tokens: Number of output tokens
-        cost_usd: Cost in USD
+        cost_usd: Cost in USD. If None, auto-calculated from pricing config.
         operation: Description of the operation
         **metadata: Any additional metadata to log
-        
+
     Returns:
         The created UsageRecord
     """
+    # Auto-calculate cost if not provided
+    if cost_usd is None:
+        cost_usd = calculate_cost(provider, model, input_tokens, output_tokens)
+
     record = UsageRecord(
         provider=provider,
         model=model,
@@ -140,13 +146,13 @@ def log_usage(
         operation=operation,
         metadata=metadata
     )
-    
+
     _tracker_holder["tracker"].add(record)
-    
+
     log(f"[{provider}/{model}] {operation}")
     if input_tokens or output_tokens:
         log(f"  Tokens: {input_tokens:,} in / {output_tokens:,} out")
     if cost_usd > 0:
         log(f"  Cost: ${cost_usd:.6f}")
-    
+
     return record

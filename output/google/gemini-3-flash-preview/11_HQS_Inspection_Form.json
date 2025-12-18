@@ -1,9 +1,4 @@
 {
-  "_metadata": {
-    "provider": "google",
-    "model_id": "gemini-3-flash-preview",
-    "supporting_model_id": null
-  },
   "id": 1,
   "name": "Multifamily Unit Inspection",
   "description": "U.S. Department of Housing and Urban Development Office of Housing unit inspection form (HUD-9602)",

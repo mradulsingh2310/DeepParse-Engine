@@ -9,11 +9,13 @@ import {
   ResponsiveContainer,
   Cell,
   LabelList,
+  type TooltipProps,
 } from "recharts";
-import type { ModelChartData } from "../types";
+import type { ModelChartData, PricingRate } from "../types";
 
 interface OverallChartProps {
   data: ModelChartData[];
+  pricing?: Record<string, PricingRate>;
 }
 
 // Color scale based on score
@@ -37,7 +39,32 @@ function getProviderColor(provider: string): string {
   return PROVIDER_COLORS[provider.toLowerCase()] || "#8b5cf6";
 }
 
-export function OverallChart({ data }: OverallChartProps) {
+export function OverallChart({ data, pricing }: OverallChartProps) {
+  const renderTooltip = (props: TooltipProps<number, string>) => {
+    if (!props.active || !props.payload || props.payload.length === 0) return null;
+    const entry = props.payload[0];
+    const provider = entry?.payload?.provider;
+    const model = entry?.payload?.name;
+    const score = entry?.value ?? null;
+    const rate = provider && model ? pricing?.[`${provider}:${model}`] : undefined;
+
+    return (
+      <div className="tooltip-card">
+        <div className="tooltip-title">{provider ? `${provider} / ${model}` : model}</div>
+        {rate && (
+          <div className="tooltip-subtitle">
+            ${rate.input.toFixed(2)}/1M in · ${rate.output.toFixed(2)}/1M out
+          </div>
+        )}
+        <div className="tooltip-line">
+          <span className="tooltip-dot" style={{ background: getScoreColor(score || 0) }} />
+          <span className="tooltip-label">Overall</span>
+          <span className="tooltip-value">{typeof score === "number" ? `${score}%` : "—"}</span>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <ResponsiveContainer width="100%" height={Math.max(300, data.length * 45)}>
       <BarChart
@@ -65,19 +92,7 @@ export function OverallChart({ data }: OverallChartProps) {
             return value.length > 25 ? value.slice(0, 22) + "..." : value;
           }}
         />
-        <Tooltip
-          contentStyle={{
-            backgroundColor: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: "8px",
-            color: "#0f172a",
-          }}
-          formatter={(value: number) => [
-            `${value}%`,
-            `Overall Score`,
-          ]}
-          labelFormatter={(label: string) => `Model: ${label}`}
-        />
+        <Tooltip content={renderTooltip} />
         <Bar
           dataKey="overall"
           radius={[0, 4, 4, 0]}

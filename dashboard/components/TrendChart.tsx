@@ -8,11 +8,13 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
+  type TooltipProps,
 } from "recharts";
-import type { EvaluationCache, TrendDataPoint } from "../types";
+import type { EvaluationCache, TrendDataPoint, PricingRate } from "../types";
 
 interface TrendChartProps {
   cache: EvaluationCache | null;
+  pricing?: Record<string, PricingRate>;
 }
 
 const MODEL_COLORS = [
@@ -25,7 +27,7 @@ const MODEL_COLORS = [
   "#06b6d4", // Cyan
 ];
 
-export function TrendChart({ cache }: TrendChartProps) {
+export function TrendChart({ cache, pricing }: TrendChartProps) {
   const { trendData, modelKeys } = useMemo(() => {
     if (!cache) {
       return { trendData: [], modelKeys: [] };
@@ -98,14 +100,33 @@ export function TrendChart({ cache }: TrendChartProps) {
           }}
         />
         <Tooltip
-          contentStyle={{
-            backgroundColor: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: "8px",
-            color: "#0f172a",
+          content={(props: TooltipProps<number, string>) => {
+            if (!props.active || !props.payload || props.payload.length === 0) return null;
+            const entry = props.payload[0];
+            const modelKey = entry?.name as string;
+            const rate = modelKey ? pricing?.[modelKey] : undefined;
+            const value = entry?.value;
+            return (
+              <div className="tooltip-card">
+                <div className="tooltip-title">{modelKey}</div>
+                {rate && (
+                  <div className="tooltip-subtitle">
+                    ${rate.input.toFixed(2)}/1M in · ${rate.output.toFixed(2)}/1M out
+                  </div>
+                )}
+                <div className="tooltip-line">
+                  <span className="tooltip-dot" style={{ background: entry.color }} />
+                  <span className="tooltip-label">Score</span>
+                  <span className="tooltip-value">
+                    {typeof value === "number" ? `${value}%` : value}
+                  </span>
+                </div>
+                {props.label && (
+                  <div className="tooltip-subtitle">Date: {props.label}</div>
+                )}
+              </div>
+            );
           }}
-          formatter={(value: number, name: string) => [`${value}%`, name]}
-          labelFormatter={(label: string) => `Date: ${label}`}
         />
         <Legend
           wrapperStyle={{ paddingTop: "10px" }}

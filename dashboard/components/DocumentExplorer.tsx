@@ -164,25 +164,6 @@ export function DocumentExplorer() {
 
   return (
     <section className="document-explorer">
-      <div className="section-header">
-        <div>
-          <p className="eyebrow">Documents</p>
-          <h3>PDF & JSON Explorer</h3>
-          <p className="subtext">
-            Browse input PDFs, open model outputs, and compare against the source of truth with
-            LLM evaluation notes.
-          </p>
-        </div>
-        {activeScores && (
-          <div className="score-chip">
-            Overall Score: {formatPercent(activeScores.overall)}
-            <span className="score-chip-sub">
-              {activeScores.source === "evaluation" ? "LLM evaluation" : "Cache average"}
-            </span>
-          </div>
-        )}
-      </div>
-
       <div className="selector-row">
         <div className="selector">
           <label htmlFor="pdf-select">PDF</label>

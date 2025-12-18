@@ -8,11 +8,13 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
+  type TooltipProps,
 } from "recharts";
-import type { ModelChartData } from "../types";
+import type { ModelChartData, PricingRate } from "../types";
 
 interface StackedChartProps {
   data: ModelChartData[];
+  pricing?: Record<string, PricingRate>;
 }
 
 const CATEGORY_COLORS = {
@@ -22,7 +24,7 @@ const CATEGORY_COLORS = {
   config: "#f59e0b",    // Amber - Config accuracy
 };
 
-export function StackedChart({ data }: StackedChartProps) {
+export function StackedChart({ data, pricing }: StackedChartProps) {
   // Transform data for stacked chart - show weighted contribution
   const stackedData = data.map((d) => ({
     name: d.name.length > 20 ? d.name.slice(0, 17) + "..." : d.name,
@@ -67,26 +69,49 @@ export function StackedChart({ data }: StackedChartProps) {
           }}
         />
         <Tooltip
-          contentStyle={{
-            backgroundColor: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: "8px",
-            color: "#0f172a",
-          }}
-          formatter={(value: number, name: string) => {
+          content={(props: TooltipProps<number, string>) => {
+            if (!props.active || !props.payload || props.payload.length === 0) return null;
+            const entry = props.payload[0];
+            const provider = entry?.payload?.provider;
+            const fullName = entry?.payload?.fullName;
+            const rate = provider && fullName ? pricing?.[`${provider}:${fullName}`] : undefined;
             const labels: Record<string, string> = {
               schema: "Schema (15%)",
               structure: "Structure (20%)",
               semantic: "Semantic (30%)",
               config: "Config (35%)",
             };
-            return [`${value}%`, labels[name] || name];
-          }}
-          labelFormatter={(label: string, payload: Array<{ payload?: { fullName?: string } }>) => {
-            if (payload?.[0]?.payload?.fullName) {
-              return `Model: ${payload[0].payload.fullName}`;
-            }
-            return label;
+
+            return (
+              <div className="tooltip-card">
+                <div className="tooltip-title">
+                  {provider && fullName ? `${provider} / ${fullName}` : fullName || "Model"}
+                </div>
+                {rate && (
+                  <div className="tooltip-subtitle">
+                    ${rate.input.toFixed(2)}/1M in · ${rate.output.toFixed(2)}/1M out
+                  </div>
+                )}
+                {props.payload.map((p) => (
+                  <div className="tooltip-line" key={p.name}>
+                    <span
+                      className="tooltip-dot"
+                      style={{ background: CATEGORY_COLORS[p.name as keyof typeof CATEGORY_COLORS] }}
+                    />
+                    <span className="tooltip-label">{labels[p.name] || p.name}</span>
+                    <span className="tooltip-value">
+                      {typeof p.value === "number" ? `${p.value}%` : p.value}
+                    </span>
+                  </div>
+                ))}
+                {entry?.payload?.total !== undefined && (
+                  <div className="tooltip-line total-line">
+                    <span className="tooltip-label">Overall</span>
+                    <span className="tooltip-value">{entry.payload.total}%</span>
+                  </div>
+                )}
+              </div>
+            );
           }}
         />
         <Legend

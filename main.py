@@ -65,17 +65,8 @@ def save_result(
     # Handle both dict and Pydantic model results
     result_dict = result if isinstance(result, dict) else result.model_dump()
     
-    output_data = {
-        "_metadata": {
-            "provider": provider.value,
-            "model_id": model_config.model_id,
-            "supporting_model_id": model_config.supporting_model_id,
-        },
-        **result_dict,
-    }
-    
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2)
+        json.dump(result_dict, f, indent=2)
     
     log(f"Output saved to {output_path}")
 
@@ -272,13 +263,26 @@ def main():
     log("=" * 70)
     log("Benchmark Complete")
     log("=" * 70)
-    get_tracker().print_summary()
-    
+    tracker = get_tracker()
+    tracker.print_summary()
+
+    # Convert tracker data to usage_data format for evaluation
+    # Format: {"{provider}:{model_id}": {"cost": float, "input_tokens": int, "output_tokens": int}}
+    usage_data: dict[str, dict] = {}
+    for record in tracker.records:
+        key = f"{record.provider}:{record.model}"
+        if key not in usage_data:
+            usage_data[key] = {"cost": 0.0, "input_tokens": 0, "output_tokens": 0}
+        usage_data[key]["cost"] += record.cost_usd
+        usage_data[key]["input_tokens"] += record.input_tokens
+        usage_data[key]["output_tokens"] += record.output_tokens
+
     # Run automatic evaluation
     run_post_extraction_evaluation(
         output_dir=output_dir,
         source_of_truth_dir=Path("source_of_truth"),
         cache_dir=Path("evaluation_results"),
+        usage_data=usage_data,
         quiet=False,
     )
 

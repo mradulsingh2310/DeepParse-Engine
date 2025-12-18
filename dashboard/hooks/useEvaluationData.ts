@@ -26,6 +26,7 @@ export function useEvaluationData(): UseEvaluationDataResult {
       const avgStructure = model.run_count > 0 ? model.total_structural_accuracy / model.run_count : 0;
       const avgSemantic = model.run_count > 0 ? model.total_semantic_accuracy / model.run_count : 0;
       const avgConfig = model.run_count > 0 ? model.total_config_accuracy / model.run_count : 0;
+      const avgCost = model.run_count > 0 ? (model.total_cost || 0) / model.run_count : 0;
 
       return {
         key,
@@ -37,6 +38,10 @@ export function useEvaluationData(): UseEvaluationDataResult {
         semantic: Math.round(avgSemantic * 100),
         config: Math.round(avgConfig * 100),
         runCount: model.run_count,
+        totalCost: model.total_cost || 0,
+        averageCost: avgCost,
+        totalInputTokens: model.total_input_tokens || 0,
+        totalOutputTokens: model.total_output_tokens || 0,
       };
     }).sort((a, b) => b.overall - a.overall);
   }, []);
