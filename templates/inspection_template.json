@@ -8,7 +8,7 @@
       "version_id": 1,
       "structure": {
         "name": "Unit Inspection",
-        "display_type": "SECTION_DISPLAY_TYPE_TAB",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
         "sections": [
           {
             "name": "Kitchen",
@@ -16,7 +16,7 @@
             "sections": [
               {
                 "name": "Appliances",
-                "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+                "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
                 "sections": [],
                 "fields": [
                   {

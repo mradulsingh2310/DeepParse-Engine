@@ -21,7 +21,7 @@ from PIL import Image
 from pydantic import BaseModel
 
 from src.config.loader import DeepseekConfig, ModelConfig
-from src.schemas.inspection import InspectionTemplate, validate_template_lenient
+from src.schemas.inspection import InspectionTemplate
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
@@ -63,11 +63,24 @@ IMPORTANT: Many inspection forms use acronyms or abbreviations with a legend/key
    - OK → Okay/Acceptable, NI → Needs Improvement
 
 ## Section Hierarchy Rules
-The template must follow this hierarchy:
-1. **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root section containing TABs (has child sections, NO fields)
-2. **SECTION_DISPLAY_TYPE_TAB**: Contains ACCORDIONs (has child sections, NO fields)
-3. **SECTION_DISPLAY_TYPE_ACCORDION**: Contains FIELD_SETs (has child sections, NO fields)
-4. **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing fields (has fields, NO child sections)
+The template must follow a hierarchy using these display types:
+
+**Available Display Types:**
+- **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root/parent section (contains child sections, NO fields directly)
+- **SECTION_DISPLAY_TYPE_ACCORDION**: Collapsible section for grouping related items (can contain FIELD_SETs or other sections)
+- **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing actual inspection fields (has fields, NO child sections)
+
+**Hierarchy Examples:**
+1. Root (UNSPECIFIED) → Accordions (ACCORDION) → Field Sets (FIELD_SET) with fields
+2. Root (UNSPECIFIED) → Sections (UNSPECIFIED) → Field Sets (FIELD_SET) with fields
+3. Root (UNSPECIFIED) → Field Sets (FIELD_SET) directly (for simple forms)
+
+**Key Rules:**
+- FIELD_SET is ALWAYS a leaf node - it contains fields and has NO child sections
+- FIELD_SET can be nested within any parent: root, accordion, or other sections
+- ACCORDIONs are for visually collapsible groups (like room categories)
+- Use UNSPECIFIED for intermediate grouping sections that aren't collapsible
+- Do NOT use TAB - it is not a valid display type
 
 ## Field Rating Types (REQUIRED - never use UNSPECIFIED)
 - **RATING_TYPE_CHECKBOX**: For multi-select options (can select multiple)
@@ -388,13 +401,8 @@ class DeepseekService:
         
         result_text = response.choices[0].message.content
         result_dict = json.loads(result_text) if result_text else {}
-        
-        # Use lenient validation for InspectionTemplate to handle LLM quirks
-        if schema is InspectionTemplate:
-            result = validate_template_lenient(result_dict)
-        else:
-            result = schema.model_validate(result_dict)
-        return result  # type: ignore[return-value]
+
+        return result_dict
     
     def generate_json(
         self,

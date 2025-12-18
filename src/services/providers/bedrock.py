@@ -21,8 +21,6 @@ from src.config.loader import BedrockConfig, ModelConfig
 from src.schemas.inspection import (
     MaintenanceCategory, 
     WorkOrderSubCategory,
-    InspectionTemplate,
-    validate_template_lenient,
 )
 from src.utils.logger import log, log_usage
 
@@ -61,11 +59,23 @@ IMPORTANT: Many inspection forms use acronyms or abbreviations with a legend/key
 
 ## Section Hierarchy Rules
 The template must follow a hierarchy using the `SectionDisplayType` enum values from the schema:
-1. Root section (UNSPECIFIED type) containing TABs (has child sections, NO fields)
-2. TAB sections contain ACCORDIONs (has child sections, NO fields)
-3. ACCORDION sections contain FIELD_SETs (has child sections, NO fields)
-4. FIELD_SET sections are leaf nodes containing fields (has fields, NO child sections)
-**IMPORTANT:** Use ONLY the display type values defined in the schema's `SectionDisplayType` enum.
+
+**Available Display Types:**
+- **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root/parent section (contains child sections, NO fields directly)
+- **SECTION_DISPLAY_TYPE_ACCORDION**: Collapsible section for grouping related items (can contain FIELD_SETs or other sections)
+- **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing actual inspection fields (has fields, NO child sections)
+
+**Hierarchy Examples:**
+1. Root (UNSPECIFIED) → Accordions (ACCORDION) → Field Sets (FIELD_SET) with fields
+2. Root (UNSPECIFIED) → Sections (UNSPECIFIED) → Field Sets (FIELD_SET) with fields
+3. Root (UNSPECIFIED) → Field Sets (FIELD_SET) directly (for simple forms)
+
+**Key Rules:**
+- FIELD_SET is ALWAYS a leaf node - it contains fields and has NO child sections
+- FIELD_SET can be nested within any parent: root, accordion, or other sections
+- ACCORDIONs are for visually collapsible groups (like room categories)
+- Use UNSPECIFIED for intermediate grouping sections that aren't collapsible
+**IMPORTANT:** Use ONLY the display type values defined in the schema's `SectionDisplayType` enum. Do NOT use TAB - it is not a valid type.
 
 ## Field Rating Types
 Choose rating types ONLY from the `RatingType` enum values in the schema:
@@ -337,17 +347,5 @@ class BedrockService:
         # Always log the raw response for debugging
         log("Raw response from Bedrock (normalized):")
         print(json.dumps(result_dict, indent=2))
-        
-        # Use lenient validation for InspectionTemplate to handle LLM quirks
-        # (extra fields, invalid enum values, etc.)
-        try:
-            if schema is InspectionTemplate:
-                result = validate_template_lenient(result_dict)
-            else:
-                result = schema.model_validate(result_dict)
-        except Exception as e:
-            log(f"Failed to validate response against schema: {e}")
-            raise BedrockModelError(f"Response validation failed: {e}") from e
-        
         log("Extraction completed successfully")
-        return result  # type: ignore[return-value]
+        return result_dict
