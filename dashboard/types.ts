@@ -187,3 +187,52 @@ export interface TrendDataPoint {
   [modelKey: string]: string | number;
 }
 
+// Document explorer types
+export interface PdfInfo {
+  name: string;
+  stem: string;
+  source_exists: boolean;
+  model_count: number;
+  best_score: number | null;
+  average_score: number | null;
+}
+
+export interface ModelScores {
+  overall: number | null;
+  schema: number | null;
+  structure: number | null;
+  semantic: number | null;
+  config: number | null;
+  run_count?: number;
+}
+
+export interface ModelOutputInfo {
+  providerDir: string;
+  modelDir: string;
+  filePath: string;
+  metadata: ModelMetadata;
+  scores: ModelScores | null;
+  run_count?: number;
+  cache_key?: string;
+}
+
+export interface EvaluationDetail {
+  scores: AggregateScores;
+  schema_validation: SchemaValidationResult;
+  sections: SectionEvaluation[];
+  source_file?: string;
+  model_file?: string;
+  metadata?: ModelMetadata;
+}
+
+export interface ModelDetailResponse {
+  stem: string;
+  providerDir: string;
+  modelDir: string;
+  model: any;
+  source: any;
+  metadata: ModelMetadata;
+  evaluation: EvaluationDetail | null;
+  cacheScores: ModelScores | null;
+}
+

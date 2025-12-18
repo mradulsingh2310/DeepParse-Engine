@@ -57,6 +57,13 @@ class AnthropicConfig(BaseModel):
     models: list[ModelConfig] = Field(default_factory=list)
 
 
+class OpenAIConfig(BaseModel):
+    """Configuration for OpenAI provider (GPT models)."""
+    timeout: int = 300
+    max_tokens: int = 16384
+    models: list[ModelConfig] = Field(default_factory=list)
+
+
 class OutputConfig(BaseModel):
     """Output settings configuration."""
     save_images: bool = True
@@ -70,6 +77,7 @@ class ProviderConfig(BaseModel):
     deepseek: DeepseekConfig = Field(default_factory=DeepseekConfig)
     google: GoogleConfig = Field(default_factory=GoogleConfig)
     anthropic: AnthropicConfig = Field(default_factory=AnthropicConfig)
+    openai: OpenAIConfig = Field(default_factory=OpenAIConfig)
 
 
 class AppConfig(BaseModel):
@@ -142,11 +150,17 @@ def load_config(config_path: str | Path | None = None) -> AppConfig:
     anthropic_models = _parse_models(anthropic_data.pop("models", None))
     anthropic = AnthropicConfig(**anthropic_data, models=anthropic_models)
 
+    # Parse openai config
+    openai_data = providers_data.get("openai", {})
+    openai_models = _parse_models(openai_data.pop("models", None))
+    openai_config = OpenAIConfig(**openai_data, models=openai_models)
+
     providers = ProviderConfig(
         bedrock=bedrock,
         deepseek=deepseek,
         google=google,
         anthropic=anthropic,
+        openai=openai_config,
     )
     
     # Parse output config

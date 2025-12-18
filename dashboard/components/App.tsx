@@ -42,6 +42,9 @@ export function App() {
             <h1>OCR-AI Evaluation Dashboard</h1>
           </div>
           <div className="header-actions">
+            <a className="btn btn-ghost" href="/documents">
+              Documents
+            </a>
             <LiveStatus connected={connected} runStatus={runStatus} />
             <RunButton runStatus={runStatus} onComplete={refetch} />
           </div>
@@ -157,6 +160,7 @@ export function App() {
               <h3>Model Leaderboard</h3>
               <Leaderboard data={chartData} cache={selectedCache} />
             </section>
+
           </>
         )}
       </main>

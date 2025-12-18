@@ -38,9 +38,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_SMOKE_DETECTOR_ISSUE"
               },
               {
                 "id": 2,
@@ -60,9 +60,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 3,
@@ -132,7 +132,7 @@
               },
               {
                 "id": 6,
-                "name": "Free of vermin/rodents",
+                "name": "Free of rodents/insects",
                 "description": null,
                 "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
@@ -167,7 +167,7 @@
                 "notes_required_for_selected_options": [
                   "Yes"
                 ],
-                "attachments_enabled": false,
+                "attachments_enabled": true,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [
                   "Yes"
@@ -201,9 +201,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 9,
@@ -223,9 +223,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 10,
@@ -245,13 +245,13 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
               },
               {
                 "id": 11,
-                "name": "Elec.fixtures/outlets",
+                "name": "Elec. fixtures/outlets",
                 "description": null,
                 "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
@@ -286,7 +286,7 @@
                 "notes_required_for_selected_options": [
                   "Yes"
                 ],
-                "attachments_enabled": false,
+                "attachments_enabled": true,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [
                   "Yes"
@@ -298,7 +298,7 @@
             ]
           },
           {
-            "name": "Dinning area",
+            "name": "Dining area",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
@@ -320,9 +320,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 14,
@@ -342,9 +342,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 15,
@@ -364,9 +364,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
               },
               {
                 "id": 16,
@@ -405,7 +405,7 @@
                 "notes_required_for_selected_options": [
                   "Yes"
                 ],
-                "attachments_enabled": false,
+                "attachments_enabled": true,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [
                   "Yes"
@@ -439,9 +439,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 19,
@@ -461,9 +461,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 20,
@@ -483,9 +483,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
               },
               {
                 "id": 21,
@@ -533,7 +533,7 @@
               },
               {
                 "id": 23,
-                "name": "Lavatory (h/c water)",
+                "name": "Tub/shower (h/c water)",
                 "description": null,
                 "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
@@ -551,7 +551,7 @@
                 "attachments_required_for_selected_options": [],
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_SHOWER_TUB_ISSUES"
               },
               {
                 "id": 24,
@@ -568,7 +568,7 @@
                 "notes_required_for_selected_options": [
                   "Yes"
                 ],
-                "attachments_enabled": false,
+                "attachments_enabled": true,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [
                   "Yes"
@@ -602,9 +602,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 26,
@@ -624,9 +624,9 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
               },
               {
                 "id": 27,
@@ -646,13 +646,13 @@
                 "attachments_enabled": false,
                 "attachments_required_for_all_options": false,
                 "attachments_required_for_selected_options": [],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                "can_create_work_order": true,
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
               },
               {
                 "id": 28,
-                "name": "Elec.fixtures/outlets",
+                "name": "Elec. fixtures/outlets",
                 "description": null,
                 "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
@@ -693,35 +693,10 @@
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
-              },
-              {
-                "id": 30,
-                "name": "Hazards?",
-                "description": null,
-                "mandatory": false,
-                "rating_type": "RATING_TYPE_RADIO",
-                "options": [
-                  "Yes",
-                  "No"
-                ],
-                "notes_enabled": true,
-                "notes_required_for_all_options": false,
-                "notes_required_for_selected_options": [
-                  "Yes"
-                ],
-                "attachments_enabled": false,
-                "attachments_required_for_all_options": false,
-                "attachments_required_for_selected_options": [
-                  "Yes"
-                ],
-                "can_create_work_order": false,
-                "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               }
             ]
           }
-        ],
-        "fields": []
+        ]
       }
     }
   ],

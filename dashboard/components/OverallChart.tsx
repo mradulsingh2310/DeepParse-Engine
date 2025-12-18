@@ -45,20 +45,20 @@ export function OverallChart({ data }: OverallChartProps) {
         layout="vertical"
         margin={{ top: 10, right: 80, left: 10, bottom: 10 }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3e" horizontal={false} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
         <XAxis
           type="number"
           domain={[0, 100]}
-          tick={{ fill: "#9ca3af", fontSize: 12 }}
-          axisLine={{ stroke: "#3a3a4e" }}
-          tickLine={{ stroke: "#3a3a4e" }}
+          tick={{ fill: "#475569", fontSize: 12 }}
+          axisLine={{ stroke: "#e2e8f0" }}
+          tickLine={{ stroke: "#e2e8f0" }}
         />
         <YAxis
           type="category"
           dataKey="name"
           width={180}
-          tick={{ fill: "#e5e7eb", fontSize: 12 }}
-          axisLine={{ stroke: "#3a3a4e" }}
+          tick={{ fill: "#0f172a", fontSize: 12 }}
+          axisLine={{ stroke: "#e2e8f0" }}
           tickLine={false}
           tickFormatter={(value) => {
             // Truncate long model names
@@ -67,10 +67,10 @@ export function OverallChart({ data }: OverallChartProps) {
         />
         <Tooltip
           contentStyle={{
-            backgroundColor: "#1a1a2e",
-            border: "1px solid #3a3a4e",
+            backgroundColor: "#ffffff",
+            border: "1px solid #e2e8f0",
             borderRadius: "8px",
-            color: "#e5e7eb",
+            color: "#0f172a",
           }}
           formatter={(value: number) => [
             `${value}%`,

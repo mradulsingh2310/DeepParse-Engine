@@ -14,6 +14,7 @@ class Provider(str, Enum):
     DEEPSEEK = "deepseek"
     GOOGLE = "google"
     ANTHROPIC = "anthropic"
+    OPENAI = "openai"
 
 
 class BedrockModel(str, Enum):
@@ -26,8 +27,10 @@ class OpenAIModel(str, Enum):
     """Available OpenAI models for JSON extraction."""
     GPT_4O = "gpt-4o"
     GPT_4O_MINI = "gpt-4o-mini"
-    GPT_5_1 = "gpt-5.1"
-    # Add more OpenAI models as needed
+    GPT_5_NANO = "gpt-5-nano"
+    GPT_5_MINI = "gpt-5-mini"
+    GPT_5 = "gpt-5"
+    GPT_5_2 = "gpt-5.2"
 
 
 class OllamaModel(str, Enum):

@@ -42,12 +42,12 @@ export function StackedChart({ data }: StackedChartProps) {
         data={stackedData}
         margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3e" vertical={false} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
         <XAxis
           dataKey="name"
-          tick={{ fill: "#9ca3af", fontSize: 11 }}
-          axisLine={{ stroke: "#3a3a4e" }}
-          tickLine={{ stroke: "#3a3a4e" }}
+          tick={{ fill: "#475569", fontSize: 11 }}
+          axisLine={{ stroke: "#e2e8f0" }}
+          tickLine={{ stroke: "#e2e8f0" }}
           angle={-45}
           textAnchor="end"
           height={80}
@@ -55,23 +55,23 @@ export function StackedChart({ data }: StackedChartProps) {
         />
         <YAxis
           domain={[0, 100]}
-          tick={{ fill: "#9ca3af", fontSize: 12 }}
-          axisLine={{ stroke: "#3a3a4e" }}
-          tickLine={{ stroke: "#3a3a4e" }}
+          tick={{ fill: "#475569", fontSize: 12 }}
+          axisLine={{ stroke: "#e2e8f0" }}
+          tickLine={{ stroke: "#e2e8f0" }}
           label={{
             value: "Weighted Score (%)",
             angle: -90,
             position: "insideLeft",
-            fill: "#9ca3af",
+            fill: "#475569",
             fontSize: 12,
           }}
         />
         <Tooltip
           contentStyle={{
-            backgroundColor: "#1a1a2e",
-            border: "1px solid #3a3a4e",
+            backgroundColor: "#ffffff",
+            border: "1px solid #e2e8f0",
             borderRadius: "8px",
-            color: "#e5e7eb",
+            color: "#0f172a",
           }}
           formatter={(value: number, name: string) => {
             const labels: Record<string, string> = {
@@ -98,7 +98,7 @@ export function StackedChart({ data }: StackedChartProps) {
               semantic: "Semantic (30%)",
               config: "Config (35%)",
             };
-            return <span style={{ color: "#e5e7eb" }}>{labels[value] || value}</span>;
+            return <span style={{ color: "#0f172a" }}>{labels[value] || value}</span>;
           }}
         />
         <Bar

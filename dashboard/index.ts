@@ -4,8 +4,10 @@
  */
 
 import { spawn } from "bun";
+import path from "path";
 import type { ServerWebSocket } from "bun";
 import index from "./index.html";
+import documents from "./documents.html";
 
 // Types
 interface WSData {
@@ -31,9 +33,16 @@ function broadcast(message: object) {
   }
 }
 
+// Project paths
+const projectRoot = new URL("..", import.meta.url).pathname;
+const inputDir = `${projectRoot}/input`;
+const sourceDir = `${projectRoot}/source_of_truth`;
+const outputDir = `${projectRoot}/output`;
+const evalResultsDir = `${projectRoot}/evaluation_results`;
+
 // Read all cache files from evaluation_results
 async function getEvaluationCaches(): Promise<object[]> {
-  const cacheDir = `${projectRoot}/evaluation_results`;
+  const cacheDir = evalResultsDir;
   const caches: object[] = [];
   
   try {
@@ -67,7 +76,7 @@ async function getEvaluationsSummary() {
       : null;
     
     // Find best model
-    let bestModel = null;
+    let bestModel: string | null = null;
     let bestScore = 0;
     for (const [key, model] of Object.entries(cache.models || {}) as [string, any][]) {
       if (model.best_score > bestScore) {
@@ -87,8 +96,198 @@ async function getEvaluationsSummary() {
   });
 }
 
-// Get project root directory (parent of dashboard)
-const projectRoot = new URL("..", import.meta.url).pathname;
+function sanitizeStem(stem: string): string {
+  return stem.replace(/[^a-zA-Z0-9_\-]/g, "");
+}
+
+async function readJsonFile(filePath: string): Promise<any | null> {
+  const file = Bun.file(filePath);
+  if (!(await file.exists())) return null;
+  try {
+    const text = await file.text();
+    return JSON.parse(text);
+  } catch (error) {
+    console.error("Failed to read JSON file:", filePath, error);
+    return null;
+  }
+}
+
+async function resolveFileByStem(dir: string, stem: string, extensions: string[]): Promise<string | null> {
+  try {
+    const fs = await import("fs/promises");
+    const entries = await fs.readdir(dir);
+    for (const entry of entries) {
+      const parsed = path.parse(entry);
+      if (parsed.name === stem && extensions.includes(parsed.ext.toLowerCase())) {
+        return path.join(dir, entry);
+      }
+    }
+  } catch (error) {
+    console.error("Failed to resolve file by stem:", dir, stem, error);
+  }
+  return null;
+}
+
+async function listAvailablePdfs() {
+  const pdfs: Array<{
+    name: string;
+    stem: string;
+    path: string;
+    source_exists: boolean;
+    model_count: number;
+    best_score: number | null;
+    average_score: number | null;
+  }> = [];
+
+  const fs = await import("fs/promises");
+  try {
+    const entries = await fs.readdir(inputDir);
+    for (const entry of entries) {
+      if (!entry.toLowerCase().endsWith(".pdf")) continue;
+      const stem = path.parse(entry).name;
+      const sourcePath = path.join(sourceDir, `${stem}.json`);
+      const sourceExists = await Bun.file(sourcePath).exists();
+
+      // Derive model outputs and cached scores
+      const modelOutputs = await findModelOutputsForStem(stem);
+      const cache = await loadCache(stem);
+      const bestScore = cache ? cache.best_score ?? cache.average_score ?? null : null;
+      const averageScore = cache?.average_score ?? null;
+
+      pdfs.push({
+        name: entry,
+        stem,
+        path: path.join(inputDir, entry),
+        source_exists: sourceExists,
+        model_count: modelOutputs.length,
+        best_score: bestScore ? Math.round(bestScore * 100) : null,
+        average_score: averageScore ? Math.round(averageScore * 100) : null,
+      });
+    }
+  } catch (error) {
+    console.error("Failed to list PDFs:", error);
+  }
+
+  // Sort alphabetically for stable UI
+  return pdfs.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+async function findModelOutputsForStem(stem: string) {
+  const outputs: Array<{
+    providerDir: string;
+    modelDir: string;
+    filePath: string;
+    metadata: {
+      provider: string;
+      model_id: string;
+      supporting_model_id: string | null;
+    };
+  }> = [];
+
+  const fs = await import("fs/promises");
+  const stack: string[] = [outputDir];
+
+  while (stack.length > 0) {
+    const current = stack.pop()!;
+    let dirEntries: Array<any> = [];
+    try {
+      dirEntries = await fs.readdir(current, { withFileTypes: true } as any);
+    } catch (error) {
+      console.error("Failed to read directory:", current, error);
+      continue;
+    }
+
+    for (const entry of dirEntries) {
+      const entryPath = path.join(current, entry.name);
+      if ((entry as any).isDirectory()) {
+        stack.push(entryPath);
+      } else if ((entry as any).isFile() && entry.name === `${stem}.json`) {
+        const relative = path.relative(outputDir, entryPath);
+        const [providerDir = "unknown", modelDir = "unknown"] = relative.split(path.sep);
+        const json = await readJsonFile(entryPath);
+        const meta = json?._metadata ?? {};
+        outputs.push({
+          providerDir,
+          modelDir,
+          filePath: entryPath,
+          metadata: {
+            provider: meta.provider ?? providerDir,
+            model_id: meta.model_id ?? modelDir,
+            supporting_model_id: meta.supporting_model_id ?? null,
+          },
+        });
+      }
+    }
+  }
+
+  return outputs;
+}
+
+async function loadCache(stem: string) {
+  const cachePath = path.join(evalResultsDir, `cache_${stem}.json`);
+  const cache = await readJsonFile(cachePath);
+  if (!cache) return null;
+
+  // Pre-compute helper fields
+  const models = cache.models || {};
+  let best_score: number | null = null;
+  let average_score: number | null = null;
+  const scores: number[] = [];
+  for (const model of Object.values(models) as any[]) {
+    const score = model.latest_score ?? model.best_score ?? null;
+    if (score !== null) scores.push(score);
+    if (score !== null && (best_score === null || score > best_score)) {
+      best_score = score;
+    }
+  }
+  if (scores.length > 0) {
+    average_score = scores.reduce((a, b) => a + b, 0) / scores.length;
+  }
+
+  return { ...cache, best_score, average_score };
+}
+
+async function loadLatestEvaluationReport(stem: string) {
+  const fs = await import("fs/promises");
+  try {
+    const entries = await fs.readdir(evalResultsDir);
+    const matches = entries
+      .filter((name) => name.startsWith(`evaluation_${stem}_`) && name.endsWith(".json"))
+      .map((name) => ({
+        name,
+        time: name.match(/_(\d{8}_\d{6})\.json$/)?.[1] ?? "",
+      }))
+      .sort((a, b) => b.time.localeCompare(a.time));
+
+    if (matches.length === 0) return null;
+    const latestPath = path.join(evalResultsDir, matches[0].name);
+    const report = await readJsonFile(latestPath);
+    return report;
+  } catch (error) {
+    // If directory missing, just return null
+    return null;
+  }
+}
+
+function sanitizeModelId(value: string | undefined | null): string {
+  if (!value) return "";
+  return value.replace(/[\.\:\/]/g, "_");
+}
+
+function findEvaluationForModel(report: any, metadata: { provider: string; model_id: string }) {
+  if (!report?.evaluations) return null;
+  const targetSanitized = sanitizeModelId(metadata.model_id);
+
+  for (const evaluation of report.evaluations as any[]) {
+    const evalMeta = evaluation.metadata || evaluation.metadata;
+    const evalModelId = evalMeta?.model_id ?? "";
+    const evalSanitized = sanitizeModelId(evalModelId);
+    if (evalSanitized === targetSanitized || evalModelId === metadata.model_id) {
+      return evaluation;
+    }
+  }
+  return null;
+}
 
 // Run the extraction pipeline
 async function runPipeline() {
@@ -214,6 +413,145 @@ const server = Bun.serve({
   routes: {
     // Serve dashboard
     "/": index,
+    "/documents": documents,
+
+    // API: List available PDFs
+    "/api/pdfs": {
+      GET: async () => {
+        const pdfs = await listAvailablePdfs();
+        return Response.json({ pdfs });
+      },
+    },
+
+    // API: Stream a PDF by stem
+    "/api/pdfs/:stem/pdf": {
+      GET: async (req) => {
+        const stem = sanitizeStem(req.params.stem);
+        const pdfPath = await resolveFileByStem(inputDir, stem, [".pdf"]);
+        if (!pdfPath) {
+          return new Response("PDF not found", { status: 404 });
+        }
+        const file = Bun.file(pdfPath);
+        return new Response(file, {
+          headers: { "Content-Type": "application/pdf" },
+        });
+      },
+    },
+
+    // API: Get source of truth JSON for a PDF
+    "/api/pdfs/:stem/source": {
+      GET: async (req) => {
+        const stem = sanitizeStem(req.params.stem);
+        const sourcePath = path.join(sourceDir, `${stem}.json`);
+        const source = await readJsonFile(sourcePath);
+        if (!source) {
+          return Response.json({ error: "Source of truth not found" }, { status: 404 });
+        }
+        return Response.json({ source, stem });
+      },
+    },
+
+    // API: List model outputs for a PDF stem
+    "/api/pdfs/:stem/models": {
+      GET: async (req) => {
+        const stem = sanitizeStem(req.params.stem);
+        const models = await findModelOutputsForStem(stem);
+        const cache = await loadCache(stem);
+        const report = await loadLatestEvaluationReport(stem);
+
+        const modelsWithScores = models.map((entry) => {
+          const cacheKey = `${entry.metadata.provider}:${entry.metadata.model_id}`;
+          const cacheEntry = cache?.models?.[cacheKey];
+
+          const runCount = cacheEntry?.run_count ?? 0;
+          const avgScore = runCount
+            ? cacheEntry.total_overall_score / runCount
+            : cacheEntry?.latest_score ?? cacheEntry?.best_score ?? null;
+
+          const avgSchema = runCount ? cacheEntry.total_schema_compliance / runCount : null;
+          const avgStructure = runCount ? cacheEntry.total_structural_accuracy / runCount : null;
+          const avgSemantic = runCount ? cacheEntry.total_semantic_accuracy / runCount : null;
+          const avgConfig = runCount ? cacheEntry.total_config_accuracy / runCount : null;
+
+          return {
+            ...entry,
+            scores: avgScore !== null ? {
+              overall: avgScore,
+              schema: avgSchema,
+              structure: avgStructure,
+              semantic: avgSemantic,
+              config: avgConfig,
+            } : null,
+            run_count: runCount,
+            cache_key: cacheKey,
+          };
+        });
+
+        return Response.json({
+          stem,
+          models: modelsWithScores,
+          cache_available: !!cache,
+          report_available: !!report,
+        });
+      },
+    },
+
+    // API: Get model output and evaluation detail
+    "/api/pdfs/:stem/models/:provider/:model": {
+      GET: async (req) => {
+        const stem = sanitizeStem(req.params.stem);
+        const providerDir = sanitizeStem(req.params.provider);
+        const modelDir = sanitizeStem(req.params.model);
+
+        const outputPath = path.join(outputDir, providerDir, modelDir, `${stem}.json`);
+        const modelJson = await readJsonFile(outputPath);
+        if (!modelJson) {
+          return Response.json({ error: "Model output not found" }, { status: 404 });
+        }
+
+        const sourcePath = path.join(sourceDir, `${stem}.json`);
+        const sourceJson = await readJsonFile(sourcePath);
+
+        const metadata = modelJson._metadata ?? {
+          provider: providerDir,
+          model_id: modelDir,
+          supporting_model_id: null,
+        };
+
+        const cache = await loadCache(stem);
+        const cacheKey = `${metadata.provider}:${metadata.model_id}`;
+        const cacheEntry = cache?.models?.[cacheKey];
+        const runCount = cacheEntry?.run_count ?? 0;
+        const avgScore = runCount
+          ? cacheEntry.total_overall_score / runCount
+          : cacheEntry?.latest_score ?? cacheEntry?.best_score ?? null;
+
+        const cacheScores = cacheEntry
+          ? {
+              overall: avgScore,
+              schema: runCount ? cacheEntry.total_schema_compliance / runCount : null,
+              structure: runCount ? cacheEntry.total_structural_accuracy / runCount : null,
+              semantic: runCount ? cacheEntry.total_semantic_accuracy / runCount : null,
+              config: runCount ? cacheEntry.total_config_accuracy / runCount : null,
+              run_count: runCount,
+            }
+          : null;
+
+        const report = await loadLatestEvaluationReport(stem);
+        const evaluation = report ? findEvaluationForModel(report, metadata) : null;
+
+        return Response.json({
+          stem,
+          providerDir,
+          modelDir,
+          model: modelJson,
+          source: sourceJson,
+          metadata,
+          evaluation,
+          cacheScores,
+        });
+      },
+    },
     
     // API: Get all evaluations summary
     "/api/evaluations": {

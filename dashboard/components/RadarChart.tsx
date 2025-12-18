@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
   Legend,
   Tooltip,
+  type TooltipProps,
 } from "recharts";
 import type { ModelChartData } from "../types";
 
@@ -22,6 +23,60 @@ const MODEL_COLORS = [
   "#ef4444", // Red
   "#8b5cf6", // Purple
 ];
+
+const SCORE_DESCRIPTIONS: Record<string, string> = {
+  Schema: "Schema compliance: JSON follows the expected schema (required fields, types, enums).",
+  Structure: "Structural accuracy: correct sections/fields present and matched.",
+  Semantic: "Semantic accuracy: field names/options mean the same (LLM-judged).",
+  Config: "Config accuracy: mandatory, notes, attachments, and work-order settings match.",
+};
+
+function CustomTooltip({ active, payload, label }: TooltipProps<number, string>) {
+  if (!active || !payload || payload.length === 0) return null;
+
+  const fullName = (payload[0]?.payload as { fullName?: string })?.fullName ?? label;
+  const description = SCORE_DESCRIPTIONS[label] ?? "";
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#ffffff",
+        border: "1px solid #e2e8f0",
+        borderRadius: "8px",
+        padding: "10px",
+        color: "#0f172a",
+        maxWidth: 280,
+        boxShadow: "0 8px 16px rgba(0,0,0,0.06)",
+      }}
+    >
+      <div style={{ fontWeight: 600, marginBottom: 4 }}>{fullName}</div>
+      <div style={{ fontSize: 12, color: "#475569", marginBottom: 8 }}>{description}</div>
+      {payload.map((entry) => (
+        <div
+          key={entry.name}
+          style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, marginBottom: 4 }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: 10,
+              height: 10,
+              borderRadius: 999,
+              backgroundColor: entry.color,
+              flexShrink: 0,
+            }}
+          />
+          <span style={{ color: "#0f172a" }}>{entry.name}</span>
+          <span style={{ marginLeft: "auto", color: "#0f172a", fontWeight: 600 }}>
+            {typeof entry.value === "number"
+              ? `${entry.value.toFixed(1).replace(/\\.0$/, "")}%`
+              : entry.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function RadarChart({ data }: RadarChartProps) {
   // Transform data for radar chart
@@ -55,26 +110,18 @@ export function RadarChart({ data }: RadarChartProps) {
   return (
     <ResponsiveContainer width="100%" height={350}>
       <RechartsRadar data={radarData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
-        <PolarGrid stroke="#3a3a4e" />
+        <PolarGrid stroke="#e2e8f0" />
         <PolarAngleAxis
           dataKey="dimension"
-          tick={{ fill: "#e5e7eb", fontSize: 12 }}
+          tick={{ fill: "#0f172a", fontSize: 12 }}
         />
         <PolarRadiusAxis
           angle={30}
           domain={[0, 100]}
-          tick={{ fill: "#9ca3af", fontSize: 10 }}
+          tick={{ fill: "#475569", fontSize: 10 }}
           tickCount={5}
         />
-        <Tooltip
-          contentStyle={{
-            backgroundColor: "#1a1a2e",
-            border: "1px solid #3a3a4e",
-            borderRadius: "8px",
-            color: "#e5e7eb",
-          }}
-          formatter={(value: number, name: string) => [`${value}%`, name]}
-        />
+        <Tooltip content={<CustomTooltip />} />
         <Legend
           wrapperStyle={{ paddingTop: "10px" }}
           formatter={(value: string) => (
