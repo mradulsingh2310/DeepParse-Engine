@@ -23,7 +23,8 @@ from src.schemas.inspection import (
     WorkOrderSubCategory,
 )
 from src.utils.logger import log, log_usage
-from src.utils.prompts import VISION_EXTRACTION_PROMPT
+from src.utils.merge import merge_section_responses
+from src.utils.prompts import VISION_EXTRACTION_PROMPT, VISION_EXTRACTION_PROMPT_CONTINUATION
 
 # Load environment variables from .env file
 load_dotenv()
@@ -149,6 +150,9 @@ class BedrockService:
         """
         Generate structured JSON from images using AWS Bedrock.
         
+        If the number of images exceeds chunk_size, processes in batches
+        and merges the results.
+        
         Args:
             images: List of PIL Images (one per page)
             schema: Pydantic model class for the output schema
@@ -157,8 +161,85 @@ class BedrockService:
         Returns:
             Validated Pydantic model instance with extracted data
         """
-        log(f"Extracting JSON from {len(images)} image(s) using Bedrock [{self.model_id}]")
+        chunk_size = self.config.chunk_size
+        total_images = len(images)
         
+        log(f"Extracting JSON from {total_images} image(s) using Bedrock [{self.model_id}]")
+        
+        # If images fit in a single chunk, process directly
+        if total_images <= chunk_size:
+            return self._generate_json_chunk(
+                images=images,
+                schema=schema,
+                context=context,
+                chunk_info=None,  # No chunking info needed
+            )
+        
+        # Process in chunks and merge
+        log(f"Document has {total_images} pages, processing in chunks of {chunk_size}...")
+        
+        chunks: list[list[Image.Image]] = []
+        for i in range(0, total_images, chunk_size):
+            chunks.append(images[i:i + chunk_size])
+        
+        total_chunks = len(chunks)
+        log(f"Split into {total_chunks} chunks")
+        
+        # Process each chunk
+        chunk_responses: list[dict] = []
+        current_page = 1
+        
+        for chunk_idx, chunk_images in enumerate(chunks):
+            chunk_number = chunk_idx + 1
+            page_start = current_page
+            page_end = current_page + len(chunk_images) - 1
+            
+            log(f"Processing chunk {chunk_number}/{total_chunks} (pages {page_start}-{page_end})...")
+            
+            chunk_info = {
+                "chunk_number": chunk_number,
+                "total_chunks": total_chunks,
+                "page_start": page_start,
+                "page_end": page_end,
+                "total_pages": total_images,
+            }
+            
+            chunk_result = self._generate_json_chunk(
+                images=chunk_images,
+                schema=schema,
+                context=context,
+                chunk_info=chunk_info,
+            )
+            chunk_responses.append(chunk_result)
+            current_page = page_end + 1
+        
+        # Merge all chunk responses
+        log(f"Merging {len(chunk_responses)} chunk responses...")
+        merged_result = merge_section_responses(chunk_responses)
+        
+        log("Chunked extraction and merge completed successfully")
+        return merged_result
+    
+    def _generate_json_chunk(
+        self,
+        images: list[Image.Image],
+        schema: type[T],
+        context: dict | None = None,
+        chunk_info: dict | None = None,
+    ) -> dict:
+        """
+        Generate JSON from a single chunk of images.
+        
+        Args:
+            images: List of PIL Images for this chunk
+            schema: Pydantic model class for the output schema
+            context: Optional template dictionary for additional context
+            chunk_info: Optional dict with chunk_number, total_chunks, page_start, 
+                       page_end, total_pages for continuation prompts
+            
+        Returns:
+            Extracted data as dict (not yet validated against schema)
+        """
         client = self._get_client()
         
         # Generate JSON schema from Pydantic model
@@ -168,22 +249,52 @@ class BedrockService:
         maintenance_categories = [cat.value for cat in MaintenanceCategory]
         work_order_subcategories = [sub.value for sub in WorkOrderSubCategory]
         
-        # Build the prompt
-        prompt = VISION_EXTRACTION_PROMPT.format(
-            json_schema=json.dumps(json_schema, indent=2),
-            template_context=json.dumps(context, indent=2) if context else "N/A",
-            maintenance_categories=json.dumps(maintenance_categories, indent=2),
-            work_order_subcategories=json.dumps(work_order_subcategories, indent=2)
-        )
+        # Build the prompt - use continuation prompt for chunk 2+
+        if chunk_info and chunk_info["chunk_number"] > 1:
+            prompt = VISION_EXTRACTION_PROMPT_CONTINUATION.format(
+                chunk_number=chunk_info["chunk_number"],
+                total_chunks=chunk_info["total_chunks"],
+                page_start=chunk_info["page_start"],
+                page_end=chunk_info["page_end"],
+                total_pages=chunk_info["total_pages"],
+                json_schema=json.dumps(json_schema, indent=2),
+                template_context=json.dumps(context, indent=2) if context else "N/A",
+                maintenance_categories=json.dumps(maintenance_categories, indent=2),
+                work_order_subcategories=json.dumps(work_order_subcategories, indent=2),
+            )
+        else:
+            prompt = VISION_EXTRACTION_PROMPT.format(
+                json_schema=json.dumps(json_schema, indent=2),
+                template_context=json.dumps(context, indent=2) if context else "N/A",
+                maintenance_categories=json.dumps(maintenance_categories, indent=2),
+                work_order_subcategories=json.dumps(work_order_subcategories, indent=2),
+            )
         
         # Build content blocks: text prompt first, then all images
         content: list[dict] = [{"text": prompt}]
+        
+        # Track total request size for validation
+        prompt_size_bytes = len(prompt.encode('utf-8'))
+        total_image_size_bytes = 0
+        MAX_IMAGE_SIZE_MB = 3.75 * 1024 * 1024  # 3.75 MB per image
+        MAX_TOTAL_PAYLOAD_MB = 16 * 1024 * 1024  # 16 MB total payload (conservative estimate)
         
         for i, img in enumerate(images):
             log(f"Adding image {i + 1}/{len(images)} to request...")
             buffer = io.BytesIO()
             img.save(buffer, format="PNG")
             image_bytes = buffer.getvalue()
+            image_size_mb = len(image_bytes) / (1024 * 1024)
+            
+            # Check individual image size limit
+            if len(image_bytes) > MAX_IMAGE_SIZE_MB:
+                raise BedrockModelError(
+                    f"Image {i + 1} exceeds Bedrock limit: {image_size_mb:.2f} MB "
+                    f"(max 3.75 MB per image). Consider reducing image resolution or compression."
+                )
+            
+            total_image_size_bytes += len(image_bytes)
+            log(f"  Image {i + 1} size: {image_size_mb:.2f} MB")
             
             content.append({
                 "image": {
@@ -191,6 +302,23 @@ class BedrockService:
                     "source": {"bytes": image_bytes}
                 }
             })
+        
+        # Check total payload size
+        total_payload_bytes = prompt_size_bytes + total_image_size_bytes
+        total_payload_mb = total_payload_bytes / (1024 * 1024)
+        prompt_size_mb = prompt_size_bytes / (1024 * 1024)
+        total_image_size_mb = total_image_size_bytes / (1024 * 1024)
+        
+        log("Request size breakdown:")
+        log(f"  Prompt text: {prompt_size_mb:.2f} MB")
+        log(f"  Total images ({len(images)}): {total_image_size_mb:.2f} MB")
+        log(f"  Total payload: {total_payload_mb:.2f} MB (limit: ~16 MB)")
+        
+        if total_payload_bytes > MAX_TOTAL_PAYLOAD_MB:
+            raise BedrockModelError(
+                f"Total request payload ({total_payload_mb:.2f} MB) exceeds Bedrock limit (~16 MB). "
+                f"Consider splitting the document into smaller batches or reducing image resolution."
+            )
         
         # Send request to Bedrock
         try:
@@ -253,5 +381,5 @@ class BedrockService:
         # Normalize enum values to fix casing issues from LLM
         result_dict = normalize_enum_values(result_dict)
         
-        log("Raw response from Bedrock (normalized):")
+        log("Chunk extraction completed successfully")
         return result_dict

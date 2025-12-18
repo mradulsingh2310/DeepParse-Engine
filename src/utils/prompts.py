@@ -34,21 +34,18 @@ IMPORTANT: Many inspection forms use acronyms or abbreviations with a legend/key
 The template must follow a hierarchy using the `SectionDisplayType` enum values from the schema:
 
 **Available Display Types:**
-- **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Root/parent section (contains child sections, NO fields directly)
-- **SECTION_DISPLAY_TYPE_ACCORDION**: Collapsible section for grouping related items (can contain FIELD_SETs or other sections)
+- **SECTION_DISPLAY_TYPE_UNSPECIFIED**: Section/parent container (contains child sections or field sets)
 - **SECTION_DISPLAY_TYPE_FIELD_SET**: Leaf node containing actual inspection fields (has fields, NO child sections)
 
 **Hierarchy Examples:**
-1. Root (UNSPECIFIED) → Accordions (ACCORDION) → Field Sets (FIELD_SET) with fields
-2. Root (UNSPECIFIED) → Sections (UNSPECIFIED) → Field Sets (FIELD_SET) with fields
-3. Root (UNSPECIFIED) → Field Sets (FIELD_SET) directly (for simple forms)
+1. Root (UNSPECIFIED) → Sections (UNSPECIFIED) → Field Sets (FIELD_SET) with fields
+2. Root (UNSPECIFIED) → Field Sets (FIELD_SET) directly (for simple forms)
 
 **Key Rules:**
 - FIELD_SET is ALWAYS a leaf node - it contains fields and has NO child sections
-- FIELD_SET can be nested within any parent: root, accordion, or other sections
-- ACCORDIONs are for visually collapsible groups (like room categories)
-- Use UNSPECIFIED for intermediate grouping sections that aren't collapsible
-**IMPORTANT:** Use ONLY the display type values defined in the schema's `SectionDisplayType` enum. Do NOT use TAB - it is not a valid type.
+- Sections (UNSPECIFIED) can be nested to create groupings (e.g., Kitchen section containing subsections)
+- Use UNSPECIFIED for any section that contains other sections or field sets
+**IMPORTANT:** Use ONLY the display type values defined in the schema's `SectionDisplayType` enum. Do NOT use ACCORDION or TAB - they are not valid types.
 
 ## Field Rating Types
 Choose rating types ONLY from the `RatingType` enum values in the schema:
@@ -71,7 +68,10 @@ Not every field needs a work order. Only set `can_create_work_order: true` for f
 
 **Rules:**
 1. If `can_create_work_order` is FALSE → leave category/subcategory as UNSPECIFIED
-2. If `can_create_work_order` is TRUE → you MUST set appropriate category AND subcategory (NOT UNSPECIFIED)
+2. If `can_create_work_order` is TRUE → you MUST:
+   - Set appropriate category AND subcategory (NOT UNSPECIFIED)
+   - Set `notes_enabled: true` (to document the issue)
+   - Set `attachments_enabled: true` (to capture photos of the issue)
 3. **CRITICAL:** You MUST use EXACTLY these enum values. Do NOT modify, shorten, or invent new values.
 4. Infer the most appropriate category from the field name and section context."""
 
@@ -180,6 +180,75 @@ Your response will be automatically validated against a JSON schema.
 - Do not abbreviate or summarize - output the full data
 
 REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
+"""
+
+# Continuation prompt for chunked processing (chunk 2+)
+# Used when processing multi-page documents in batches
+VISION_EXTRACTION_PROMPT_CONTINUATION = """You are an inspection template parser processing a CONTINUATION of a multi-page inspection form.
+
+**IMPORTANT: This is chunk {chunk_number} of {total_chunks} (pages {page_start}-{page_end} of {total_pages} total).**
+
+Continue extracting the inspection template structure from these pages. 
+- If a section from previous pages continues on these pages, use the EXACT SAME section name so results can be merged.
+- Only extract sections/fields visible on THESE pages.
+- Field IDs will be renumbered after merging, so use sequential IDs starting from 1.
+
+""" + _BASE_EXTRACTION_RULES + """
+
+**ALLOWED MaintenanceCategory values (use EXACTLY as written):**
+{maintenance_categories}
+
+**ALLOWED WorkOrderSubCategory values (use EXACTLY as written):**
+{work_order_subcategories}
+
+## Image Order
+- Images are provided in page order
+- Preserve the exact order sections appear in these pages
+
+## Output Format
+Output valid JSON matching this schema:
+{json_schema}
+
+Additional context (example template):
+{template_context}
+
+""" + _CRITICAL_OUTPUT_RULES + """
+
+REMEMBER: Use the SAME section names as they appear in the document. Extract ONLY what appears on THESE pages.
+"""
+
+# Anthropic-specific continuation prompt for chunked processing
+VISION_EXTRACTION_PROMPT_ANTHROPIC_CONTINUATION = """You are an inspection template parser processing a CONTINUATION of a multi-page inspection form.
+
+**IMPORTANT: This is chunk {chunk_number} of {total_chunks} (pages {page_start}-{page_end} of {total_pages} total).**
+
+Continue extracting the inspection template structure from these pages. 
+- If a section from previous pages continues on these pages, use the EXACT SAME section name so results can be merged.
+- Only extract sections/fields visible on THESE pages.
+- Field IDs will be renumbered after merging, so use sequential IDs starting from 1.
+
+""" + _BASE_EXTRACTION_RULES + """
+
+**ALLOWED MaintenanceCategory values (use EXACTLY as written):**
+{maintenance_categories}
+
+**ALLOWED WorkOrderSubCategory values (use EXACTLY as written):**
+{work_order_subcategories}
+
+## Image Order
+- Images are provided in page order
+- Preserve the exact order sections appear in these pages
+
+Additional context (example template):
+{template_context}
+
+## Output Instructions
+Your response will be automatically validated against a JSON schema. 
+- Output EVERY field and section from THESE pages completely - no truncation allowed
+- The response must include ALL inspection items visible on these pages
+- Do not abbreviate or summarize - output the full data
+
+REMEMBER: Use the SAME section names as they appear in the document. Extract ONLY what appears on THESE pages.
 """
 
 # Legacy alias for backward compatibility

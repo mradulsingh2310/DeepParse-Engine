@@ -29,7 +29,7 @@ providers:
     models:
       - model_id: "gpt-5-nano"
       - model_id: "gpt-5-mini"
-      - model_id: "gpt-5"
+      # - model_id: "gpt-5"
       - model_id: "gpt-5.2"
 
   bedrock:

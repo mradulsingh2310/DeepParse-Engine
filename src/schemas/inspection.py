@@ -15,8 +15,7 @@ from src.utils.logger import log
 
 class SectionDisplayType(str, Enum):
     """Section display types - defines hierarchy."""
-    UNSPECIFIED = "SECTION_DISPLAY_TYPE_UNSPECIFIED"  # Root/parent section
-    ACCORDION = "SECTION_DISPLAY_TYPE_ACCORDION"  # Collapsible section, can contain field sets or other sections
+    UNSPECIFIED = "SECTION_DISPLAY_TYPE_UNSPECIFIED"  # Section/parent container
     FIELD_SET = "SECTION_DISPLAY_TYPE_FIELD_SET"  # Leaf node containing fields
 
 
@@ -126,13 +125,10 @@ class Section(BaseModel):
     Inspection section - hierarchical structure.
 
     Hierarchy rules:
-    - UNSPECIFIED: Root/parent section, contains child sections (accordions or other sections)
-    - ACCORDION: Collapsible section, can contain FIELD_SETs or other child sections
+    - UNSPECIFIED: Section/parent container, contains child sections or field sets
     - FIELD_SET: Leaf node containing fields (has fields, NO child sections)
     
-    Note: FIELD_SETs can be nested within any parent section type (root, accordion, or other sections).
-    The hierarchy is flexible - root can contain accordions which contain field sets, OR root can 
-    contain sections that directly contain field sets.
+    Sections can be nested: Root → Sections → Field Sets, or Root → Field Sets directly.
     """
     model_config = ConfigDict(extra="forbid")
 

@@ -26,6 +26,7 @@ class BedrockConfig(BaseModel):
     timeout: int = 1200
     retries: int = 2
     max_tokens: int = 10000
+    chunk_size: int = 2  # Max images per request to avoid payload limits
     models: list[ModelConfig] = Field(default_factory=list)
 
 
@@ -47,6 +48,7 @@ class GoogleConfig(BaseModel):
     timeout: int = 300
     max_output_tokens: int = 65536
     thinking_level: str = "low"  # minimal, low, medium, high
+    chunk_size: int = 2  # Max images per request to avoid payload limits
     models: list[ModelConfig] = Field(default_factory=list)
 
 
@@ -61,6 +63,7 @@ class OpenAIConfig(BaseModel):
     """Configuration for OpenAI provider (GPT models)."""
     timeout: int = 300
     max_tokens: int = 50000
+    chunk_size: int = 2  # Max images per request to avoid payload limits
     models: list[ModelConfig] = Field(default_factory=list)
 
 
