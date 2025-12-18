@@ -154,6 +154,34 @@ Additional context (example template):
 REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
 """
 
+# Anthropic-specific prompt for structured outputs
+# Schema is enforced via output_format parameter, so we don't include it in the prompt
+VISION_EXTRACTION_PROMPT_ANTHROPIC = """You are an inspection template parser. Given images of an inspection form, extract ONLY the inspection template structure (rooms/areas with their inspection fields).
+
+""" + _BASE_EXTRACTION_RULES + """
+
+**ALLOWED MaintenanceCategory values (use EXACTLY as written):**
+{maintenance_categories}
+
+**ALLOWED WorkOrderSubCategory values (use EXACTLY as written):**
+{work_order_subcategories}
+
+## Image Order
+- Images are provided in page order (image 1 = page 1, image 2 = page 2, etc.)
+- Preserve the exact order sections appear in the document
+
+Additional context (example template):
+{template_context}
+
+## Output Instructions
+Your response will be automatically validated against a JSON schema. 
+- Output EVERY field and section completely - no truncation allowed
+- The response must include ALL inspection items from the form
+- Do not abbreviate or summarize - output the full data
+
+REMEMBER: Find the legend/key FIRST, then expand ALL acronyms to their full names. Extract ONLY inspection template sections with their fields. Do NOT include any header or footer information.
+"""
+
 # Legacy alias for backward compatibility
 EXTRACTION_PROMPT = VISION_EXTRACTION_PROMPT
 

@@ -209,6 +209,7 @@ async function runPipeline() {
 // Server
 const server = Bun.serve({
   port: 3000,
+  idleTimeout: 200,
   
   routes: {
     // Serve dashboard
@@ -243,14 +244,19 @@ const server = Bun.serve({
       },
     },
     
-    // API: Run extraction pipeline
+    // API: Run extraction pipeline (returns immediately, runs in background)
     "/api/run": {
       POST: async () => {
-        const result = await runPipeline();
-        if (result.error) {
-          return Response.json(result, { status: 400 });
+        if (pipelineRunning) {
+          return Response.json({ error: "Pipeline is already running" }, { status: 400 });
         }
-        return Response.json(result);
+        
+        // Start pipeline in background - don't await it
+        runPipeline().catch((err) => {
+          console.error("Pipeline error:", err);
+        });
+        
+        return Response.json({ success: true, message: "Pipeline started" });
       },
     },
     

@@ -6,41 +6,44 @@ interface LogViewerProps {
   isRunning: boolean;
 }
 
-function getMessageColor(type: WSMessage["type"]): string {
-  switch (type) {
+type LogVariant = "info" | "progress" | "success" | "warning" | "error" | "default";
+
+function getMessageVariant(msg: WSMessage): LogVariant {
+  // If backend mislabels as run_error but no error payload, treat as info
+  if (msg.type === "run_error" && !msg.data?.error) {
+    return "warning";
+  }
+
+  switch (msg.type) {
     case "run_started":
-      return "log-info";
+      return "info";
     case "model_started":
-      return "log-progress";
+      return "progress";
     case "model_completed":
-      return "log-success";
+      return "success";
     case "run_completed":
-      return "log-success";
+      return "success";
     case "run_error":
-      return "log-error";
+      return "error";
     case "cache_updated":
-      return "log-info";
+      return "info";
     default:
-      return "log-default";
+      return "default";
   }
 }
 
-function getMessageIcon(type: WSMessage["type"]): string {
-  switch (type) {
-    case "run_started":
-      return "🚀";
-    case "model_started":
+function getMessageIcon(variant: LogVariant): string {
+  switch (variant) {
+    case "info":
+      return "ℹ️";
+    case "progress":
       return "⏳";
-    case "model_completed":
+    case "success":
       return "✅";
-    case "run_completed":
-      return "🎉";
-    case "run_error":
+    case "warning":
+      return "⚠️";
+    case "error":
       return "❌";
-    case "cache_updated":
-      return "📊";
-    case "connected":
-      return "🔌";
     default:
       return "📝";
   }
@@ -91,25 +94,28 @@ export function LogViewer({ messages, isRunning }: LogViewerProps) {
             <span>Waiting for pipeline output...</span>
           </div>
         ) : (
-          pipelineMessages.map((msg, index) => (
-            <div
-              key={`${msg.timestamp}-${index}`}
-              className={`log-entry ${getMessageColor(msg.type)}`}
-            >
-              <span className="log-entry-icon">{getMessageIcon(msg.type)}</span>
-              <span className="log-entry-time">
-                {formatTimestamp(msg.timestamp)}
-              </span>
-              <span className="log-entry-message">
-                {msg.data?.message || msg.data?.error || msg.type}
-              </span>
-              {msg.data?.progress && (
-                <span className="log-entry-progress">
-                  [{msg.data.progress.current}/{msg.data.progress.total}]
+          pipelineMessages.map((msg, index) => {
+            const variant = getMessageVariant(msg);
+            return (
+              <div
+                key={`${msg.timestamp}-${index}`}
+                className={`log-entry log-${variant}`}
+              >
+                <span className="log-entry-icon">{getMessageIcon(variant)}</span>
+                <span className="log-entry-time">
+                  {formatTimestamp(msg.timestamp)}
                 </span>
-              )}
-            </div>
-          ))
+                <span className="log-entry-message">
+                  {msg.data?.message || msg.data?.error || msg.type}
+                </span>
+                {msg.data?.progress && (
+                  <span className="log-entry-progress">
+                    [{msg.data.progress.current}/{msg.data.progress.total}]
+                  </span>
+                )}
+              </div>
+            );
+          })
         )}
       </div>
     </div>

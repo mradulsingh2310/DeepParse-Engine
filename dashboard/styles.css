@@ -693,6 +693,8 @@ body {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--border-color);
   animation: fadeIn 0.2s ease;
+  border-left: 3px solid transparent;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 @keyframes fadeIn {
@@ -705,7 +707,7 @@ body {
 }
 
 .log-entry:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .log-entry-icon {
@@ -732,10 +734,37 @@ body {
 }
 
 /* Log entry colors */
-.log-info .log-entry-message { color: var(--accent-blue); }
-.log-progress .log-entry-message { color: var(--accent-amber); }
-.log-success .log-entry-message { color: var(--accent-green); }
-.log-error .log-entry-message { color: var(--accent-red); }
+.log-info {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: var(--accent-blue);
+}
+.log-info .log-entry-message { color: var(--text-primary); }
+
+.log-progress {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: var(--accent-amber);
+}
+.log-progress .log-entry-message { color: var(--text-primary); }
+.log-entry-progress { color: var(--accent-amber); }
+
+.log-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--accent-green);
+}
+.log-success .log-entry-message { color: var(--text-primary); }
+
+.log-warning {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: var(--accent-amber);
+}
+.log-warning .log-entry-message { color: var(--text-primary); }
+
+.log-error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--accent-red);
+}
+.log-error .log-entry-message { color: var(--text-primary); }
+
 .log-default .log-entry-message { color: var(--text-secondary); }
 
 /* Footer */

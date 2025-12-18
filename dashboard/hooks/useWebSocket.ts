@@ -24,9 +24,20 @@ export function useWebSocket(onCacheUpdated?: () => void): UseWebSocketResult {
     const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
     const ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
 
-    ws.onopen = () => {
+    ws.onopen = async () => {
       console.log("WebSocket connected");
       setConnected(true);
+      
+      // Fetch current status to sync UI state
+      try {
+        const response = await fetch("/api/status");
+        const data = await response.json();
+        if (data.status === "running") {
+          setRunStatus({ status: "running", message: "Pipeline in progress..." });
+        }
+      } catch (err) {
+        console.error("Failed to fetch initial status:", err);
+      }
     };
 
     ws.onmessage = (event) => {

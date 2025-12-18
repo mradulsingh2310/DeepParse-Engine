@@ -3,6 +3,11 @@ Anthropic Service Implementation.
 
 Uses Anthropic's Claude models (e.g., Claude 4.5 Haiku) to extract structured JSON
 directly from images in a single LLM request.
+
+Supports structured outputs via the beta API (structured-outputs-2025-11-13) to
+guarantee valid JSON responses matching the provided schema.
+
+Reference: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
 """
 
 import base64
@@ -12,6 +17,7 @@ import os
 from typing import Any, TypeVar
 
 import anthropic
+from anthropic import transform_schema
 from dotenv import load_dotenv
 from PIL import Image
 from pydantic import BaseModel
@@ -22,13 +28,16 @@ from src.schemas.inspection import (
     WorkOrderSubCategory,
 )
 from src.services.providers.bedrock import normalize_enum_values
-from src.utils.prompts import VISION_EXTRACTION_PROMPT
+from src.utils.prompts import VISION_EXTRACTION_PROMPT_ANTHROPIC
 from src.utils.logger import log, log_usage
 
 # Load environment variables from .env file
 load_dotenv()
 
 T = TypeVar("T", bound=BaseModel)
+
+# Beta feature for structured outputs - guarantees valid JSON matching schema
+STRUCTURED_OUTPUTS_BETA = "structured-outputs-2025-11-13"
 
 
 class AnthropicError(Exception):
@@ -105,7 +114,10 @@ class AnthropicService:
         context: dict | None = None,
     ) -> T:
         """
-        Generate structured JSON from images using Anthropic.
+        Generate structured JSON from images using Anthropic with structured outputs.
+
+        Uses the structured outputs beta API to guarantee valid JSON matching the schema.
+        Reference: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
 
         Args:
             images: List of PIL Images (one per page)
@@ -115,20 +127,16 @@ class AnthropicService:
         Returns:
             Validated Pydantic model instance with extracted data
         """
-        log(f"Extracting JSON from {len(images)} image(s) using Anthropic [{self.model_id}]")
+        log(f"Extracting JSON from {len(images)} image(s) using Anthropic [{self.model_id}] with structured outputs")
 
         client = self._get_client()
-
-        # Generate JSON schema from Pydantic model
-        json_schema = schema.model_json_schema()
 
         # Get enum values as strings for the prompt
         maintenance_categories = [cat.value for cat in MaintenanceCategory]
         work_order_subcategories = [sub.value for sub in WorkOrderSubCategory]
 
-        # Build the prompt
-        prompt = VISION_EXTRACTION_PROMPT.format(
-            json_schema=json.dumps(json_schema, indent=2),
+        # Build the prompt - schema is enforced by output_format, so prompt focuses on extraction rules
+        prompt = VISION_EXTRACTION_PROMPT_ANTHROPIC.format(
             template_context=json.dumps(context, indent=2) if context else "N/A",
             maintenance_categories=json.dumps(maintenance_categories, indent=2),
             work_order_subcategories=json.dumps(work_order_subcategories, indent=2),
@@ -157,13 +165,23 @@ class AnthropicService:
         # Add the text prompt after images
         content.append({"type": "text", "text": prompt})
 
-        # Send request to Anthropic
+        # Transform Pydantic schema for Anthropic structured outputs
+        # This handles unsupported features by adding constraints to field descriptions
+        transformed_schema = transform_schema(schema)
+        log(f"Using structured outputs with schema: {schema.__name__}")
+
+        # Send request to Anthropic using beta API with structured outputs
         try:
-            log("Sending request to Anthropic...")
-            response = client.messages.create(
+            log("Sending request to Anthropic with structured outputs...")
+            response = client.beta.messages.create(
                 model=self.model_id,
                 max_tokens=self.config.max_tokens,
+                betas=[STRUCTURED_OUTPUTS_BETA],
                 messages=[{"role": "user", "content": content}],
+                output_format={
+                    "type": "json_schema",
+                    "schema": transformed_schema,
+                },
             )
         except anthropic.APIError as e:
             log(f"Anthropic API error: {e}")
@@ -171,6 +189,18 @@ class AnthropicService:
         except Exception as e:
             log(f"Unexpected error calling Anthropic: {e}")
             raise AnthropicError(f"Unexpected error calling Anthropic: {e}") from e
+
+        # Check for refusals or truncation
+        if hasattr(response, "stop_reason"):
+            if response.stop_reason == "refusal":
+                log("WARNING: Claude refused the request for safety reasons")
+                raise AnthropicModelError("Claude refused the request for safety reasons")
+            elif response.stop_reason == "max_tokens":
+                log("WARNING: Response was truncated due to max_tokens limit")
+                raise AnthropicModelError(
+                    f"Response truncated - max_tokens ({self.config.max_tokens}) insufficient. "
+                    "Increase max_tokens in config."
+                )
 
         # Log usage
         if hasattr(response, "usage") and response.usage:
@@ -185,7 +215,7 @@ class AnthropicService:
                 operation="image_to_json_extraction",
             )
 
-        # Extract response text
+        # Extract response text - structured outputs guarantees valid JSON
         try:
             result_text = response.content[0].text
         except (KeyError, IndexError, AttributeError) as e:
@@ -194,17 +224,7 @@ class AnthropicService:
                 f"Invalid response structure from Anthropic: {e}"
             ) from e
 
-        # Parse JSON from response (handle markdown code blocks)
-        result_text = result_text.strip()
-        if result_text.startswith("```json"):
-            result_text = result_text[7:]
-        if result_text.startswith("```"):
-            result_text = result_text[3:]
-        if result_text.endswith("```"):
-            result_text = result_text[:-3]
-        result_text = result_text.strip()
-
-        # Validate against Pydantic model
+        # Parse JSON - should always be valid due to structured outputs
         try:
             result_dict = json.loads(result_text)
         except json.JSONDecodeError as e:
