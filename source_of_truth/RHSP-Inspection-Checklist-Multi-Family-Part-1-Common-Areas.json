@@ -1,0 +1,1096 @@
+{
+    "name": "General Property & Common Areas",
+    "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+    "sections": [
+        {
+            "name": "Exterior Site Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 1,
+                    "name": "Address Display",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 2,
+                    "name": "Exterior Site Cleanliness and Safety",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 3,
+                    "name": "Inoperable Vehicles",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 4,
+                    "name": "Exhaust Vent Discharge",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 5,
+                    "name": "Accessory Structures Condition",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                },
+                {
+                    "id": 6,
+                    "name": "Defacement or Graffiti",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PAINTING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PAINTING_MOLD_REMEDIATION"
+                },
+                {
+                    "id": 7,
+                    "name": "Grounds Maintenance",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 8,
+                    "name": "Exterior Walkways Safety",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 9,
+                    "name": "Driveways and Parking Areas",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 10,
+                    "name": "Site Drainage",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 11,
+                    "name": "Garbage Disposal",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 12,
+                    "name": "Rodents, Vermin, or Insects",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PEST_CONTROL_PREVENTATIVE_PEST_CONTROL"
+                }
+            ]
+        },
+        {
+            "name": "Exterior Building Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 13,
+                    "name": "Exterior Surfaces",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 14,
+                    "name": "Foundation Condition",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                },
+                {
+                    "id": 15,
+                    "name": "Structural Components",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                },
+                {
+                    "id": 16,
+                    "name": "Exterior Walls",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 17,
+                    "name": "Roofs and Drainage",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 18,
+                    "name": "Decorative features and overhanging extensions",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 19,
+                    "name": "Windows and Skylights",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+                },
+                {
+                    "id": 20,
+                    "name": "Exterior Doors",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                },
+                {
+                    "id": 21,
+                    "name": "Stairs and Decks",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+                },
+                {
+                    "id": 22,
+                    "name": "Handrails and Guards",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 23,
+                    "name": "Chimney",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                }
+            ]
+        },
+        {
+            "name": "Means of Egress",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 24,
+                    "name": "Egress",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 25,
+                    "name": "Emergency Escape openings",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                }
+            ]
+        },
+        {
+            "name": "Interior Building Conditions - Common Areas Only",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 26,
+                    "name": "Structural Components/Members",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 27,
+                    "name": "Interior Surfaces",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 28,
+                    "name": "Stairs and Walking Surfaces",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 29,
+                    "name": "Handrails and Guards",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 30,
+                    "name": "Interior Doors",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR"
+                },
+                {
+                    "id": 31,
+                    "name": "Ventilation",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 32,
+                    "name": "Lighting",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_LIGHT_FIXTURE_INSTALLATION_REPAIR"
+                },
+                {
+                    "id": 33,
+                    "name": "Fire-Resistance-Rated Assemblies (including Opening Protectives)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "attachments_enabled": true,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 34,
+                    "name": "Rodents, Vermin or Insects",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PEST_CONTROL_RODENT_INFESTATION"
+                }
+            ]
+        },
+        {
+            "name": "Room Size/Requirements",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 35,
+                    "name": "Minimum Room Width/Height",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 36,
+                    "name": "Prohibited Use",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 37,
+                    "name": "Food Preparation",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                }
+            ]
+        },
+        {
+            "name": "Heating & Plumbing Systems",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 38,
+                    "name": "Heat Source",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+                },
+                {
+                    "id": 39,
+                    "name": "Fuel-burning Appliances",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_FURNACE_NOT_HEATING"
+                },
+                {
+                    "id": 40,
+                    "name": "Plumbing Connection",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_PIPE_LEAK_BURST"
+                },
+                {
+                    "id": 41,
+                    "name": "Plumbing Lines",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_PIPE_LEAK_BURST"
+                },
+                {
+                    "id": 42,
+                    "name": "Plumbing Fixtures",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_FAUCET_LEAK"
+                },
+                {
+                    "id": 43,
+                    "name": "Water Heating Facilities",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_PLUMBING",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PLUMBING_WATER_HEATER_REPAIR"
+                }
+            ]
+        },
+        {
+            "name": "Electrical Systems",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 44,
+                    "name": "Service",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_CIRCUIT_BREAKER_TRIPPING"
+                },
+                {
+                    "id": 45,
+                    "name": "Receptacles (Habitable Spaces)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                },
+                {
+                    "id": 46,
+                    "name": "Receptacles (GFCI)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                },
+                {
+                    "id": 47,
+                    "name": "Receptacles (Faceplates)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                },
+                {
+                    "id": 48,
+                    "name": "Electrical Hazards (Wiring)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_WIRING_ISSUES"
+                },
+                {
+                    "id": 49,
+                    "name": "Electrical Hazards (Extension Cords)",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_WIRING_ISSUES"
+                },
+                {
+                    "id": 50,
+                    "name": "Luminaires",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_LIGHT_FIXTURE_INSTALLATION_REPAIR"
+                }
+            ]
+        },
+        {
+            "name": "Fire Safety",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 51,
+                    "name": "Fire Extinguishers",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 52,
+                    "name": "Storage of Combustibles",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 53,
+                    "name": "Storage of Fueled Equipment",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 54,
+                    "name": "Storage in buildings",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 55,
+                    "name": "Fire Alarm System",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_SECURITY_SYSTEM_INTERCOM_MALFUNCTION"
+                },
+                {
+                    "id": 56,
+                    "name": "Fire Sprinkler System",
+                    "mandatory": true,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                }
+            ]
+        },
+        {
+            "name": "Swimming Pools, Spas and Hot Tubs",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 57,
+                    "name": "General",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 58,
+                    "name": "Enclosures",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 59,
+                    "name": "Luminaires",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": true,
+                    "notes_required_for_all_options": false,
+                    "notes_required_for_selected_options": ["Fail"],
+                    "attachments_enabled": true,
+                    "attachments_required_for_all_options": false,
+                    "attachments_required_for_selected_options": ["Fail"],
+                    "can_create_work_order": true,
+                    "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_LIGHT_FIXTURE_INSTALLATION_REPAIR"
+                }
+            ]
+        },
+        {
+            "name": "Elevators",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+                {
+                    "id": 60,
+                    "name": "General",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                },
+                {
+                    "id": 61,
+                    "name": "Operation & Maintenance",
+                    "mandatory": false,
+                    "rating_type": "RATING_TYPE_RADIO",
+                    "options": [
+                        "Pass",
+                        "Fail"
+                    ],
+                    "notes_enabled": false,
+                    "attachments_enabled": false,
+                    "can_create_work_order": false,
+                    "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                    "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                }
+            ]
+        }
+    ],
+    "fields": []
+}

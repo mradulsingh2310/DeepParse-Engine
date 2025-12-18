@@ -1,0 +1,36 @@
+{
+  "source_file": "source_of_truth/RHSP-Inspection-Checklist-Multi-Family-Part-1-Common-Areas.json",
+  "last_updated": "2025-12-19T01:53:19.682365",
+  "models": {
+    "openai:gpt-5-nano": {
+      "model_id": "gpt-5-nano",
+      "provider": "openai",
+      "run_count": 1,
+      "total_schema_compliance": 1.0,
+      "total_structural_accuracy": 0.0,
+      "total_semantic_accuracy": 0.0,
+      "total_config_accuracy": 0.0,
+      "total_overall_score": 0.15,
+      "total_cost": 0.0025732000000000003,
+      "total_input_tokens": 20176,
+      "total_output_tokens": 3911,
+      "best_score": 0.15,
+      "best_run_timestamp": "2025-12-19T01:53:19.682329",
+      "latest_score": 0.15,
+      "latest_run_timestamp": "2025-12-19T01:53:19.682329",
+      "run_history": [
+        {
+          "timestamp": "2025-12-19T01:53:19.682329",
+          "overall_score": 0.15,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.0,
+          "semantic_accuracy": 0.0,
+          "config_accuracy": 0.0,
+          "cost": 0.0025732000000000003,
+          "input_tokens": 20176,
+          "output_tokens": 3911
+        }
+      ]
+    }
+  }
+}

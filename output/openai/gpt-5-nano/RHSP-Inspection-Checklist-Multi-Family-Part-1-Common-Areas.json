@@ -1,0 +1,27 @@
+{
+  "id": 0,
+  "name": "",
+  "description": "",
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Rental Housing Safety Program Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null,
+  "_metadata": {
+    "provider": "openai",
+    "model_id": "gpt-5-nano",
+    "supporting_model_id": null,
+    "input_tokens": 20176,
+    "output_tokens": 3911,
+    "cost_usd": 0.0025732000000000003
+  }
+}

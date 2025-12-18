@@ -58,18 +58,24 @@ def save_result(
     output_path: Path,
     provider: Provider,
     model_config: ModelConfig,
+    input_tokens: int = 0,
+    output_tokens: int = 0,
+    cost_usd: float = 0.0,
 ) -> None:
-    """Save extraction result to JSON file."""
+    """Save extraction result to JSON file with usage metadata."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
     # Handle both dict and Pydantic model results
     result_dict = result if isinstance(result, dict) else result.model_dump()
 
-    # Attach metadata so evaluation can identify provider/model
+    # Attach metadata so evaluation can identify provider/model AND usage
     result_dict["_metadata"] = {
         "provider": provider.value,
         "model_id": model_config.model_id,
         "supporting_model_id": model_config.supporting_model_id,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "cost_usd": cost_usd,
     }
     
     with open(output_path, "w", encoding="utf-8") as f:
@@ -121,6 +127,10 @@ def process_pdf(
     # Load template context if provided
     context = load_template(template_path) if template_path else None
     
+    # Get tracker to capture usage before and after
+    tracker = get_tracker()
+    records_before = len(tracker.records)
+    
     # Extract JSON using the service
     result = service.generate_json(
         images=images,
@@ -128,11 +138,27 @@ def process_pdf(
         context=context,
     )
     
+    # Capture usage data from this extraction
+    input_tokens = 0
+    output_tokens = 0
+    cost_usd = 0.0
+    
+    # Sum up all new records (there might be multiple API calls)
+    for record in tracker.records[records_before:]:
+        input_tokens += record.input_tokens
+        output_tokens += record.output_tokens
+        cost_usd += record.cost_usd
+    
     # Generate output path with provider/model directory structure
     output_path = get_output_path(output_dir, provider, model_config, pdf_path.stem)
     
-    # Save result
-    save_result(result, output_path, provider, model_config)
+    # Save result with usage data embedded in metadata
+    save_result(
+        result, output_path, provider, model_config,
+        input_tokens=input_tokens,
+        output_tokens=output_tokens,
+        cost_usd=cost_usd,
+    )
     
     return result
 

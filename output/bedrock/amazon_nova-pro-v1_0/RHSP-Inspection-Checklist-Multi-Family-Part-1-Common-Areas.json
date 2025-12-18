@@ -1,0 +1,721 @@
+{
+  "id": 1,
+  "name": "Rental Housing Safety Program Inspection Checklist",
+  "description": "Inspection checklist for rental housing safety program",
+  "property_ids": [],
+  "versions": [
+    {
+      "version_id": 1,
+      "structure": {
+        "name": "Rental Housing Safety Program Inspection",
+        "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+        "sections": [
+          {
+            "name": "Exterior Site Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 1,
+                "name": "Address",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 2,
+                "name": "Exterior Property",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Motor Vehicles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 4,
+                "name": "Exhaust Vents",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 5,
+                "name": "Accessory Structures",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 6,
+                "name": "Defacement of Property",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 7,
+                "name": "Grounds Maintenance",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 8,
+                "name": "Exterior Walkways",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 9,
+                "name": "Driveway/Parking",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 10,
+                "name": "Drainage",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 11,
+                "name": "Garbage Disposal",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 12,
+                "name": "Rodents, Vermin or Insects",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Exterior Building Conditions",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 13,
+                "name": "Exterior Surfaces",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 14,
+                "name": "Foundation",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 15,
+                "name": "Structural Components/Members",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 16,
+                "name": "Exterior Walls",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 17,
+                "name": "Roofs and Drainage",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 18,
+                "name": "Decorative Features & Overhang Extensions",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 19,
+                "name": "Windows and Skylights",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 20,
+                "name": "Doors",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 21,
+                "name": "Stairs and Decks",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 22,
+                "name": "Handrails and Guards",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 23,
+                "name": "Chimney",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Not Present",
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Means of Egress",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 24,
+                "name": "Egress",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Interior Building Conditions - Common Areas Only",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 25,
+                "name": "Structural Components/Members",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 26,
+                "name": "Interior Surfaces",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 27,
+                "name": "Stairs and Walking Surfaces",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 28,
+                "name": "Handrails and Guards",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 29,
+                "name": "Interior Doors",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 30,
+                "name": "Ventilation",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 31,
+                "name": "Lighting",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 32,
+                "name": "Fire-Resistance-Rated Assemblies (including Opening Protectives)",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 33,
+                "name": "Rodents, Vermin or Insects",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Room Size/Requirements",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 34,
+                "name": "Minimum Room Width/Height",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 35,
+                "name": "Prohibited Use",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 36,
+                "name": "Food Preparation",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Heating & Plumbing Systems",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 37,
+                "name": "Heat Source",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 38,
+                "name": "Fuel-burning Appliances",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 39,
+                "name": "Plumbing Connection",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 40,
+                "name": "Plumbing Lines",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 41,
+                "name": "Plumbing Fixtures",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 42,
+                "name": "Water Heating Facilities",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Electrical Systems",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 43,
+                "name": "Service",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 44,
+                "name": "Receptacles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 45,
+                "name": "Receptacles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 46,
+                "name": "Receptacles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 47,
+                "name": "Receptacles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 48,
+                "name": "Electrical Hazards",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 49,
+                "name": "Electrical Hazards",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 50,
+                "name": "Luminaires",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Fire Safety",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 51,
+                "name": "Fire Extinguishers",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 52,
+                "name": "Storage of Combustibles",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 53,
+                "name": "Storage of Combustible Equipment",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 54,
+                "name": "Storage of Fueled Equipment",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 55,
+                "name": "Storage in Buildings",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 56,
+                "name": "Fire Alarm System",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 57,
+                "name": "Fire Sprinkler System",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Swimming Pools, Spas and Hot Tubs",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 58,
+                "name": "General",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Not Applicable",
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 59,
+                "name": "Enclosures",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 60,
+                "name": "Luminaires",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Elevators",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
+              {
+                "id": 61,
+                "name": "General",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Not Applicable",
+                  "Pass",
+                  "Fail"
+                ]
+              },
+              {
+                "id": 62,
+                "name": "Operation & Maintenance",
+                "mandatory": true,
+                "rating_type": "RATING_TYPE_RADIO",
+                "options": [
+                  "Pass",
+                  "Fail"
+                ]
+              }
+            ]
+          }
+        ],
+        "fields": []
+      }
+    }
+  ],
+  "created_at": null,
+  "updated_at": null,
+  "_metadata": {
+    "provider": "bedrock",
+    "model_id": "amazon.nova-pro-v1:0",
+    "supporting_model_id": null,
+    "input_tokens": 17571,
+    "output_tokens": 4104,
+    "cost_usd": 0.0271896
+  }
+}

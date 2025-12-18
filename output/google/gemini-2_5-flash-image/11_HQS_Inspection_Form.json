@@ -44,8 +44,8 @@
                 "notes_enabled": true,
                 "attachments_enabled": true,
                 "can_create_work_order": true,
-                "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 3,
@@ -1290,6 +1290,9 @@
   "_metadata": {
     "provider": "google",
     "model_id": "gemini-2.5-flash-image",
-    "supporting_model_id": null
+    "supporting_model_id": null,
+    "input_tokens": 7359,
+    "output_tokens": 12009,
+    "cost_usd": 0.0322302
   }
 }

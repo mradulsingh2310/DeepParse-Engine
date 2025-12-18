@@ -11,14 +11,14 @@
         "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
         "sections": [
           {
-            "name": "Entire Unit",
+            "name": "Entire unit",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 1,
                 "name": "Smoke detectors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -44,7 +44,7 @@
               {
                 "id": 2,
                 "name": "Doors and lock",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -70,7 +70,7 @@
               {
                 "id": 3,
                 "name": "Windows/screens",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -96,7 +96,7 @@
               {
                 "id": 4,
                 "name": "Heating/ac",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -122,7 +122,7 @@
               {
                 "id": 5,
                 "name": "Ventilation/air quality",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -148,7 +148,7 @@
               {
                 "id": 6,
                 "name": "Access to fire escape",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -168,18 +168,18 @@
                   "Immediate action required"
                 ],
                 "can_create_work_order": true,
-                "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
-                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DOOR_REPAIR_INSTALLATION"
               },
               {
                 "id": 7,
                 "name": "Free of vermin/rodents",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
                   "Acceptable",
-                  " Requires action",
+                  "Requires action",
                   "Immediate action required"
                 ],
                 "notes_enabled": true,
@@ -219,15 +219,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 9,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -249,14 +249,14 @@
             ]
           },
           {
-            "name": "Living Room",
+            "name": "Living room",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 10,
-                "name": "Walls/int. door",
-                "mandatory": true,
+                "name": "Walls/int.door",
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -282,7 +282,7 @@
               {
                 "id": 11,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -308,7 +308,7 @@
               {
                 "id": 12,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -334,7 +334,7 @@
               {
                 "id": 13,
                 "name": "Elec.fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -379,15 +379,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 15,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -409,14 +409,14 @@
             ]
           },
           {
-            "name": "Dining Area",
+            "name": "Dinning area",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 16,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -442,7 +442,7 @@
               {
                 "id": 17,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -468,7 +468,7 @@
               {
                 "id": 18,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -494,7 +494,7 @@
               {
                 "id": 19,
                 "name": "Elec. Fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -539,15 +539,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 21,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -576,7 +576,7 @@
               {
                 "id": 22,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -602,7 +602,7 @@
               {
                 "id": 23,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -628,7 +628,7 @@
               {
                 "id": 24,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -654,7 +654,7 @@
               {
                 "id": 25,
                 "name": "Elec.fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -680,7 +680,7 @@
               {
                 "id": 26,
                 "name": "Working toilet",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -706,7 +706,7 @@
               {
                 "id": 27,
                 "name": "Lavatory (h/c water)",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -732,7 +732,7 @@
               {
                 "id": 28,
                 "name": "Tub/shower (h/c water)",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -777,15 +777,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 30,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -814,7 +814,7 @@
               {
                 "id": 31,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -840,7 +840,7 @@
               {
                 "id": 32,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -866,7 +866,7 @@
               {
                 "id": 33,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -892,7 +892,7 @@
               {
                 "id": 34,
                 "name": "Elec.fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -918,7 +918,7 @@
               {
                 "id": 35,
                 "name": "Stove",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -944,7 +944,7 @@
               {
                 "id": 36,
                 "name": "Refrigerator",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -966,11 +966,18 @@
                 "can_create_work_order": true,
                 "work_order_category": "MAINTENANCE_CATEGORY_APPLIANCE_REPAIR",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_APPLIANCE_REPAIR_REFRIGERATOR_FAILURE"
-              },
+              }
+            ]
+          },
+          {
+            "name": "Kitchen (con't.)",
+            "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+            "sections": [],
+            "fields": [
               {
                 "id": 37,
                 "name": "Sink",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -996,7 +1003,7 @@
               {
                 "id": 38,
                 "name": "Disposal/Trash Container",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1022,7 +1029,7 @@
               {
                 "id": 39,
                 "name": "Cabinets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1048,7 +1055,7 @@
               {
                 "id": 40,
                 "name": "Countertops",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1093,15 +1100,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 42,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -1130,7 +1137,7 @@
               {
                 "id": 43,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1156,7 +1163,7 @@
               {
                 "id": 44,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1182,7 +1189,7 @@
               {
                 "id": 45,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1207,8 +1214,8 @@
               },
               {
                 "id": 46,
-                "name": "Elec.fixtures/outlets",
-                "mandatory": true,
+                "name": "Elec. fixtures/outlets",
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1253,15 +1260,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 48,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -1283,14 +1290,14 @@
             ]
           },
           {
-            "name": "Room ID",
+            "name": "Room ID*",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 49,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1316,7 +1323,7 @@
               {
                 "id": 50,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1342,7 +1349,7 @@
               {
                 "id": 51,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1368,7 +1375,7 @@
               {
                 "id": 52,
                 "name": "Elec. fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1413,15 +1420,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 54,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -1443,14 +1450,14 @@
             ]
           },
           {
-            "name": "Room ID",
+            "name": "Room ID*",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 55,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1476,7 +1483,7 @@
               {
                 "id": 56,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1502,7 +1509,7 @@
               {
                 "id": 57,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1528,7 +1535,7 @@
               {
                 "id": 58,
                 "name": "Elec. fixtures/outlets",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1573,15 +1580,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 60,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -1603,14 +1610,14 @@
             ]
           },
           {
-            "name": "Room ID",
+            "name": "Room ID*",
             "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
             "sections": [],
             "fields": [
               {
                 "id": 61,
                 "name": "Walls/int. doors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1636,7 +1643,7 @@
               {
                 "id": 62,
                 "name": "Ceiling",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1662,7 +1669,7 @@
               {
                 "id": 63,
                 "name": "Floors",
-                "mandatory": true,
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1687,8 +1694,8 @@
               },
               {
                 "id": 64,
-                "name": "Elec.fixtures/outlets",
-                "mandatory": true,
+                "name": "Elec. fixtures/outlets",
+                "mandatory": false,
                 "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Good",
@@ -1733,15 +1740,15 @@
                 "attachments_required_for_selected_options": [
                   "Immediate action required"
                 ],
-                "can_create_work_order": true,
+                "can_create_work_order": false,
                 "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
                 "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
               },
               {
                 "id": 66,
                 "name": "Hazards?",
-                "mandatory": true,
-                "rating_type": "RATING_TYPE RADIO",
+                "mandatory": false,
+                "rating_type": "RATING_TYPE_RADIO",
                 "options": [
                   "Yes",
                   "No"
@@ -1772,6 +1779,9 @@
   "_metadata": {
     "provider": "bedrock",
     "model_id": "qwen.qwen3-vl-235b-a22b",
-    "supporting_model_id": null
+    "supporting_model_id": null,
+    "input_tokens": 9418,
+    "output_tokens": 12415,
+    "cost_usd": 0.008399340000000002
   }
 }

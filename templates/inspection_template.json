@@ -12,7 +12,7 @@
         "sections": [
           {
             "name": "Kitchen",
-            "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+            "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
             "sections": [
               {
                 "name": "Appliances",
