@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from PIL import Image
 from pydantic import BaseModel
 
-from src.config.loader import BedrockConfig
+from src.config.loader import BedrockConfig, ModelConfig
 from src.schemas.inspection import (
     MaintenanceCategory, 
     WorkOrderSubCategory,
@@ -171,14 +171,30 @@ class BedrockService:
     in a single request (no separate OCR step).
     """
     
-    def __init__(self, config: BedrockConfig | None = None):
+    def __init__(
+        self,
+        config: BedrockConfig | None = None,
+        model_config: ModelConfig | None = None,
+    ):
         """
         Initialize BedrockService with configuration.
         
         Args:
             config: BedrockConfig instance. Uses defaults if not provided.
+            model_config: ModelConfig with model_id to use. If not provided,
+                         uses first model from config or a default.
         """
         self.config = config or BedrockConfig()
+        
+        # Determine which model to use
+        if model_config is not None:
+            self.model_id = model_config.model_id
+        elif self.config.models:
+            self.model_id = self.config.models[0].model_id
+        else:
+            # Fallback default
+            self.model_id = "qwen.qwen3-vl-235b-a22b"
+        
         self._client = None
     
     def _get_client(self):
@@ -222,7 +238,7 @@ class BedrockService:
         Returns:
             Validated Pydantic model instance with extracted data
         """
-        log(f"Extracting JSON from {len(images)} image(s) using Bedrock [{self.config.model_id}]")
+        log(f"Extracting JSON from {len(images)} image(s) using Bedrock [{self.model_id}]")
         
         client = self._get_client()
         
@@ -261,7 +277,7 @@ class BedrockService:
         try:
             log("Sending request to Bedrock...")
             response = client.converse(
-                modelId=self.config.model_id,
+                modelId=self.model_id,
                 messages=[{"role": "user", "content": content}],
                 inferenceConfig={
                     "maxTokens": self.config.max_tokens,
@@ -280,11 +296,10 @@ class BedrockService:
         usage = response.get("usage", {})
         input_tokens = usage.get("inputTokens", 0)
         output_tokens = usage.get("outputTokens", 0)
-        total_tokens = usage.get("totalTokens", input_tokens + output_tokens)
         
         log_usage(
             provider="bedrock",
-            model=self.config.model_id,
+            model=self.model_id,
             input_tokens=input_tokens,
             output_tokens=output_tokens,
             operation="image_to_json_extraction"
@@ -336,4 +351,3 @@ class BedrockService:
         
         log("Extraction completed successfully")
         return result  # type: ignore[return-value]
-

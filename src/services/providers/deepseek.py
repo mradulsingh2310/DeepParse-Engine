@@ -20,7 +20,7 @@ from openai.types.chat import ChatCompletionSystemMessageParam, ChatCompletionUs
 from PIL import Image
 from pydantic import BaseModel
 
-from src.config.loader import DeepseekConfig
+from src.config.loader import DeepseekConfig, ModelConfig
 from src.schemas.inspection import InspectionTemplate, validate_template_lenient
 from src.utils.logger import log, log_usage
 
@@ -149,14 +149,34 @@ class DeepseekService:
     2. JSON extraction via OpenAI
     """
     
-    def __init__(self, config: DeepseekConfig | None = None):
+    def __init__(
+        self,
+        config: DeepseekConfig | None = None,
+        model_config: ModelConfig | None = None,
+    ):
         """
         Initialize DeepseekService with configuration.
         
         Args:
             config: DeepseekConfig instance. Uses defaults if not provided.
+            model_config: ModelConfig with model_id (OCR model) and supporting_model_id (JSON model).
+                         If not provided, uses first model from config or defaults.
         """
         self.config = config or DeepseekConfig()
+        
+        # Determine which models to use
+        if model_config is not None:
+            self.ocr_model = model_config.model_id
+            self.json_model = model_config.supporting_model_id or "gpt-5.1"
+        elif self.config.models:
+            first_model = self.config.models[0]
+            self.ocr_model = first_model.model_id
+            self.json_model = first_model.supporting_model_id or "gpt-5.1"
+        else:
+            # Fallback defaults
+            self.ocr_model = "deepseek-ocr"
+            self.json_model = "gpt-5.1"
+        
         self._openai_client = None
     
     def _get_openai_client(self) -> OpenAI:
@@ -186,7 +206,7 @@ class DeepseekService:
             # Create client with timeout
             client = ollama.Client(timeout=self.config.ocr_timeout)
             response = client.chat(
-                model=self.config.ocr_model,
+                model=self.ocr_model,
                 messages=[{
                     "role": "user",
                     "content": prompt,
@@ -197,11 +217,10 @@ class DeepseekService:
             # Log token usage from Ollama response
             input_tokens = response.get("prompt_eval_count", 0)
             output_tokens = response.get("eval_count", 0)
-            total_tokens = input_tokens + output_tokens
             
             log_usage(
                 provider="ollama",
-                model=self.config.ocr_model,
+                model=self.ocr_model,
                 input_tokens=input_tokens,
                 output_tokens=output_tokens,
                 operation=f"ocr_page_{page_num}"
@@ -210,7 +229,7 @@ class DeepseekService:
             return response["message"]["content"]
         except ollama.ResponseError as e:
             log(f"Ollama model error: {e}")
-            raise OCRModelError(f"OCR model '{self.config.ocr_model}' error: {e}") from e
+            raise OCRModelError(f"OCR model '{self.ocr_model}' error: {e}") from e
         except (httpx.TimeoutException, TimeoutError) as e:
             log(f"OCR timed out after {self.config.ocr_timeout}s on page {page_num}")
             raise OCRTimeoutError(
@@ -234,7 +253,7 @@ class DeepseekService:
     
     def _extract_text(self, images: list[Image.Image]) -> str:
         """Extract text from images using OCR."""
-        log(f"Extracting text from {len(images)} images using {self.config.ocr_model}")
+        log(f"Extracting text from {len(images)} images using {self.ocr_model}")
         
         if not images:
             raise OCRProcessingError("No images provided for OCR processing")
@@ -321,7 +340,7 @@ class DeepseekService:
         context: dict | None = None,
     ) -> T:
         """Extract structured JSON from OCR text using OpenAI."""
-        log(f"Extracting JSON using OpenAI [{self.config.json_model}]")
+        log(f"Extracting JSON using OpenAI [{self.json_model}]")
         
         client = self._get_openai_client()
         
@@ -335,7 +354,7 @@ class DeepseekService:
         )
         
         response = client.chat.completions.create(
-            model=self.config.json_model,
+            model=self.json_model,
             messages=[
                 ChatCompletionSystemMessageParam(
                     role="system",
@@ -361,7 +380,7 @@ class DeepseekService:
         if response.usage:
             log_usage(
                 provider="openai",
-                model=self.config.json_model,
+                model=self.json_model,
                 input_tokens=response.usage.prompt_tokens,
                 output_tokens=response.usage.completion_tokens,
                 operation="json_extraction"
@@ -398,6 +417,7 @@ class DeepseekService:
             Validated Pydantic model instance with extracted data
         """
         log(f"Starting Deepseek pipeline for {len(images)} image(s)")
+        log(f"OCR Model: {self.ocr_model}, JSON Model: {self.json_model}")
         
         # Step 1: OCR
         log("Step 1: Running OCR...")
@@ -410,4 +430,3 @@ class DeepseekService:
         
         log("Deepseek pipeline completed successfully")
         return result
-

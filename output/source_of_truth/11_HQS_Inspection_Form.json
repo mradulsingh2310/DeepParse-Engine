@@ -1,0 +1,267 @@
+{
+    "id": 9602,
+    "name": "HUD Multifamily Unit Inspection Template",
+    "description": "Inspection template extracted from HUD-9602 Multifamily Unit Inspection form",
+    "property_ids": [],
+    "versions": [
+      {
+        "version_id": 1,
+        "structure": {
+          "name": "Unit Inspection",
+          "display_type": "SECTION_DISPLAY_TYPE_UNSPECIFIED",
+          "sections": [
+            {
+              "name": "Entire Unit",
+              "display_type": "SECTION_DISPLAY_TYPE_TAB",
+              "sections": [
+                {
+                  "name": "General Safety and Condition",
+                  "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                  "sections": [
+                    {
+                      "name": "Entire Unit Checks",
+                      "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                      "sections": [],
+                      "fields": [
+                        {
+                          "id": 1,
+                          "name": "Smoke Detectors",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": ["Immediate Action Required"],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_SMOKE_DETECTOR_ISSUE"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Doors and Locks",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": ["Immediate Action Required"],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_SECURITY",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_SECURITY_DOOR_LOCK_REPAIR"
+                        },
+                        {
+                          "id": 3,
+                          "name": "Windows and Screens",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_WINDOW_FRAME_REPAIR"
+                        },
+                        {
+                          "id": 4,
+                          "name": "Heating and Air Conditioning",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_AC_NOT_COOLING"
+                        },
+                        {
+                          "id": 5,
+                          "name": "Ventilation and Air Quality",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": false,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_HVAC",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_HVAC_VENT_CLEANING"
+                        },
+                        {
+                          "id": 6,
+                          "name": "Access to Fire Escape",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_EXTERIOR",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                        },
+                        {
+                          "id": 7,
+                          "name": "Free of Vermin or Rodents",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": false,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_PEST_CONTROL",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PEST_CONTROL_RODENT_INFESTATION"
+                        },
+                        {
+                          "id": 8,
+                          "name": "Hazards Present",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Yes", "No"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Yes"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": ["Yes"],
+                          "can_create_work_order": false,
+                          "work_order_category": "MAINTENANCE_CATEGORY_UNSPECIFIED",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_UNSPECIFIED"
+                        }
+                      ]
+                    }
+                  ],
+                  "fields": []
+                }
+              ],
+              "fields": []
+            },
+            {
+              "name": "Rooms and Areas",
+              "display_type": "SECTION_DISPLAY_TYPE_TAB",
+              "sections": [
+                {
+                  "name": "Living Room",
+                  "display_type": "SECTION_DISPLAY_TYPE_ACCORDION",
+                  "sections": [
+                    {
+                      "name": "Living Room Condition",
+                      "display_type": "SECTION_DISPLAY_TYPE_FIELD_SET",
+                      "sections": [],
+                      "fields": [
+                        {
+                          "id": 9,
+                          "name": "Walls and Interior Doors",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_DRYWALL_REPAIR"
+                        },
+                        {
+                          "id": 10,
+                          "name": "Ceiling",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_PAINTING",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_PAINTING_MOLD"
+                        },
+                        {
+                          "id": 11,
+                          "name": "Floors",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_CARPENTRY",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_CARPENTRY_FLOORBOARD_REPAIR"
+                        },
+                        {
+                          "id": 12,
+                          "name": "Electrical Fixtures and Outlets",
+                          "description": null,
+                          "mandatory": true,
+                          "rating_type": "RATING_TYPE_RADIO",
+                          "options": ["Good", "Acceptable", "Requires Action", "Immediate Action Required"],
+                          "notes_enabled": true,
+                          "notes_required_for_all_options": false,
+                          "notes_required_for_selected_options": ["Requires Action", "Immediate Action Required"],
+                          "attachments_enabled": true,
+                          "attachments_required_for_all_options": false,
+                          "attachments_required_for_selected_options": [],
+                          "can_create_work_order": true,
+                          "work_order_category": "MAINTENANCE_CATEGORY_ELECTRICAL",
+                          "work_order_sub_category": "WORK_ORDER_SUB_CATEGORY_ELECTRICAL_OUTLET_OR_SWITCH_NOT_WORKING"
+                        }
+                      ]
+                    }
+                  ],
+                  "fields": []
+                }
+              ],
+              "fields": []
+            }
+          ],
+          "fields": []
+        }
+      }
+    ],
+    "created_at": null,
+    "updated_at": null
+  }
+  

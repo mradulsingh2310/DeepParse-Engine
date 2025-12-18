@@ -1,14 +1,14 @@
 """
-OCR-AI: PDF to Structured JSON Pipeline
+OCR-AI: PDF to Structured JSON Benchmarking Pipeline
 
-Main entry point for processing PDF documents and extracting
-structured JSON using AI-powered extraction.
+Main entry point for benchmarking PDF document extraction
+across multiple providers and models.
 """
 
 import json
 from pathlib import Path
 
-from src.config import Provider, load_config
+from src.config import Provider, load_config, ModelConfig
 from src.config.loader import AppConfig
 from src.services import get_service
 from src.schemas import InspectionTemplate
@@ -26,29 +26,35 @@ def sanitize_name(name: str) -> str:
     return name.replace(".", "_").replace("/", "_").replace(":", "_")
 
 
-def get_model_name(provider: Provider, config: AppConfig) -> str:
-    """Get the model name for a given provider from config."""
-    match provider:
-        case Provider.BEDROCK:
-            return config.providers.bedrock.model_id
-        case Provider.DEEPSEEK:
-            return config.providers.deepseek.json_model
-        case _:
-            return "unknown"
+def get_model_display_name(model_config: ModelConfig) -> str:
+    """Get a display name for the model configuration."""
+    if model_config.supporting_model_id:
+        return f"{model_config.model_id}+{model_config.supporting_model_id}"
+    return model_config.model_id
 
 
-def get_output_filename(pdf_stem: str, provider: Provider, model: str) -> str:
-    """Generate output filename with provider and model info."""
+def get_output_path(
+    base_output_dir: Path,
+    provider: Provider,
+    model_config: ModelConfig,
+    pdf_stem: str,
+) -> Path:
+    """
+    Generate output path with provider/model directory structure.
+    
+    Structure: output/{provider}/{model}/{pdf_stem}.json
+    """
     provider_name = sanitize_name(provider.value)
-    model_name = sanitize_name(model)
-    return f"{pdf_stem}_{provider_name}_{model_name}.json"
+    model_name = sanitize_name(get_model_display_name(model_config))
+    
+    return base_output_dir / provider_name / model_name / f"{pdf_stem}.json"
 
 
 def save_result(
     result: InspectionTemplate,
     output_path: Path,
     provider: Provider,
-    model: str,
+    model_config: ModelConfig,
 ) -> None:
     """Save extraction result to JSON file."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -56,7 +62,8 @@ def save_result(
     output_data = {
         "_metadata": {
             "provider": provider.value,
-            "model": model,
+            "model_id": model_config.model_id,
+            "supporting_model_id": model_config.supporting_model_id,
         },
         **result.model_dump(),
     }
@@ -70,38 +77,42 @@ def save_result(
 def process_pdf(
     pdf_path: Path,
     output_dir: Path,
-    provider: Provider | None = None,
+    provider: Provider,
+    model_config: ModelConfig,
+    config: AppConfig,
     template_path: Path | None = None,
     save_images_dir: Path | None = None,
+    images: list | None = None,
 ) -> InspectionTemplate:
     """
     Process a PDF through the extraction pipeline.
     
     Args:
         pdf_path: Path to the input PDF file
-        output_dir: Directory to save the output JSON
-        provider: Provider to use. Uses config default if not specified.
+        output_dir: Base directory to save the output JSON
+        provider: Provider to use
+        model_config: Model configuration to use
+        config: App configuration
         template_path: Optional path to context template JSON
         save_images_dir: Optional directory to save converted images
+        images: Pre-converted images (to avoid re-converting for each model)
         
     Returns:
         Extracted InspectionTemplate
     """
-    # Load config and get service
-    config = load_config()
-    provider = provider or config.default_provider
-    model = get_model_name(provider, config)
-    service = get_service(provider, config)
+    model_display = get_model_display_name(model_config)
+    service = get_service(provider, config, model_config)
     
     log(f"Processing: {pdf_path.name}")
-    log(f"Provider: {provider.value}, Model: {model}")
+    log(f"Provider: {provider.value}, Model: {model_display}")
     
-    # Convert PDF to images
-    images = pdf_to_images(
-        pdf_path,
-        save_dir=save_images_dir
-    )
-    log(f"Converted PDF to {len(images)} image(s)")
+    # Convert PDF to images if not provided
+    if images is None:
+        images = pdf_to_images(
+            pdf_path,
+            save_dir=save_images_dir
+        )
+        log(f"Converted PDF to {len(images)} image(s)")
     
     # Load template context if provided
     context = load_template(template_path) if template_path else None
@@ -113,14 +124,104 @@ def process_pdf(
         context=context,
     )
     
-    # Generate output path with provider and model in filename
-    output_filename = get_output_filename(pdf_path.stem, provider, model)
-    output_path = output_dir / output_filename
+    # Generate output path with provider/model directory structure
+    output_path = get_output_path(output_dir, provider, model_config, pdf_path.stem)
     
     # Save result
-    save_result(result, output_path, provider, model)
+    save_result(result, output_path, provider, model_config)
     
     return result
+
+
+def get_provider_models(provider: Provider, config: AppConfig) -> list[ModelConfig]:
+    """Get the list of models configured for a provider."""
+    match provider:
+        case Provider.BEDROCK:
+            return config.providers.bedrock.models
+        case Provider.DEEPSEEK:
+            return config.providers.deepseek.models
+        case _:
+            return []
+
+
+def run_benchmark(
+    pdf_files: list[Path],
+    output_dir: Path,
+    config: AppConfig,
+    template_path: Path | None = None,
+    images_dir: Path | None = None,
+) -> None:
+    """
+    Run benchmark across all configured providers and models.
+    
+    Args:
+        pdf_files: List of PDF files to process
+        output_dir: Base output directory
+        config: App configuration
+        template_path: Optional template path for context
+        images_dir: Optional directory to save images
+    """
+    # Collect all provider/model combinations
+    benchmark_configs: list[tuple[Provider, ModelConfig]] = []
+    
+    for provider in Provider:
+        models = get_provider_models(provider, config)
+        for model_config in models:
+            benchmark_configs.append((provider, model_config))
+    
+    if not benchmark_configs:
+        log("No models configured for benchmarking. Check your config.yaml")
+        return
+    
+    total_runs = len(benchmark_configs) * len(pdf_files)
+    log("Benchmark Configuration:")
+    log(f"  - Providers/Models: {len(benchmark_configs)}")
+    log(f"  - PDF Files: {len(pdf_files)}")
+    log(f"  - Total Runs: {total_runs}")
+    log("")
+    
+    # List all configured models
+    for provider, model_config in benchmark_configs:
+        model_display = get_model_display_name(model_config)
+        log(f"  [{provider.value}] {model_display}")
+    log("")
+    
+    run_count = 0
+    
+    # Process each PDF file
+    for pdf_path in pdf_files:
+        log("=" * 70)
+        log(f"PDF: {pdf_path.name}")
+        log("=" * 70)
+        
+        # Convert PDF to images once per PDF (reuse across models)
+        images = pdf_to_images(pdf_path, save_dir=images_dir)
+        log(f"Converted PDF to {len(images)} image(s)")
+        
+        # Run extraction for each provider/model combination
+        for provider, model_config in benchmark_configs:
+            run_count += 1
+            model_display = get_model_display_name(model_config)
+            
+            log("-" * 70)
+            log(f"[{run_count}/{total_runs}] {provider.value} / {model_display}")
+            log("-" * 70)
+            
+            try:
+                process_pdf(
+                    pdf_path=pdf_path,
+                    output_dir=output_dir,
+                    provider=provider,
+                    model_config=model_config,
+                    config=config,
+                    template_path=template_path,
+                    images=images,  # Reuse converted images
+                )
+                log(f"SUCCESS: {pdf_path.name} with {provider.value}/{model_display}")
+            except Exception as e:
+                log(f"ERROR: {pdf_path.name} with {provider.value}/{model_display}: {e}")
+        
+        log("")
 
 
 def main():
@@ -145,32 +246,22 @@ def main():
         log(f"No PDF files found in {input_dir}")
         return
     
-    provider = config.default_provider
-    model = get_model_name(provider, config)
-    
     log(f"Found {len(pdf_files)} PDF file(s) to process")
-    log(f"Using provider: {provider.value}, model: {model}")
+    log("")
     
-    # Process each PDF
-    for i, pdf_path in enumerate(pdf_files, 1):
-        log("=" * 60)
-        log(f"[{i}/{len(pdf_files)}] {pdf_path.name}")
-        log("=" * 60)
-        
-        try:
-            process_pdf(
-                pdf_path=pdf_path,
-                output_dir=output_dir,
-                template_path=template_path if template_path.exists() else None,
-                save_images_dir=images_dir,
-            )
-            log(f"Successfully processed: {pdf_path.name}")
-        except Exception as e:
-            log(f"Error processing {pdf_path.name}: {e}")
+    # Run the benchmark
+    run_benchmark(
+        pdf_files=pdf_files,
+        output_dir=output_dir,
+        config=config,
+        template_path=template_path if template_path.exists() else None,
+        images_dir=images_dir,
+    )
     
     # Print usage summary
-    log("=" * 60)
-    log(f"Processing complete. {len(pdf_files)} file(s) processed.")
+    log("=" * 70)
+    log("Benchmark Complete")
+    log("=" * 70)
     get_tracker().print_summary()
 
 

@@ -13,25 +13,32 @@ from pydantic import BaseModel, Field
 from .enums import Provider
 
 
+class ModelConfig(BaseModel):
+    """Configuration for a single model."""
+    model_id: str
+    supporting_model_id: str | None = None  # Used by deepseek for JSON extraction model
+
+
 class BedrockConfig(BaseModel):
     """Configuration for AWS Bedrock provider."""
-    model_id: str = "qwen.qwen3-vl-235b-a22b"
     region: str = "us-east-1"
     timeout: int = 1200
     retries: int = 2
     max_tokens: int = 100000  # Maximum output tokens to prevent truncation
+    models: list[ModelConfig] = Field(default_factory=list)
 
 
 class DeepseekConfig(BaseModel):
     """Configuration for Deepseek (Ollama OCR + OpenAI) provider."""
     # OCR settings
-    ocr_model: str = "deepseek-ocr"
     ocr_timeout: int = 300
     use_grounding: bool = False
     
     # JSON extraction settings
-    json_model: str = "gpt-5.1"
     json_temperature: float = 0.0
+    
+    # Model configurations
+    models: list[ModelConfig] = Field(default_factory=list)
 
 
 class OutputConfig(BaseModel):
@@ -56,6 +63,13 @@ class AppConfig(BaseModel):
 
 # Global config holder (avoids global statement)
 _config_holder: dict[str, Any] = {"config": None}
+
+
+def _parse_models(models_data: list[dict] | None) -> list[ModelConfig]:
+    """Parse a list of model configurations."""
+    if not models_data:
+        return []
+    return [ModelConfig(**m) for m in models_data]
 
 
 def load_config(config_path: str | Path | None = None) -> AppConfig:
@@ -89,9 +103,20 @@ def load_config(config_path: str | Path | None = None) -> AppConfig:
     
     # Parse providers
     providers_data = raw_config.get("providers", {})
+    
+    # Parse bedrock config
+    bedrock_data = providers_data.get("bedrock", {})
+    bedrock_models = _parse_models(bedrock_data.pop("models", None))
+    bedrock = BedrockConfig(**bedrock_data, models=bedrock_models)
+    
+    # Parse deepseek config
+    deepseek_data = providers_data.get("deepseek", {})
+    deepseek_models = _parse_models(deepseek_data.pop("models", None))
+    deepseek = DeepseekConfig(**deepseek_data, models=deepseek_models)
+    
     providers = ProviderConfig(
-        bedrock=BedrockConfig(**providers_data.get("bedrock", {})),
-        deepseek=DeepseekConfig(**providers_data.get("deepseek", {})),
+        bedrock=bedrock,
+        deepseek=deepseek,
     )
     
     # Parse output config

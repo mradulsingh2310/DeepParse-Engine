@@ -7,24 +7,28 @@ default_provider: bedrock
 # Provider configurations
 providers:
   bedrock:
-    model_id: "qwen.qwen3-vl-235b-a22b"
     region: "us-east-1"
     timeout: 1200  # 20 minutes for vision models
     retries: 2
+    models:
+      - model_id: "anthropic.claude-haiku-4-5-20251001-v1:0"
+      - model_id: "qwen.qwen3-vl-235b-a22b"
 
   deepseek:
-    # OCR step (Ollama)
-    ocr_model: "deepseek-ocr"
+    # OCR step settings
     ocr_timeout: 300  # 5 minutes per page
     use_grounding: false
     
-    # JSON extraction step (OpenAI)
-    json_model: "gpt-5.1"
+    # JSON extraction step settings
     json_temperature: 0.0
+    
+    # Model configurations (model_id = OCR model, supporting_model_id = JSON extraction model)
+    models:
+      - model_id: "deepseek-ocr"
+        supporting_model_id: "gpt-5.1"
 
 # Output settings
 output:
   save_images: true
   images_dir: "img"
   output_dir: "output"
-
