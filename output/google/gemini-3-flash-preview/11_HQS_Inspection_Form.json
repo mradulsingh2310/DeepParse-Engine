@@ -1250,5 +1250,10 @@
     }
   ],
   "created_at": "2025-01-24T12:00:00Z",
-  "updated_at": "2025-01-24T12:00:00Z"
+  "updated_at": "2025-01-24T12:00:00Z",
+  "_metadata": {
+    "provider": "google",
+    "model_id": "gemini-3-flash-preview",
+    "supporting_model_id": null
+  }
 }

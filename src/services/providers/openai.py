@@ -68,6 +68,10 @@ def _pydantic_to_strict_schema(schema: type[BaseModel]) -> dict[str, Any]:
     def make_strict(obj: Any) -> Any:
         """Recursively make schema strict for OpenAI."""
         if isinstance(obj, dict):
+            # OpenAI strict mode: $ref cannot have additional keywords like 'default'
+            if "$ref" in obj and "default" in obj:
+                obj = {k: v for k, v in obj.items() if k != "default"}
+
             result = {}
             for key, value in obj.items():
                 result[key] = make_strict(value)
@@ -125,7 +129,7 @@ class OpenAIService:
             # Fallback default
             self.model_id = "gpt-5-mini"
 
-        self._client = None
+        self._client: openai.OpenAI | None = None
 
     def _get_client(self) -> openai.OpenAI:
         """Get or create the OpenAI client."""
@@ -210,12 +214,13 @@ class OpenAIService:
         # Send request to OpenAI using Chat Completions with structured outputs
         try:
             log("Sending request to OpenAI with structured outputs...")
-            response = client.chat.completions.create(
-                model=self.model_id,
-                max_tokens=self.config.max_tokens,
-                temperature=0,  # Deterministic output for extraction
-                messages=[{"role": "user", "content": content}],
-                response_format={
+            request_params: dict[str, Any] = {
+                "model": self.model_id,
+                "max_completion_tokens": self.config.max_tokens,
+                # Some models (e.g., gpt-5-mini) do not allow temperature overrides;
+                # omit to use the model default.
+                "messages": [{"role": "user", "content": content}],
+                "response_format": {
                     "type": "json_schema",
                     "json_schema": {
                         "name": schema.__name__,
@@ -223,7 +228,9 @@ class OpenAIService:
                         "strict": True,
                     },
                 },
-            )
+            }
+            # Type checkers may not understand the dynamic request dict, so we ignore typing here.
+            response = client.chat.completions.create(**request_params)  # type: ignore
         except openai.APIError as e:
             log(f"OpenAI API error: {e}")
             raise OpenAIModelError(f"OpenAI API error: {e}") from e
@@ -238,10 +245,10 @@ class OpenAIService:
                 log("WARNING: OpenAI refused the request due to content filtering")
                 raise OpenAIModelError("OpenAI refused the request due to content filtering")
             elif choice.finish_reason == "length":
-                log("WARNING: Response was truncated due to max_tokens limit")
+                log("WARNING: Response was truncated due to completion token limit")
                 raise OpenAIModelError(
-                    f"Response truncated - max_tokens ({self.config.max_tokens}) insufficient. "
-                    "Increase max_tokens in config."
+                    f"Response truncated - completion token limit ({self.config.max_tokens}) insufficient. "
+                    "Increase max_tokens in config (sent as max_completion_tokens)."
                 )
 
         # Log usage

@@ -60,7 +60,7 @@ class AnthropicConfig(BaseModel):
 class OpenAIConfig(BaseModel):
     """Configuration for OpenAI provider (GPT models)."""
     timeout: int = 300
-    max_tokens: int = 16384
+    max_tokens: int = 50000
     models: list[ModelConfig] = Field(default_factory=list)
 
 

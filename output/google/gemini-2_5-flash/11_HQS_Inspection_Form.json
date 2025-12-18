@@ -969,5 +969,10 @@
     }
   ],
   "created_at": null,
-  "updated_at": null
+  "updated_at": null,
+  "_metadata": {
+    "provider": "google",
+    "model_id": "gemini-2.5-flash",
+    "supporting_model_id": null
+  }
 }

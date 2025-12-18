@@ -1,23 +1,23 @@
 {
   "source_file": "source_of_truth/11_HQS_Inspection_Form.json",
-  "last_updated": "2025-12-18T22:24:18.340202",
+  "last_updated": "2025-12-19T00:04:29.101627",
   "models": {
     "bedrock:amazon.nova-pro-v1:0": {
       "model_id": "amazon.nova-pro-v1:0",
       "provider": "bedrock",
-      "run_count": 3,
-      "total_schema_compliance": 3.0,
-      "total_structural_accuracy": 2.7207,
-      "total_semantic_accuracy": 2.7563999999999997,
-      "total_config_accuracy": 0.5249999999999999,
-      "total_overall_score": 2.0049,
+      "run_count": 4,
+      "total_schema_compliance": 4.0,
+      "total_structural_accuracy": 3.6776,
+      "total_semantic_accuracy": 3.6485999999999996,
+      "total_config_accuracy": 0.7874999999999999,
+      "total_overall_score": 2.7058,
       "total_cost": 0.0332848,
       "total_input_tokens": 9606,
       "total_output_tokens": 8000,
-      "best_score": 0.6683,
-      "best_run_timestamp": "2025-12-18T20:46:13.199987",
-      "latest_score": 0.6683,
-      "latest_run_timestamp": "2025-12-18T22:24:18.309367",
+      "best_score": 0.7009,
+      "best_run_timestamp": "2025-12-19T00:04:29.079228",
+      "latest_score": 0.7009,
+      "latest_run_timestamp": "2025-12-19T00:04:29.079228",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.199987",
@@ -45,25 +45,36 @@
           "cost": 0.0332848,
           "input_tokens": 9606,
           "output_tokens": 8000
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.079228",
+          "overall_score": 0.7009,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.9569,
+          "semantic_accuracy": 0.8922,
+          "config_accuracy": 0.2625,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
     "bedrock:google.gemma-3-27b-it": {
       "model_id": "google.gemma-3-27b-it",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 1.931,
-      "total_structural_accuracy": 0.9138,
-      "total_semantic_accuracy": 1.764,
-      "total_config_accuracy": 1.201,
-      "total_overall_score": 1.422,
+      "run_count": 3,
+      "total_schema_compliance": 2.931,
+      "total_structural_accuracy": 1.3706999999999998,
+      "total_semantic_accuracy": 2.6546,
+      "total_config_accuracy": 1.7265000000000001,
+      "total_overall_score": 2.1145,
       "total_cost": 0.0,
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "best_score": 0.711,
       "best_run_timestamp": "2025-12-18T20:46:13.206467",
-      "latest_score": 0.711,
-      "latest_run_timestamp": "2025-12-18T20:54:33.537895",
+      "latest_score": 0.6925,
+      "latest_run_timestamp": "2025-12-19T00:04:29.080806",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.206467",
@@ -80,25 +91,36 @@
           "structural_accuracy": 0.4569,
           "semantic_accuracy": 0.882,
           "config_accuracy": 0.6005
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.080806",
+          "overall_score": 0.6925,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.4569,
+          "semantic_accuracy": 0.8906,
+          "config_accuracy": 0.5255,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
     "bedrock:qwen.qwen3-vl-235b-a22b": {
       "model_id": "qwen.qwen3-vl-235b-a22b",
       "provider": "bedrock",
-      "run_count": 2,
-      "total_schema_compliance": 1.9696,
-      "total_structural_accuracy": 1.8138,
-      "total_semantic_accuracy": 1.8376,
-      "total_config_accuracy": 1.9406,
-      "total_overall_score": 1.8886,
+      "run_count": 3,
+      "total_schema_compliance": 2.8332,
+      "total_structural_accuracy": 2.7207,
+      "total_semantic_accuracy": 2.7555,
+      "total_config_accuracy": 2.825,
+      "total_overall_score": 2.7844,
       "total_cost": 0.0,
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "best_score": 0.9443,
       "best_run_timestamp": "2025-12-18T20:46:13.215203",
-      "latest_score": 0.9443,
-      "latest_run_timestamp": "2025-12-18T20:54:33.544171",
+      "latest_score": 0.8958,
+      "latest_run_timestamp": "2025-12-19T00:04:29.084512",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.215203",
@@ -115,25 +137,36 @@
           "structural_accuracy": 0.9069,
           "semantic_accuracy": 0.9188,
           "config_accuracy": 0.9703
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.084512",
+          "overall_score": 0.8958,
+          "schema_compliance": 0.8636,
+          "structural_accuracy": 0.9069,
+          "semantic_accuracy": 0.9179,
+          "config_accuracy": 0.8844,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
     "bedrock:nvidia.nemotron-nano-12b-v2": {
       "model_id": "nvidia.nemotron-nano-12b-v2",
       "provider": "bedrock",
-      "run_count": 3,
-      "total_schema_compliance": 3.0,
-      "total_structural_accuracy": 0.2535,
-      "total_semantic_accuracy": 1.9656,
-      "total_config_accuracy": 1.3781999999999999,
-      "total_overall_score": 1.5726,
+      "run_count": 4,
+      "total_schema_compliance": 4.0,
+      "total_structural_accuracy": 0.338,
+      "total_semantic_accuracy": 2.6208,
+      "total_config_accuracy": 1.8376,
+      "total_overall_score": 2.0968,
       "total_cost": 0.0027358799999999996,
       "total_input_tokens": 12830,
       "total_output_tokens": 8192,
       "best_score": 0.5242,
       "best_run_timestamp": "2025-12-18T20:46:13.217135",
       "latest_score": 0.5242,
-      "latest_run_timestamp": "2025-12-18T22:24:18.322361",
+      "latest_run_timestamp": "2025-12-19T00:04:29.085076",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.217135",
@@ -161,25 +194,36 @@
           "cost": 0.0027358799999999996,
           "input_tokens": 12830,
           "output_tokens": 8192
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.085076",
+          "overall_score": 0.5242,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.0845,
+          "semantic_accuracy": 0.6552,
+          "config_accuracy": 0.4594,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
     "deepseek:deepseek-ocr": {
       "model_id": "deepseek-ocr",
       "provider": "deepseek",
-      "run_count": 5,
-      "total_schema_compliance": 5.0,
-      "total_structural_accuracy": 3.8828000000000005,
-      "total_semantic_accuracy": 3.987,
-      "total_config_accuracy": 3.6129999999999995,
-      "total_overall_score": 3.9871000000000003,
+      "run_count": 7,
+      "total_schema_compliance": 7.0,
+      "total_structural_accuracy": 5.510400000000001,
+      "total_semantic_accuracy": 5.6009,
+      "total_config_accuracy": 5.049799999999999,
+      "total_overall_score": 5.5996,
       "total_cost": 0.0,
       "total_input_tokens": 0,
       "total_output_tokens": 0,
-      "best_score": 0.8489,
-      "best_run_timestamp": "2025-12-18T20:46:13.224401",
+      "best_score": 0.8494,
+      "best_run_timestamp": "2025-12-19T00:04:29.090052",
       "latest_score": 0.7631,
-      "latest_run_timestamp": "2025-12-18T22:24:18.329212",
+      "latest_run_timestamp": "2025-12-19T00:04:29.093063",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.224401",
@@ -223,25 +267,47 @@
           "cost": 0.0,
           "input_tokens": 0,
           "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.090052",
+          "overall_score": 0.8494,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.8547,
+          "config_accuracy": 0.6944,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.093063",
+          "overall_score": 0.7631,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.6276,
+          "semantic_accuracy": 0.7592,
+          "config_accuracy": 0.7424,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
         }
       ]
     },
     "google:gemini-3-flash-preview": {
       "model_id": "gemini-3-flash-preview",
       "provider": "google",
-      "run_count": 2,
-      "total_schema_compliance": 2.0,
-      "total_structural_accuracy": 2.0,
-      "total_semantic_accuracy": 1.8352,
-      "total_config_accuracy": 1.231,
-      "total_overall_score": 1.6814,
+      "run_count": 3,
+      "total_schema_compliance": 3.0,
+      "total_structural_accuracy": 3.0,
+      "total_semantic_accuracy": 2.7527999999999997,
+      "total_config_accuracy": 1.8465000000000003,
+      "total_overall_score": 2.5221,
       "total_cost": 0.0,
       "total_input_tokens": 0,
       "total_output_tokens": 0,
       "best_score": 0.8407,
       "best_run_timestamp": "2025-12-18T20:46:13.235522",
       "latest_score": 0.8407,
-      "latest_run_timestamp": "2025-12-18T20:54:33.560727",
+      "latest_run_timestamp": "2025-12-19T00:04:29.095910",
       "run_history": [
         {
           "timestamp": "2025-12-18T20:46:13.235522",
@@ -258,115 +324,9 @@
           "structural_accuracy": 1.0,
           "semantic_accuracy": 0.9176,
           "config_accuracy": 0.6155
-        }
-      ]
-    },
-    "google:gemini-2.5-flash": {
-      "model_id": "gemini-2.5-flash",
-      "provider": "google",
-      "run_count": 1,
-      "total_schema_compliance": 1.0,
-      "total_structural_accuracy": 0.7207,
-      "total_semantic_accuracy": 0.9199,
-      "total_config_accuracy": 0.4843,
-      "total_overall_score": 0.7396,
-      "total_cost": 0.0,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "best_score": 0.7396,
-      "best_run_timestamp": "2025-12-18T20:54:33.564296",
-      "latest_score": 0.7396,
-      "latest_run_timestamp": "2025-12-18T20:54:33.564296",
-      "run_history": [
-        {
-          "timestamp": "2025-12-18T20:54:33.564296",
-          "overall_score": 0.7396,
-          "schema_compliance": 1.0,
-          "structural_accuracy": 0.7207,
-          "semantic_accuracy": 0.9199,
-          "config_accuracy": 0.4843
-        }
-      ]
-    },
-    "google:gemini-2.5-flash-image": {
-      "model_id": "gemini-2.5-flash-image",
-      "provider": "google",
-      "run_count": 1,
-      "total_schema_compliance": 1.0,
-      "total_structural_accuracy": 1.0,
-      "total_semantic_accuracy": 0.9158,
-      "total_config_accuracy": 0.6517,
-      "total_overall_score": 0.8528,
-      "total_cost": 0.0,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "best_score": 0.8528,
-      "best_run_timestamp": "2025-12-18T20:54:33.568545",
-      "latest_score": 0.8528,
-      "latest_run_timestamp": "2025-12-18T20:54:33.568545",
-      "run_history": [
-        {
-          "timestamp": "2025-12-18T20:54:33.568545",
-          "overall_score": 0.8528,
-          "schema_compliance": 1.0,
-          "structural_accuracy": 1.0,
-          "semantic_accuracy": 0.9158,
-          "config_accuracy": 0.6517
-        }
-      ]
-    },
-    "unknown:11_HQS_Inspection_Form": {
-      "model_id": "11_HQS_Inspection_Form",
-      "provider": "unknown",
-      "run_count": 6,
-      "total_schema_compliance": 6.0,
-      "total_structural_accuracy": 4.879300000000001,
-      "total_semantic_accuracy": 5.4447,
-      "total_config_accuracy": 3.6153999999999997,
-      "total_overall_score": 4.7746,
-      "total_cost": 0.0,
-      "total_input_tokens": 0,
-      "total_output_tokens": 0,
-      "best_score": 0.8528,
-      "best_run_timestamp": "2025-12-18T22:24:18.340169",
-      "latest_score": 0.8528,
-      "latest_run_timestamp": "2025-12-18T22:24:18.340169",
-      "run_history": [
-        {
-          "timestamp": "2025-12-18T22:24:18.314337",
-          "overall_score": 0.6324,
-          "schema_compliance": 1.0,
-          "structural_accuracy": 0.3879,
-          "semantic_accuracy": 0.9155,
-          "config_accuracy": 0.3719,
-          "cost": 0.0,
-          "input_tokens": 0,
-          "output_tokens": 0
         },
         {
-          "timestamp": "2025-12-18T22:24:18.321489",
-          "overall_score": 0.8494,
-          "schema_compliance": 1.0,
-          "structural_accuracy": 0.8638,
-          "semantic_accuracy": 0.9147,
-          "config_accuracy": 0.7206,
-          "cost": 0.0,
-          "input_tokens": 0,
-          "output_tokens": 0
-        },
-        {
-          "timestamp": "2025-12-18T22:24:18.325653",
-          "overall_score": 0.8463,
-          "schema_compliance": 1.0,
-          "structural_accuracy": 1.0,
-          "semantic_accuracy": 0.8582,
-          "config_accuracy": 0.6823,
-          "cost": 0.0,
-          "input_tokens": 0,
-          "output_tokens": 0
-        },
-        {
-          "timestamp": "2025-12-18T22:24:18.332935",
+          "timestamp": "2025-12-19T00:04:29.095910",
           "overall_score": 0.8407,
           "schema_compliance": 1.0,
           "structural_accuracy": 1.0,
@@ -375,9 +335,36 @@
           "cost": 0.0,
           "input_tokens": 0,
           "output_tokens": 0
+        }
+      ]
+    },
+    "google:gemini-2.5-flash": {
+      "model_id": "gemini-2.5-flash",
+      "provider": "google",
+      "run_count": 2,
+      "total_schema_compliance": 2.0,
+      "total_structural_accuracy": 1.3483,
+      "total_semantic_accuracy": 1.8428,
+      "total_config_accuracy": 1.0577,
+      "total_overall_score": 1.4926,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.753,
+      "best_run_timestamp": "2025-12-19T00:04:29.098354",
+      "latest_score": 0.753,
+      "latest_run_timestamp": "2025-12-19T00:04:29.098354",
+      "run_history": [
+        {
+          "timestamp": "2025-12-18T20:54:33.564296",
+          "overall_score": 0.7396,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.7207,
+          "semantic_accuracy": 0.9199,
+          "config_accuracy": 0.4843
         },
         {
-          "timestamp": "2025-12-18T22:24:18.335923",
+          "timestamp": "2025-12-19T00:04:29.098354",
           "overall_score": 0.753,
           "schema_compliance": 1.0,
           "structural_accuracy": 0.6276,
@@ -386,14 +373,131 @@
           "cost": 0.0,
           "input_tokens": 0,
           "output_tokens": 0
-        },
+        }
+      ]
+    },
+    "google:gemini-2.5-flash-image": {
+      "model_id": "gemini-2.5-flash-image",
+      "provider": "google",
+      "run_count": 2,
+      "total_schema_compliance": 2.0,
+      "total_structural_accuracy": 2.0,
+      "total_semantic_accuracy": 1.8316,
+      "total_config_accuracy": 1.3064,
+      "total_overall_score": 1.7067,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.8539,
+      "best_run_timestamp": "2025-12-19T00:04:29.101608",
+      "latest_score": 0.8539,
+      "latest_run_timestamp": "2025-12-19T00:04:29.101608",
+      "run_history": [
         {
-          "timestamp": "2025-12-18T22:24:18.340169",
+          "timestamp": "2025-12-18T20:54:33.568545",
           "overall_score": 0.8528,
           "schema_compliance": 1.0,
           "structural_accuracy": 1.0,
           "semantic_accuracy": 0.9158,
-          "config_accuracy": 0.6517,
+          "config_accuracy": 0.6517
+        },
+        {
+          "timestamp": "2025-12-19T00:04:29.101608",
+          "overall_score": 0.8539,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.9158,
+          "config_accuracy": 0.6547,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      ]
+    },
+    "openai:gpt-5.2": {
+      "model_id": "gpt-5.2",
+      "provider": "openai",
+      "run_count": 1,
+      "total_schema_compliance": 1.0,
+      "total_structural_accuracy": 1.0,
+      "total_semantic_accuracy": 0.9409,
+      "total_config_accuracy": 0.7067,
+      "total_overall_score": 0.8796,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.8796,
+      "best_run_timestamp": "2025-12-19T00:04:29.070261",
+      "latest_score": 0.8796,
+      "latest_run_timestamp": "2025-12-19T00:04:29.070261",
+      "run_history": [
+        {
+          "timestamp": "2025-12-19T00:04:29.070261",
+          "overall_score": 0.8796,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.9409,
+          "config_accuracy": 0.7067,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      ]
+    },
+    "openai:gpt-5-mini": {
+      "model_id": "gpt-5-mini",
+      "provider": "openai",
+      "run_count": 1,
+      "total_schema_compliance": 1.0,
+      "total_structural_accuracy": 1.0,
+      "total_semantic_accuracy": 0.8328,
+      "total_config_accuracy": 0.6222,
+      "total_overall_score": 0.8176,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.8176,
+      "best_run_timestamp": "2025-12-19T00:04:29.074121",
+      "latest_score": 0.8176,
+      "latest_run_timestamp": "2025-12-19T00:04:29.074121",
+      "run_history": [
+        {
+          "timestamp": "2025-12-19T00:04:29.074121",
+          "overall_score": 0.8176,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 1.0,
+          "semantic_accuracy": 0.8328,
+          "config_accuracy": 0.6222,
+          "cost": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      ]
+    },
+    "openai:gpt-5-nano": {
+      "model_id": "gpt-5-nano",
+      "provider": "openai",
+      "run_count": 1,
+      "total_schema_compliance": 1.0,
+      "total_structural_accuracy": 0.8638,
+      "total_semantic_accuracy": 0.8825,
+      "total_config_accuracy": 0.2096,
+      "total_overall_score": 0.6609,
+      "total_cost": 0.0,
+      "total_input_tokens": 0,
+      "total_output_tokens": 0,
+      "best_score": 0.6609,
+      "best_run_timestamp": "2025-12-19T00:04:29.076597",
+      "latest_score": 0.6609,
+      "latest_run_timestamp": "2025-12-19T00:04:29.076597",
+      "run_history": [
+        {
+          "timestamp": "2025-12-19T00:04:29.076597",
+          "overall_score": 0.6609,
+          "schema_compliance": 1.0,
+          "structural_accuracy": 0.8638,
+          "semantic_accuracy": 0.8825,
+          "config_accuracy": 0.2096,
           "cost": 0.0,
           "input_tokens": 0,
           "output_tokens": 0

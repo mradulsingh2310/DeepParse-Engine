@@ -64,6 +64,13 @@ def save_result(
     
     # Handle both dict and Pydantic model results
     result_dict = result if isinstance(result, dict) else result.model_dump()
+
+    # Attach metadata so evaluation can identify provider/model
+    result_dict["_metadata"] = {
+        "provider": provider.value,
+        "model_id": model_config.model_id,
+        "supporting_model_id": model_config.supporting_model_id,
+    }
     
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result_dict, f, indent=2)
@@ -141,6 +148,8 @@ def get_provider_models(provider: Provider, config: AppConfig) -> list[ModelConf
             return config.providers.google.models
         case Provider.ANTHROPIC:
             return config.providers.anthropic.models
+        case Provider.OPENAI:
+            return config.providers.openai.models
         case _:
             return []
 
